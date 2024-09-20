@@ -79,3 +79,15 @@ void telaRelatorios(){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
 }
+
+
+void telaInfo(){
+    printf(" ___________________________________\n");
+    printf("|.....  MÓDULO DE INFORMAÇÕES  .....|\n");
+    printf("|___________________________________|\n");
+    printf("|                                   |\n");
+    printf("|  1. Política da empresa           |\n");
+    printf("|  2. Sobre o sistema               |\n");
+    printf("|  0. Menu principal                |\n");
+    printf("|___________________________________|\n\n");
+}
