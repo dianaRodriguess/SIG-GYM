@@ -27,3 +27,16 @@ void telaCadastro(){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
 }
+
+void telaPesquisar(){
+    printf(" __________________________________ \n");
+    printf("|.....   MÓDULO DE PESQUISA   .....|\n");
+    printf("|__________________________________|\n");
+    printf("|                                  |\n");
+    printf("|  1. Pesquisar Cliente            |\n");
+    printf("|  2. Pesquisar Treino             |\n");
+    printf("|  3. Pesquisar Funcionário        |\n");
+    printf("|  4. Pesquisar Equipamento        |\n");
+    printf("|  0. Menu principal               |\n");
+    printf("|__________________________________|\n\n");
+}
