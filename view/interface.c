@@ -86,8 +86,11 @@ void telaInfo(){
     printf("|.....  MÓDULO DE INFORMAÇÕES  .....|\n");
     printf("|___________________________________|\n");
     printf("|                                   |\n");
-    printf("|  1. Política da empresa           |\n");
-    printf("|  2. Sobre o sistema               |\n");
+    printf("|  1. Equipe                        |\n");
+    printf("|     > Anderson Gabriel            |\n");
+    printf("|       > github: anderson-cruz13   |\n");
+    printf("|     > Diana Rodrigues             |\n");
+    printf("|       > github: dianaRodriguess   |\n");
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
 }
