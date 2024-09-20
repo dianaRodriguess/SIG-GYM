@@ -40,3 +40,16 @@ void telaPesquisar(){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
 }
+
+void telaAtualizar(){
+    printf(" __________________________________ \n");
+    printf("|.....   MÓDULO DE ATUALIZAR  .....|\n");
+    printf("|__________________________________|\n");
+    printf("|                                  |\n");
+    printf("|  1. Atualizar Cliente            |\n");
+    printf("|  2. Atualizar Treino             |\n");
+    printf("|  3. Atualizar Funcionário        |\n");
+    printf("|  4. Atualizar Equipamento        |\n");
+    printf("|  0. Menu principal               |\n");
+    printf("|__________________________________|\n\n");
+}
