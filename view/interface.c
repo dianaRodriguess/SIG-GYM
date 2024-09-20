@@ -66,3 +66,16 @@ void telaDeletar(){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
 }
+
+void telaRelatorios(){
+    printf(" __________________________________ \n");
+    printf("|.....  MÓDULO DE RELATÓRIOS  .....|\n");
+    printf("|__________________________________|\n");
+    printf("|                                  |\n");
+    printf("|  1. Ver todos os Clientes        |\n");
+    printf("|  2. Ver todos os Treinos         |\n");
+    printf("|  3. Ver todos os Funcionários    |\n");
+    printf("|  4. Ver todos os Equipamentos    |\n");
+    printf("|  0. Menu principal               |\n");
+    printf("|__________________________________|\n\n");
+}
