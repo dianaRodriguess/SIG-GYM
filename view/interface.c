@@ -53,3 +53,16 @@ void telaAtualizar(){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
 }
+
+void telaDeletar(){
+    printf(" __________________________________ \n");
+    printf("|.....   MÓDULO DE DELETAR    .....|\n");
+    printf("|__________________________________|\n");
+    printf("|                                  |\n");
+    printf("|  1. Deletar Cliente              |\n");
+    printf("|  2. Deletar Treino               |\n");
+    printf("|  3. Deletar Funcionário          |\n");
+    printf("|  4. Deletar Equipamento          |\n");
+    printf("|  0. Menu principal               |\n");
+    printf("|__________________________________|\n\n");
+}
