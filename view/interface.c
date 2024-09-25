@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
     
 int telaPrincipal(void){
     printf(" _______________________________ \n");
@@ -114,4 +116,24 @@ int telaInfo(void){
     int opcao;
     scanf("%d", &opcao);
     return opcao;
+}
+
+void cabecalhos(char titulo[]){
+    system("clear");
+    int tamanhoTitulo = strlen(titulo);
+    int tamanhoTotal = tamanhoTitulo + 10;
+    int margem = (tamanhoTotal - tamanhoTitulo - 4) / 2;
+
+    char linha[tamanhoTotal + 7];
+    for (int i = 0; i < tamanhoTotal + 6; i++){
+        linha[i] = '=';
+    }
+    linha[tamanhoTotal + 6] = '\0';
+
+    char linhaTitulo[tamanhoTotal + 7];
+    snprintf(linhaTitulo, sizeof(linhaTitulo), "-----%*s%s%*s-----", margem, "", titulo, margem, "");
+
+    printf("%s\n", linha);
+    printf("%s\n", linhaTitulo);
+    printf("%s\n", linha);
 }
