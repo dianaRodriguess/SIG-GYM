@@ -11,6 +11,9 @@
 *.so
 *.o
 
+# Arquivo Makefile
+!Makefile
+
 # VScode
 .vscode
 .vscode/*
