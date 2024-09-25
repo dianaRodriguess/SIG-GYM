@@ -13,7 +13,9 @@ int telaPrincipal(void){
     printf("|  6. Informações               |\n");
     printf("|  0. Sair                      |\n");
     printf("|_______________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
 
 int telaCadastro(void){
@@ -27,7 +29,9 @@ int telaCadastro(void){
     printf("|  4. Cadastrar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
 
 int telaPesquisar(void){
@@ -41,7 +45,9 @@ int telaPesquisar(void){
     printf("|  4. Pesquisar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
 
 int telaAtualizar(void){
@@ -55,7 +61,9 @@ int telaAtualizar(void){
     printf("|  4. Atualizar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
 
 int telaDeletar(void){
@@ -69,7 +77,9 @@ int telaDeletar(void){
     printf("|  4. Deletar Equipamento          |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
 
 int telaRelatorios(void){
@@ -83,7 +93,9 @@ int telaRelatorios(void){
     printf("|  4. Ver todos os Equipamentos    |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
 
 
@@ -99,5 +111,7 @@ int telaInfo(void){
     printf("|       > github: dianaRodriguess   |\n");
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
-    return 0;
+    int opcao;
+    scanf("%d", &opcao);
+    return opcao;
 }
