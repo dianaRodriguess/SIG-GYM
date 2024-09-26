@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
     
-int telaPrincipal(void){
+char telaPrincipal(void){
+    system("clear");
     printf(" _______________________________ \n");
     printf("|.....       SIG-GYM       .....|\n");
     printf("|_______________________________|\n");
@@ -15,12 +16,15 @@ int telaPrincipal(void){
     printf("|  6. Informações               |\n");
     printf("|  0. Sair                      |\n");
     printf("|_______________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
-int telaCadastro(void){
+char telaCadastro(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE CADASTRO   .....|\n");
     printf("|__________________________________|\n");
@@ -31,12 +35,15 @@ int telaCadastro(void){
     printf("|  4. Cadastrar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
-int telaPesquisar(void){
+char telaPesquisar(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE PESQUISA   .....|\n");
     printf("|__________________________________|\n");
@@ -47,12 +54,15 @@ int telaPesquisar(void){
     printf("|  4. Pesquisar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
-int telaAtualizar(void){
+char telaAtualizar(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE ATUALIZAR  .....|\n");
     printf("|__________________________________|\n");
@@ -63,12 +73,15 @@ int telaAtualizar(void){
     printf("|  4. Atualizar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
-int telaDeletar(void){
+char telaDeletar(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE DELETAR    .....|\n");
     printf("|__________________________________|\n");
@@ -79,12 +92,15 @@ int telaDeletar(void){
     printf("|  4. Deletar Equipamento          |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
-int telaRelatorios(void){
+char telaRelatorios(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....  MÓDULO DE RELATÓRIOS  .....|\n");
     printf("|__________________________________|\n");
@@ -95,13 +111,16 @@ int telaRelatorios(void){
     printf("|  4. Ver todos os Equipamentos    |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
 
-int telaInfo(void){
+char telaInfo(void){
+    system("clear");
     printf(" ___________________________________\n");
     printf("|.....  MÓDULO DE INFORMAÇÕES  .....|\n");
     printf("|___________________________________|\n");
@@ -113,8 +132,10 @@ int telaInfo(void){
     printf("|       > github: dianaRodriguess   |\n");
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
-    int opcao;
-    scanf("%d", &opcao);
+    printf(">  Escolha sua opcao: ");
+    char opcao;
+    scanf("%c", &opcao);
+    getchar();
     return opcao;
 }
 
@@ -126,7 +147,7 @@ void cabecalhos(char titulo[]){
 
     char linha[tamanhoTotal + 7];
     for (int i = 0; i < tamanhoTotal + 6; i++){
-        linha[i] = '=';
+        linha[i] = '_';
     }
     linha[tamanhoTotal + 6] = '\0';
 
@@ -137,3 +158,8 @@ void cabecalhos(char titulo[]){
     printf("%s\n", linhaTitulo);
     printf("%s\n", linha);
 }
+
+// int main(void){
+//     telaPrincipal();
+//     return 0;
+// }

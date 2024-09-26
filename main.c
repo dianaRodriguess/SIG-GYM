@@ -3,56 +3,83 @@
 #include "view/interface.c"
 
 int main(void){
-    int opcao;
-    int telaAtual = -1;
+    char opmprin, opmsub; // opmprin = menu principal, opmsub = submenus
+    int pausa; // pausa = para pausar o programa para poder ver o cabecalho.
+    // pode ser descartada mais na frente
 
-    do
-    {
-        opcao = telaPrincipal();
-
-        if(opcao == 0){
-            printf("Saindo...\n");
-            break;
-        }
-
-        if(opcao >= 1 && opcao < 7){
-
-            int escolha;
-
-            do{
-
-                if(opcao != telaAtual){
-                    system("clear");
-                    telaAtual = opcao;
-                }
-
-                switch (opcao) {
-                    case 1:
-                        escolha = telaCadastro();
+    do{
+        opmprin = telaPrincipal();
+        switch(opmprin){
+            case '1':
+                opmsub = telaCadastro();
+                switch (opmsub) {
+                    case '1':
+                        cabecalhos("MÓDULO DE CADASTRO - CADASTRAR CLIENTE");
+                        scanf("%d", &pausa);
+                        getchar();
                         break;
-                    case 2:
-                        escolha = telaPesquisar();
-                        break;
-                    case 3:
-                        escolha = telaAtualizar();
-                        break;
-                    case 4:
-                        escolha = telaDeletar();
-                        break;
-                    case 5:
-                        escolha = telaRelatorios();
-                        break;
-                    case 6:
-                        escolha = telaInfo();
+                    
+                    default:
+                        printf("Opção inválida!\n");
                         break;
                 }
-
-            } while (escolha != 0);
-        } else{
-            system("clear");
+                break;
+            case '2':
+                opmsub = telaPesquisar();
+                switch (opmsub) {
+                    case '1':
+                        cabecalhos("MÓDULO DE PESQUISA - PESQUISAR CLIENTE");
+                        scanf("%d", &pausa);
+                        getchar();
+                        break;
+                    
+                    default:
+                        printf("Opção inválida!\n");
+                        break;
+                }
+                break;
+            case '3':
+                opmsub = telaAtualizar();
+                switch (opmsub) {
+                    case '1':
+                        cabecalhos("MÓDULO DE ATUALIZAR - ATUALIZAR CLIENTE");
+                        scanf("%d", &pausa);
+                        getchar();
+                        break;
+                    
+                    default:
+                        printf("Opção inválida!\n");
+                        break;
+                }
+                break;
+            case '4':
+                opmsub = telaDeletar();
+                switch (opmsub) {
+                    case '1':
+                        cabecalhos("MÓDULO DE DELETAR - DELETAR CLIENTE");
+                        scanf("%d", &pausa);
+                        getchar();
+                        break;
+                    
+                    default:
+                        printf("Opção inválida!\n");
+                        break;
+                }
+                break;
+            case '5':
+                telaRelatorios();
+                break;
+            case '6':
+                telaInfo();
+                break;
+            case '0':
+                printf("Saindo...\n");
+                break;
+            default:
+                printf("Opção inválida!\n");
+                break;
         }
-
-    } while (1);
+    } while (opmprin != '0');
 
     return 0;
 }

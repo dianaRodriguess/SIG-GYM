@@ -1,13 +1,14 @@
 #if !defined(_INTERFACE_H)
 #define _INTERFACE_H
 
-int telaPrincipal(void);
-int telaCadastro(void);
-int telaPesquisar(void);
-int telaAtualizar(void);
-int telaDeletar(void);
-int telaRelatorios(void);
-int telaInfo(void);
+char telaPrincipal(void);
+char telaCadastro(void);
+char telaPesquisar(void);
+char telaAtualizar(void);
+char telaDeletar(void);
+char telaRelatorios(void);
+char telaInfo(void);
+void cabecalhos(char titulo[]);
 
 
 #endif // _INTERFACE_H
