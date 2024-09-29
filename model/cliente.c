@@ -16,7 +16,6 @@ void cadastrarCliente(void){
     printf("> Plano: \n");
     printf("> Tecle <ENTER> para continuar...\n");
     printf("|__________________________________|\n");
-    getchar();
 }
 
 void pesquisarCliente(void){
@@ -27,7 +26,6 @@ void pesquisarCliente(void){
     printf("\n>Digite o CPF do cliente (apenas números): \n");
     printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|_____________________________________________|\n");
-    getchar();
 }
 
 void atualizarCliente(void){
@@ -38,7 +36,6 @@ void atualizarCliente(void){
     printf("\n>Digite o CPF do cliente (apenas números): \n");
     printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|_____________________________________________|\n");
-    getchar();
 }
 
 void deletarCliente(void){
@@ -49,5 +46,4 @@ void deletarCliente(void){
     printf("\n>Digite o CPF do cliente (apenas números): \n");
     printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|___________________________________________|\n");
-    getchar();
 }

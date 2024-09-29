@@ -16,7 +16,6 @@ void telaPrincipal(void){
     printf("|  0. Sair                      |\n");
     printf("|_______________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
 
 void telaCadastro(void){
@@ -32,7 +31,6 @@ void telaCadastro(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
 
 void telaPesquisar(void){
@@ -48,7 +46,6 @@ void telaPesquisar(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
 
 void telaAtualizar(void){
@@ -64,7 +61,6 @@ void telaAtualizar(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
 
 void telaDeletar(void){
@@ -80,7 +76,6 @@ void telaDeletar(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
 
 void telaRelatorios(void){
@@ -96,7 +91,6 @@ void telaRelatorios(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
 
 
@@ -114,5 +108,4 @@ void telaInfo(void){
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
     printf("> Tecle <ENTER> para continuar...\n");
-    getchar();
 }
