@@ -7,6 +7,11 @@ void limparBuffer(void){
     while((buffer = getchar()) != '\n' && buffer != EOF);
 }
 
+char lerOpcao(void){
+    char opcao = getchar();
+    limparBuffer();
+    return opcao;
+}
 
 int main(void){
     char opmprin, opmsub; // opmprin = menu principal, opmsub = submenus
@@ -14,15 +19,18 @@ int main(void){
     // pode ser descartada mais na frente
 
     do{
-        opmprin = telaPrincipal();
+        telaPrincipal();
+        opmprin = lerOpcao();
+
         switch(opmprin){
             case '1':
-                opmsub = telaCadastro();
+                telaCadastro();
+                opmsub = lerOpcao();
                 switch (opmsub) {
                     case '1':
                         cabecalhos("MÓDULO DE CADASTRO - CADASTRAR CLIENTE");
                         scanf("%d", &pausa);
-                        getchar();
+                        limparBuffer();
                         break;
                     
                     default:
@@ -31,12 +39,13 @@ int main(void){
                 }
                 break;
             case '2':
-                opmsub = telaPesquisar();
+                telaPesquisar();
+                opmsub = lerOpcao();
                 switch (opmsub) {
                     case '1':
                         cabecalhos("MÓDULO DE PESQUISA - PESQUISAR CLIENTE");
                         scanf("%d", &pausa);
-                        getchar();
+                        limparBuffer();
                         break;
                     
                     default:
@@ -45,12 +54,13 @@ int main(void){
                 }
                 break;
             case '3':
-                opmsub = telaAtualizar();
+                telaAtualizar();
+                opmsub = lerOpcao();
                 switch (opmsub) {
                     case '1':
                         cabecalhos("MÓDULO DE ATUALIZAR - ATUALIZAR CLIENTE");
                         scanf("%d", &pausa);
-                        getchar();
+                        limparBuffer();
                         break;
                     
                     default:
@@ -59,12 +69,13 @@ int main(void){
                 }
                 break;
             case '4':
-                opmsub = telaDeletar();
+                telaDeletar();
+                opmsub = lerOpcao();
                 switch (opmsub) {
                     case '1':
                         cabecalhos("MÓDULO DE DELETAR - DELETAR CLIENTE");
                         scanf("%d", &pausa);
-                        getchar();
+                        limparBuffer();
                         break;
                     
                     default:
