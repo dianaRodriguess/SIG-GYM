@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "view/interface.c"
 
+void limparBuffer(void){
+    int buffer;
+    while((buffer = getchar()) != '\n' && buffer != EOF);
+}
+
+
 int main(void){
     char opmprin, opmsub; // opmprin = menu principal, opmsub = submenus
     int pausa; // pausa = para pausar o programa para poder ver o cabecalho.
