@@ -17,10 +17,6 @@ char telaPrincipal(void){
     printf("|  0. Sair                      |\n");
     printf("|_______________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 char telaCadastro(void){
@@ -36,10 +32,6 @@ char telaCadastro(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 char telaPesquisar(void){
@@ -55,10 +47,6 @@ char telaPesquisar(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 char telaAtualizar(void){
@@ -74,10 +62,6 @@ char telaAtualizar(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 char telaDeletar(void){
@@ -93,10 +77,6 @@ char telaDeletar(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 char telaRelatorios(void){
@@ -112,10 +92,6 @@ char telaRelatorios(void){
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 
@@ -133,10 +109,6 @@ char telaInfo(void){
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
     printf(">  Escolha sua opcao: ");
-    char opcao;
-    scanf("%c", &opcao);
-    getchar();
-    return opcao;
 }
 
 void cabecalhos(char titulo[]){
