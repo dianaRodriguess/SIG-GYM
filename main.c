@@ -85,9 +85,33 @@ int main(void){
                 break;
             case '5':
                 telaRelatorios();
+                opmsub = lerOpcao();
+                switch (opmsub) {
+                    case '1':
+                        cabecalhos("MÓDULO DE RELATÓRIOS - RELATÓRIOS CLIENTE");
+                        scanf("%d", &pausa);
+                        limparBuffer();
+                        break;
+                    
+                    default:
+                        printf("Opção inválida!\n");
+                        break;
+                }
                 break;
             case '6':
                 telaInfo();
+                opmsub = lerOpcao();
+                switch (opmsub) {
+                    case '1':
+                        cabecalhos("MÓDULO DE INFORMAÇÕES - INFORMAÇÕES CLIENTE");
+                        scanf("%d", &pausa);
+                        limparBuffer();
+                        break;
+                    
+                    default:
+                        printf("Opção inválida!\n");
+                        break;
+                }
                 break;
             case '0':
                 printf("Saindo...\n");
