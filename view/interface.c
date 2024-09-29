@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
     
-char telaPrincipal(void){
+void telaPrincipal(void){
     system("clear");
     printf(" _______________________________ \n");
     printf("|.....       SIG-GYM       .....|\n");
@@ -19,7 +19,7 @@ char telaPrincipal(void){
     printf(">  Escolha sua opcao: ");
 }
 
-char telaCadastro(void){
+void telaCadastro(void){
     system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE CADASTRO   .....|\n");
@@ -34,7 +34,7 @@ char telaCadastro(void){
     printf(">  Escolha sua opcao: ");
 }
 
-char telaPesquisar(void){
+void telaPesquisar(void){
     system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE PESQUISA   .....|\n");
@@ -49,7 +49,7 @@ char telaPesquisar(void){
     printf(">  Escolha sua opcao: ");
 }
 
-char telaAtualizar(void){
+void telaAtualizar(void){
     system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE ATUALIZAR  .....|\n");
@@ -64,7 +64,7 @@ char telaAtualizar(void){
     printf(">  Escolha sua opcao: ");
 }
 
-char telaDeletar(void){
+void telaDeletar(void){
     system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE DELETAR    .....|\n");
@@ -79,7 +79,7 @@ char telaDeletar(void){
     printf(">  Escolha sua opcao: ");
 }
 
-char telaRelatorios(void){
+void telaRelatorios(void){
     system("clear");
     printf(" __________________________________ \n");
     printf("|.....  MÓDULO DE RELATÓRIOS  .....|\n");
@@ -95,7 +95,7 @@ char telaRelatorios(void){
 }
 
 
-char telaInfo(void){
+void telaInfo(void){
     system("clear");
     printf(" ___________________________________\n");
     printf("|.....  MÓDULO DE INFORMAÇÕES  .....|\n");
