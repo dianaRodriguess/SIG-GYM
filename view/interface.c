@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
     
 void telaPrincipal(void){
+    system("clear");
     printf(" _______________________________ \n");
     printf("|.....       SIG-GYM       .....|\n");
     printf("|_______________________________|\n");
@@ -13,9 +15,12 @@ void telaPrincipal(void){
     printf("|  6. Informações               |\n");
     printf("|  0. Sair                      |\n");
     printf("|_______________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void telaCadastro(){
+void telaCadastro(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE CADASTRO   .....|\n");
     printf("|__________________________________|\n");
@@ -26,9 +31,12 @@ void telaCadastro(){
     printf("|  4. Cadastrar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void telaPesquisar(){
+void telaPesquisar(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE PESQUISA   .....|\n");
     printf("|__________________________________|\n");
@@ -39,9 +47,12 @@ void telaPesquisar(){
     printf("|  4. Pesquisar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void telaAtualizar(){
+void telaAtualizar(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE ATUALIZAR  .....|\n");
     printf("|__________________________________|\n");
@@ -52,9 +63,12 @@ void telaAtualizar(){
     printf("|  4. Atualizar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void telaDeletar(){
+void telaDeletar(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....   MÓDULO DE DELETAR    .....|\n");
     printf("|__________________________________|\n");
@@ -65,9 +79,12 @@ void telaDeletar(){
     printf("|  4. Deletar Equipamento          |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
-void telaRelatorios(){
+void telaRelatorios(void){
+    system("clear");
     printf(" __________________________________ \n");
     printf("|.....  MÓDULO DE RELATÓRIOS  .....|\n");
     printf("|__________________________________|\n");
@@ -78,10 +95,13 @@ void telaRelatorios(){
     printf("|  4. Ver todos os Equipamentos    |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
 
-void telaInfo(){
+void telaInfo(void){
+    system("clear");
     printf(" ___________________________________\n");
     printf("|.....  MÓDULO DE INFORMAÇÕES  .....|\n");
     printf("|___________________________________|\n");
@@ -93,4 +113,6 @@ void telaInfo(){
     printf("|       > github: dianaRodriguess   |\n");
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
+    printf("> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
