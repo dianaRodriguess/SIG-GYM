@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "view/interface.c"
-#include "model/cliente.c"
+#include "view/interface.h"
+#include "model/cliente.h"
 
 void limparBuffer(void){
     int buffer;
