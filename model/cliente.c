@@ -3,9 +3,9 @@
 
 void cadastrarCliente(void){
     system("clear");
-    printf(" __________________________________ \n");
-    printf("|.....   CADASTRAR CLIENTE    .....|\n");
-    printf("|__________________________________|\n");
+    printf("|_____________________________________________|\n");
+    printf("|.....  .  ... CADASTRAR CLIENTE ...  .  .....|\n");
+    printf(" _____________________________________________|\n");
     printf("> Nome: \n");
     printf("> CPF: \n");
     printf("> Endereço: \n");
@@ -15,7 +15,7 @@ void cadastrarCliente(void){
     printf("> Sexo: \n");
     printf("> Plano: \n");
     printf("> Tecle <ENTER> para continuar...\n");
-    printf("|__________________________________|\n");
+    printf("|_____________________________________________|\n");
 }
 
 void pesquisarCliente(void){
