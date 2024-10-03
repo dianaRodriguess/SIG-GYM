@@ -3,5 +3,6 @@
 
 void limparBuffer(void);
 char lerOpcao(void);
+void pausarTela(void);
 
 #endif // ENTRADAS_H

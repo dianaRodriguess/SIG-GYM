@@ -5,6 +5,12 @@ void limparBuffer(void){
     while((buffer = getchar()) != '\n' && buffer != EOF);
 }
 
+void pausarTela(void){
+    int pausa;
+    scanf("%d", &pausa);
+    limparBuffer();
+}
+
 char lerOpcao(void){
     char opcao = getchar();
     limparBuffer();
