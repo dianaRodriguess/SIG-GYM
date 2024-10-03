@@ -41,7 +41,7 @@ void loopCadastro(void){
 
 void loopPesquisa(void){
     do {
-        telaCadastro();
+        telaPesquisar();
         opSub = lerOpcao();
         
         switch (opSub) {
@@ -59,6 +59,35 @@ void loopPesquisa(void){
                 break;
             case '4':
                 pesquisarEquipamento();
+                pausarTela();
+                break;
+            case '0':
+                return;
+            }
+    } while (opSub != 0);
+}
+
+
+void loopAtualizar(void){
+    do {
+        telaAtualizar();
+        opSub = lerOpcao();
+        
+        switch (opSub) {
+            case '1':
+                atualizarCliente();
+                pausarTela();
+                break;
+            case '2':
+                atualizarTreino();
+                pausarTela();
+                break;
+            case '3':
+                atualizarFuncionario();
+                pausarTela();
+                break;
+            case '4':
+                atualizarEquipamento();
                 pausarTela();
                 break;
             case '0':
