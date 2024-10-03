@@ -134,19 +134,19 @@ void loopRelatorios(void){
         
         switch (opSub) {
             case '1':
-                printf(">>>> Ver todos os clientes");
+                printf(">>>> Ver todos os clientes. Tecle <0> para sair.\n");
                 pausarTela();
                 break;
             case '2':
-                printf(">>>> Ver todos os treinos");
+                printf(">>>> Ver todos os treinos. Tecle <0> para sair.\n");
                 pausarTela();
                 break;
             case '3':
-                printf(">>>> Ver todos os funcionários");
+                printf(">>>> Ver todos os funcionários. Tecle <0> para sair.\n");
                 pausarTela();
                 break;
             case '4':
-                printf(">>>> Ver todos os equipamnetos");
+                printf(">>>> Ver todos os equipamnetos. Tecle <0> para sair.\n");
                 pausarTela();
                 break;
             case '0':

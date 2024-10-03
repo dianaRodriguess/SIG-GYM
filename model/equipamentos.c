@@ -13,7 +13,7 @@ void cadastrarEquipamento(void){
     printf("> Fabricante: \n");
     printf("> Quantidade: \n");
     printf("> Código de barras: \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
+    printf("\n> Tecle <0> para continuar...\n");
     printf("|________________________________________________|\n");
 }
 
@@ -23,7 +23,7 @@ void pesquisarEquipamento(void){
     printf("|.....  .  ... . .... PESQUISAR EQUIPAMENTO .... . ...  .  .....|\n");
     printf(" _______________________________________________________________|\n");
     printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
+    printf("\n> Tecle <0> para continuar...\n");
     printf("|_______________________________________________________________|\n");
 }
 
@@ -33,7 +33,7 @@ void atualizarEquipamento(void){
     printf("|.....  .  ... . .... ATUALIZAR EQUIPAMENTO .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
+    printf("\n> Tecle <0> para continuar...\n");
     printf("|_______________________________________________________________|\n");
 }
 
@@ -43,6 +43,6 @@ void deletarEquipamento(void){
     printf("|.....  .  ... . .... DELETAR EQUIPAMENTO .... . ...  .  .....|\n");
     printf("|_____________________________________________________________|\n");
     printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
+    printf("\n> Tecle <0> para continuar...\n");
     printf("|_____________________________________________________________|\n");
 }
