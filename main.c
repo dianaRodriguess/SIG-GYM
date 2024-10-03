@@ -5,12 +5,8 @@
 #include "model/equipamentos.h"
 #include "model/funcionario.h"
 #include "model/treino.h"
+#include "controller/entradas.h"
 
-
-void limparBuffer(void){
-    int buffer;
-    while((buffer = getchar()) != '\n' && buffer != EOF);
-}
 
 int main(void){
 
