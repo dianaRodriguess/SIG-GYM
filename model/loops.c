@@ -7,9 +7,10 @@
 #include "loops.h"
 
 
-void loopCadastro(void){
-    char opSub;
+char opSub;
 
+
+void loopCadastro(void){
     do {
         telaCadastro();
         opSub = lerOpcao();
@@ -24,11 +25,40 @@ void loopCadastro(void){
                 pausarTela();
                 break;
             case '3':
-                cadastrarEquipamento();
+                cadastrarFuncionario();
                 pausarTela();
                 break;
             case '4':
-                cadastrarFuncionario();
+                cadastrarEquipamento();
+                pausarTela();
+                break;
+            case '0':
+                return;
+            }
+    } while (opSub != 0);
+}
+
+
+void loopPesquisa(void){
+    do {
+        telaCadastro();
+        opSub = lerOpcao();
+        
+        switch (opSub) {
+            case '1':
+                pesquisarCliente();
+                pausarTela();
+                break;
+            case '2':
+                pesquisarTreino();
+                pausarTela();
+                break;
+            case '3':
+                pesquisarFuncionario();
+                pausarTela();
+                break;
+            case '4':
+                pesquisarEquipamento();
                 pausarTela();
                 break;
             case '0':
