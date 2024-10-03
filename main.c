@@ -42,6 +42,11 @@ int main(void){
                 pausarTela();
                 break;
 
+            case '0':
+                printf("Obrigado por usar o programa. :)\n");
+                opMain = '0';
+                break;
+
             default:
                 printf("Opção inválida!\n");
                 pausarTela();
