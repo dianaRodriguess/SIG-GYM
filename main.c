@@ -30,7 +30,7 @@ int main(void){
                 break;
 
             case '4':
-                loopAtualizar();
+                loopDeletar();
                 break;
 
             case '5':

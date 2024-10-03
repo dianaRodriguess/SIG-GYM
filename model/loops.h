@@ -4,7 +4,7 @@
 void loopCadastro(void);
 void loopPesquisa(void);
 void loopAtualizar(void);
-void loopPesquisa(void);
+void loopDeletar(void);
 
 
 #endif

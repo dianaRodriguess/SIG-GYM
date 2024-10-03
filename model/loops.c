@@ -97,7 +97,7 @@ void loopAtualizar(void){
 }
 
 
-void loopPesquisa(void){
+void loopDeletar(void){
     do {
         telaDeletar();
         opSub = lerOpcao();
