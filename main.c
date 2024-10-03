@@ -19,10 +19,10 @@ int main(void){
 
         switch (opMain){
             case '1':
-                loopCadastro();
+                loopCadastrar();
                 break;
             case '2':
-                loopPesquisa();
+                loopPesquisar();
                 break;
 
             case '3':
@@ -34,8 +34,7 @@ int main(void){
                 break;
 
             case '5':
-                telaRelatorios();
-                pausarTela();
+                loopRelatorios();
                 break;
 
             case '6':

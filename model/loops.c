@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "../view/interface.h"
 #include "../controller/entradas.h"
 #include "cliente.h"
@@ -10,7 +11,7 @@
 char opSub;
 
 
-void loopCadastro(void){
+void loopCadastrar(void){
     do {
         telaCadastro();
         opSub = lerOpcao();
@@ -39,7 +40,7 @@ void loopCadastro(void){
 }
 
 
-void loopPesquisa(void){
+void loopPesquisar(void){
     do {
         telaPesquisar();
         opSub = lerOpcao();
@@ -117,6 +118,35 @@ void loopDeletar(void){
                 break;
             case '4':
                 deletarEquipamento();
+                pausarTela();
+                break;
+            case '0':
+                return;
+            }
+    } while (opSub != 0);
+}
+
+
+void loopRelatorios(void){
+    do {
+        telaRelatorios();
+        opSub = lerOpcao();
+        
+        switch (opSub) {
+            case '1':
+                printf(">>>> Ver todos os clientes");
+                pausarTela();
+                break;
+            case '2':
+                printf(">>>> Ver todos os treinos");
+                pausarTela();
+                break;
+            case '3':
+                printf(">>>> Ver todos os funcionários");
+                pausarTela();
+                break;
+            case '4':
+                printf(">>>> Ver todos os equipamnetos");
                 pausarTela();
                 break;
             case '0':
