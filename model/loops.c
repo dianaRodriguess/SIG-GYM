@@ -95,3 +95,32 @@ void loopAtualizar(void){
             }
     } while (opSub != 0);
 }
+
+
+void loopPesquisa(void){
+    do {
+        telaDeletar();
+        opSub = lerOpcao();
+        
+        switch (opSub) {
+            case '1':
+                deletarCliente();
+                pausarTela();
+                break;
+            case '2':
+                deletarTreino();
+                pausarTela();
+                break;
+            case '3':
+                deletarFuncionario();
+                pausarTela();
+                break;
+            case '4':
+                deletarEquipamento();
+                pausarTela();
+                break;
+            case '0':
+                return;
+            }
+    } while (opSub != 0);
+}
