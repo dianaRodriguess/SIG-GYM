@@ -35,7 +35,7 @@ void processarOpcao(char opcao,
             printf("Opção inválida!\n");
             break;
     }
-    pausarTela();
+    pausarSubTela();
 }
 
 
@@ -103,25 +103,25 @@ void loopRelatorios(void){
         switch (opSub) {
             case '1':
                 printf(">>>> Ver todos os clientes.\n");
-                pausarTela();
+                pausarSubTela();
                 break;
             case '2':
                 printf(">>>> Ver todos os treinos.\n");
-                pausarTela();
+                pausarSubTela();
                 break;
             case '3':
                 printf(">>>> Ver todos os funcionários.\n");
-                pausarTela();
+                pausarSubTela();
                 break;
             case '4':
                 printf(">>>> Ver todos os equipamnetos.\n");
-                pausarTela();
+                pausarSubTela();
                 break;
             case '0':
                 return;
             default:
                 printf("Opção inválida!.\n");
-                pausarTela();
+                pausarSubTela();
                 break;
             }
     } while (opSub != 0);
