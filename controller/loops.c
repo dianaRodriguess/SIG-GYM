@@ -35,6 +35,10 @@ void loopCadastrar(void){
                 break;
             case '0':
                 return;
+            default:
+                printf("Opção inválida!\n");
+                pausarTela();
+                break;
             }
     } while (opSub != 0);
 }
@@ -64,6 +68,10 @@ void loopPesquisar(void){
                 break;
             case '0':
                 return;
+            default:
+                printf("Opção inválida!.\n");
+                pausarTela();
+                break;
             }
     } while (opSub != 0);
 }
@@ -93,6 +101,10 @@ void loopAtualizar(void){
                 break;
             case '0':
                 return;
+            default:
+                printf("Opção inválida!.\n");
+                pausarTela();
+                break;
             }
     } while (opSub != 0);
 }
@@ -122,6 +134,10 @@ void loopDeletar(void){
                 break;
             case '0':
                 return;
+            default:
+                printf("Opção inválida!.\n");
+                pausarTela();
+                break;
             }
     } while (opSub != 0);
 }
@@ -151,6 +167,10 @@ void loopRelatorios(void){
                 break;
             case '0':
                 return;
+            default:
+                printf("Opção inválida!.\n");
+                pausarTela();
+                break;
             }
     } while (opSub != 0);
 }
