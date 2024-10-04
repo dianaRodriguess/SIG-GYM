@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include "../view/interface.h"
-#include "../controller/entradas.h"
-#include "cliente.h"
-#include "equipamentos.h"
-#include "funcionario.h"
-#include "treino.h"
+#include "entradas.h"
 #include "loops.h"
+#include "../model/cliente.h"
+#include "../model/equipamentos.h"
+#include "../model/funcionario.h"
+#include "../model/treino.h"
+#include "../view/interface.h"
 
 
 char opSub;

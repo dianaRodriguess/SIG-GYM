@@ -6,7 +6,7 @@
 #include "model/funcionario.h"
 #include "model/treino.h"
 #include "controller/entradas.h"
-#include "model/loops.h"
+#include "controller/loops.h"
 
 
 int main(void){
