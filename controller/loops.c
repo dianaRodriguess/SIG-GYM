@@ -36,7 +36,6 @@ void processarOpcao(char opcao,
             break;
     }
     pausarTela();
-
 }
 
 
@@ -44,31 +43,12 @@ void loopCadastrar(void){
     do {
         telaCadastro();
         opSub = lerOpcao();
-        
-        switch (opSub) {
-            case '1':
-                cadastrarCliente();
-                pausarTela();
-                break;
-            case '2':
-                cadastrarTreino();
-                pausarTela();
-                break;
-            case '3':
-                cadastrarFuncionario();
-                pausarTela();
-                break;
-            case '4':
-                cadastrarEquipamento();
-                pausarTela();
-                break;
-            case '0':
-                return;
-            default:
-                printf("Opção inválida!\n");
-                pausarTela();
-                break;
-            }
+
+        if (opSub == '0') return;
+
+        processarOpcao(opSub, cadastrarCliente, cadastrarTreino, 
+                        cadastrarFuncionario, cadastrarEquipamento);
+
     } while (opSub != 0);
 }
 
@@ -77,31 +57,12 @@ void loopPesquisar(void){
     do {
         telaPesquisar();
         opSub = lerOpcao();
-        
-        switch (opSub) {
-            case '1':
-                pesquisarCliente();
-                pausarTela();
-                break;
-            case '2':
-                pesquisarTreino();
-                pausarTela();
-                break;
-            case '3':
-                pesquisarFuncionario();
-                pausarTela();
-                break;
-            case '4':
-                pesquisarEquipamento();
-                pausarTela();
-                break;
-            case '0':
-                return;
-            default:
-                printf("Opção inválida!.\n");
-                pausarTela();
-                break;
-            }
+
+        if (opSub == '0') return;
+
+        processarOpcao(opSub, pesquisarCliente, pesquisarTreino,
+                        pesquisarFuncionario, pesquisarEquipamento);
+
     } while (opSub != 0);
 }
 
@@ -110,31 +71,12 @@ void loopAtualizar(void){
     do {
         telaAtualizar();
         opSub = lerOpcao();
-        
-        switch (opSub) {
-            case '1':
-                atualizarCliente();
-                pausarTela();
-                break;
-            case '2':
-                atualizarTreino();
-                pausarTela();
-                break;
-            case '3':
-                atualizarFuncionario();
-                pausarTela();
-                break;
-            case '4':
-                atualizarEquipamento();
-                pausarTela();
-                break;
-            case '0':
-                return;
-            default:
-                printf("Opção inválida!.\n");
-                pausarTela();
-                break;
-            }
+
+        if (opSub == '0') return;
+
+        processarOpcao(opSub, atualizarCliente, atualizarTreino,
+                        atualizarFuncionario, atualizarEquipamento);
+
     } while (opSub != 0);
 }
 
@@ -143,31 +85,12 @@ void loopDeletar(void){
     do {
         telaDeletar();
         opSub = lerOpcao();
-        
-        switch (opSub) {
-            case '1':
-                deletarCliente();
-                pausarTela();
-                break;
-            case '2':
-                deletarTreino();
-                pausarTela();
-                break;
-            case '3':
-                deletarFuncionario();
-                pausarTela();
-                break;
-            case '4':
-                deletarEquipamento();
-                pausarTela();
-                break;
-            case '0':
-                return;
-            default:
-                printf("Opção inválida!.\n");
-                pausarTela();
-                break;
-            }
+
+        if (opSub == '0') return;
+
+        processarOpcao(opSub, deletarCliente, deletarTreino, deletarFuncionario,
+                        deletarEquipamento);
+
     } while (opSub != 0);
 }
 
@@ -179,19 +102,19 @@ void loopRelatorios(void){
         
         switch (opSub) {
             case '1':
-                printf(">>>> Ver todos os clientes. Tecle <0> para sair.\n");
+                printf(">>>> Ver todos os clientes.\n");
                 pausarTela();
                 break;
             case '2':
-                printf(">>>> Ver todos os treinos. Tecle <0> para sair.\n");
+                printf(">>>> Ver todos os treinos.\n");
                 pausarTela();
                 break;
             case '3':
-                printf(">>>> Ver todos os funcionários. Tecle <0> para sair.\n");
+                printf(">>>> Ver todos os funcionários.\n");
                 pausarTela();
                 break;
             case '4':
-                printf(">>>> Ver todos os equipamnetos. Tecle <0> para sair.\n");
+                printf(">>>> Ver todos os equipamnetos.\n");
                 pausarTela();
                 break;
             case '0':
