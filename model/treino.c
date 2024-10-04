@@ -10,7 +10,6 @@ void cadastrarTreino(void){
     printf("> Musculos a serem treinados: \n");
     printf("> Repetição: \n");
     printf("> Código de cliente: \n");
-    printf("\n> Tecle <0> para continuar...\n");
     printf("|__________________________________________________________|\n");
 }
 
@@ -20,7 +19,6 @@ void atualizarTreino(void){
     printf("|.....  .  ... . .... ATUALIZAR TREINO .... . ...  .  .....|\n");
     printf(" __________________________________________________________|\n");
     printf("\n>Digite o Código do treino (apenas números): \n");
-    printf("\n> Tecle <0> para continuar...\n");
     printf("|__________________________________________________________|\n");
 }
 void pesquisarTreino(void){
@@ -29,7 +27,6 @@ void pesquisarTreino(void){
     printf("|.....  .  ... . .... PESQUISAR TREINO .... . ...  .  .....|\n");
     printf(" __________________________________________________________|\n");
     printf("\n>Digite o Código do treino (apenas números): \n");
-    printf("\n> Tecle <0> para continuar...\n");
     printf("|__________________________________________________________|\n");
 }
 void deletarTreino(void){
@@ -38,6 +35,5 @@ void deletarTreino(void){
     printf("|.....  .  ... . ....  DELETAR TREINO  .... . ...  .  .....|\n");
     printf(" __________________________________________________________|\n");
     printf("\n>Digite o Código do treino (apenas números): \n");
-    printf("\n> Tecle <0> para continuar...\n");
     printf("|__________________________________________________________|\n");
 }
