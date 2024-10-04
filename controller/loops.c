@@ -11,6 +11,35 @@
 char opSub;
 
 
+void processarOpcao(char opcao,
+                    void (*operacaoCliente)(),
+                    void (*operacaoTreino)(),
+                    void (*operacaoFuncionario)(),
+                    void (*operacaoEquipamento)()
+                    ){
+
+    switch (opcao) {
+        case '1':
+            operacaoCliente();
+            break;
+        case '2':
+            operacaoTreino();
+            break;
+        case '3':
+            operacaoFuncionario();
+            break;
+        case '4':
+            operacaoEquipamento();
+            break;
+        default:
+            printf("Opção inválida!\n");
+            break;
+    }
+    pausarTela();
+
+}
+
+
 void loopCadastrar(void){
     do {
         telaCadastro();
