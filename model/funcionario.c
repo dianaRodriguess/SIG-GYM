@@ -13,7 +13,6 @@ void cadastrarFuncionario(void){
     printf("> Email: \n");
     printf("> Data de nascimento: \n");
     printf("> Cargo: \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|_______________________________________________________________|\n");
 
 }
@@ -24,7 +23,6 @@ void pesquisarFuncionario(void){
     printf("|.....  .  ... . .... PESQUISAR FUNCIONÁRIO .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o CPF do funcionário (apenas números): \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|_______________________________________________________________|\n");
 }
 
@@ -34,7 +32,6 @@ void atualizarFuncionario(void){
     printf("|.....  .  ... . .... ATUALIZAR FUNCIONÁRIO .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o CPF do funcionário (apenas números): \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|_______________________________________________________________|\n");
 }
 
@@ -44,7 +41,6 @@ void deletarFuncionario(void){
     printf("|.....  .  ... . ....  DELETAR FUNCIONÁRIO  .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o CPF do funcionário (apenas números): \n");
-    printf("\n> Tecle <ENTER> para continuar...\n");
     printf("|_______________________________________________________________|\n");
 
 }

@@ -7,13 +7,13 @@ CC := gcc
 CFLAGS := -Wall -Wextra -pedantic
 
 # Source files
-SRCS := main.c view/interface.c model/cliente.c model/equipamentos.c model/funcionario.c model/treino.c
+SRCS := main.c view/interface.c model/cliente.c model/equipamentos.c model/funcionario.c model/treino.c controller/entradas.c controller/loops.c
 
 # Object files
 OBJS := $(SRCS:.c=.o)
 
 # Header files
-HDRS := view/interface.h model/cliente.h model/equipamentos.h model/funcionario.h model/treino.h
+HDRS := view/interface.h model/cliente.h model/equipamentos.h model/funcionario.h model/treino.h controller/entradas.h controller/loops.h
 
 # Executable name
 TARGET := main

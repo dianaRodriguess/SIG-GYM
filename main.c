@@ -5,79 +5,55 @@
 #include "model/equipamentos.h"
 #include "model/funcionario.h"
 #include "model/treino.h"
+#include "controller/entradas.h"
+#include "controller/loops.h"
 
-
-void limparBuffer(void){
-    int buffer;
-    while((buffer = getchar()) != '\n' && buffer != EOF);
-}
 
 int main(void){
+    char opMain;
 
-    printf("A seguir telas de menu. Clique <ENTER> para prosseguir: \n");
-    limparBuffer();
-    telaPrincipal();
-    limparBuffer();
-    telaCadastro();
-    limparBuffer();
-    telaPesquisar();
-    limparBuffer();
-    telaAtualizar();
-    limparBuffer();
-    telaDeletar();
-    limparBuffer();
-    telaRelatorios();
-    limparBuffer();
-    telaInfo();
-    limparBuffer();
+    do{
 
-    system("clear");
-    printf("A seguir telas do modulo cliente. Clique <ENTER> para prosseguir: \n");
-    limparBuffer();
-    cadastrarCliente();
-    limparBuffer();
-    pesquisarCliente();
-    limparBuffer();
-    atualizarCliente();
-    limparBuffer();
-    deletarCliente();
-    limparBuffer();
+        telaPrincipal();
+        opMain = lerOpcao();
 
-    system("clear");
-    printf("A seguir telas do modulo treino. Clique <ENTER> para prosseguir: \n");
-    limparBuffer();
-    cadastrarTreino();
-    limparBuffer();
-    pesquisarTreino();
-    limparBuffer();
-    atualizarTreino();
-    limparBuffer();
-    deletarTreino();
-    limparBuffer();
+        switch (opMain){
+            case '1':
+                loopCadastrar();
+                break;
+            case '2':
+                loopPesquisar();
+                break;
 
-    system("clear");
-    printf("A seguir telas do modulo funcionário. Clique <ENTER> para prosseguir: \n");
-    limparBuffer();
-    cadastrarFuncionario();
-    limparBuffer();
-    pesquisarFuncionario();
-    limparBuffer();
-    atualizarFuncionario();
-    limparBuffer();
-    deletarFuncionario();
-    limparBuffer();
+            case '3':
+                loopAtualizar();
+                break;
 
-    system("clear");
-    printf("A seguir telas do modulo equipamentos. Clique <ENTER> para prosseguir: \n");
-    limparBuffer();
-    cadastrarEquipamento();
-    limparBuffer();
-    pesquisarEquipamento();
-    limparBuffer();
-    atualizarEquipamento();
-    limparBuffer();
-    deletarEquipamento();
-    limparBuffer();
+            case '4':
+                loopDeletar();
+                break;
+
+            case '5':
+                loopRelatorios();
+                break;
+
+            case '6':
+                telaInfo();
+                pausarTela();
+                break;
+
+            case '0':
+                printf("Obrigado por usar o programa. :)\n");
+                opMain = '0';
+                break;
+
+            default:
+                printf("Opção inválida!\n");
+                pausarTela();
+                break;
+        }
+
+    } while (opMain != '0');
 
     return 0;
 }
