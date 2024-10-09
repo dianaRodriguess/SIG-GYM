@@ -12,17 +12,22 @@ void pausarTela(void){
     limparBuffer();
 }
 
-void pausarSubTela(void){
-    int espere;
+char lerOpcaoMain(void){
+    char opcao;
     do {
-        printf("Tecle <0> para continuar.\n");
-        scanf("%d", &espere);
+        printf("> Selecione o módulo:\n");
+        opcao = getchar();
         limparBuffer();
-    } while (espere != 0);
+    } while (opcao < '0' || opcao > '6');
+    return opcao;
 }
 
-char lerOpcao(void){
-    char opcao = getchar();
-    limparBuffer();
+char lerOpcao(void) {
+    char opcao;
+    do {
+        printf("> Selecione uma opção válida:\n");
+        opcao = getchar();
+        limparBuffer();
+    } while (opcao < '0' || opcao > '4');
     return opcao;
 }
