@@ -15,7 +15,6 @@ void telaPrincipal(void){
     printf("|  6. Informações               |\n");
     printf("|  0. Sair                      |\n");
     printf("|_______________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
 
 void telaCadastro(void){
@@ -30,7 +29,6 @@ void telaCadastro(void){
     printf("|  4. Cadastrar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
 
 void telaPesquisar(void){
@@ -45,7 +43,6 @@ void telaPesquisar(void){
     printf("|  4. Pesquisar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
 
 void telaAtualizar(void){
@@ -60,7 +57,6 @@ void telaAtualizar(void){
     printf("|  4. Atualizar Equipamento        |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
 
 void telaDeletar(void){
@@ -75,7 +71,6 @@ void telaDeletar(void){
     printf("|  4. Deletar Equipamento          |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
 
 void telaRelatorios(void){
@@ -90,7 +85,6 @@ void telaRelatorios(void){
     printf("|  4. Ver todos os Equipamentos    |\n");
     printf("|  0. Menu principal               |\n");
     printf("|__________________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
 
 
@@ -107,5 +101,4 @@ void telaInfo(void){
     printf("|       > github: dianaRodriguess   |\n");
     printf("|  0. Menu principal                |\n");
     printf("|___________________________________|\n\n");
-    printf("> Selecione uma opção:\n");
 }
