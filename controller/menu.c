@@ -13,7 +13,7 @@ void menu(void){
     do{
 
         telaPrincipal();
-        opMain = lerOpcao();
+        opMain = lerOpcaoMain();
 
         switch (opMain){
             case '1':
