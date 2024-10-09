@@ -3,7 +3,7 @@
 
 void limparBuffer(void);
 char lerOpcao(void);
+char lerOpcaoMain(void);
 void pausarTela(void);
-void pausarSubTela(void);
 
 #endif // ENTRADAS_H
