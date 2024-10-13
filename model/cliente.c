@@ -70,10 +70,13 @@ void atualizarCliente(void){
 }
 
 void deletarCliente(void){
+    char cpf [15];
     system("clear");
     printf("|___________________________________________|\n");
     printf("|.....  .  ... DELETAR CLIENTE ...  .  .....|\n");
     printf(" ___________________________________________|\n");
     printf("\n>Digite o CPF do cliente (apenas números): \n");
+    fgets(cpf, sizeof(cpf), stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
     printf("|___________________________________________|\n");
 }
