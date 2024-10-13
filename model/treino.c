@@ -48,11 +48,15 @@ void pesquisarTreino(void){
     codigo[strcspn(codigo, "\n")] = '\0';
     printf("|__________________________________________________________|\n");
 }
+
 void deletarTreino(void){
+    char codigo [6];
     system("clear");
     printf("|__________________________________________________________|\n");
     printf("|.....  .  ... . ....  DELETAR TREINO  .... . ...  .  .....|\n");
     printf(" __________________________________________________________|\n");
     printf("\n>Digite o Código do treino (apenas números): \n");
+    fgets(codigo, sizeof(codigo), stdin);
+    codigo[strcspn(codigo, "\n")] = '\0';
     printf("|__________________________________________________________|\n");
 }
