@@ -20,7 +20,7 @@ void cadastrarTreino(void){
     fgets(repeticao, sizeof(repeticao), stdin);
     repeticao[strcspn(repeticao, "\n")] = '\0';
 
-    printf("> Código de cliente: \n");
+    printf("> CPF do cliente: \n");
     fgets(cliente, sizeof(cliente), stdin);
     cliente[strcspn(cliente, "\n")] = '\0';
     printf("|__________________________________________________________|\n");
