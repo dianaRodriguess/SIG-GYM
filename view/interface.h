@@ -8,6 +8,9 @@ void telaAtualizar(void);
 void telaDeletar(void);
 void telaRelatorios(void);
 void telaInfo(void);
-
+void telaVerCleintes(void);
+void telaVerTreinos(void);
+void telaVerFuncionarios(void);
+void telaVerEquipamentos(void);
 
 #endif // _INTERFACE_H
