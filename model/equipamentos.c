@@ -52,11 +52,14 @@ void pesquisarEquipamento(void){
 }
 
 void atualizarEquipamento(void){
+    char codBarras[13];
     system("clear");
     printf("|_______________________________________________________________|\n");
     printf("|.....  .  ... . .... ATUALIZAR EQUIPAMENTO .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
+    fgets(codBarras, sizeof(codBarras), stdin);
+    codBarras[strcspn(codBarras, "\n")] = '\0';
     printf("|_______________________________________________________________|\n");
 }
 
