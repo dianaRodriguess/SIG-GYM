@@ -1,19 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <regex.h>
+#include "../controller/entradas.h"
 
 void cadastrarCliente(void){
+    char nome [55], cpf [15], endereco [55], telefone [15], email [55], dataNasc [11];
+    char sexo, plano;
     system("clear");
     printf("|_____________________________________________|\n");
     printf("|.....  .  ... CADASTRAR CLIENTE ...  .  .....|\n");
     printf(" _____________________________________________|\n");
     printf("> Nome: \n");
-    printf("> CPF: \n");
-    printf("> Endereço: \n");
-    printf("> Telefone: \n");
+    fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = '\0';
+    
+    printf("> CPF (somente números): \n");
+    fgets(cpf, sizeof(cpf), stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
+    
+    printf("> Endereço (só letras e números): \n");
+    fgets(endereco, sizeof(endereco), stdin);
+    endereco[strcspn(endereco, "\n")] = '\0';
+    
+    printf("> Telefone (somente números): \n");
+    fgets(telefone, sizeof(telefone), stdin);
+    telefone[strcspn(telefone, "\n")] = '\0';
+   
     printf("> Email: \n");
-    printf("> Data de nascimento: \n");
-    printf("> Sexo: \n");
-    printf("> Plano: \n");
+    fgets(email, sizeof(email), stdin);
+    email[strcspn(email, "\n")] = '\0';
+    
+    printf("> Data de nascimento (xx/xx/xxxx): \n");
+    fgets(dataNasc, sizeof(dataNasc), stdin);
+    dataNasc[strcspn(dataNasc, "\n")] = '\0';
+    
+    printf("> Sexo (M/F): \n");
+    scanf("%[a-zA-Z]", &sexo);
+    limparBuffer();
+    
+    printf("> Plano.: \n1 - Básico \n2 - Intermediário \n3 - Avançado.: \n");
+    scanf("%[0-9]", &plano);
+    limparBuffer();
     printf("|_____________________________________________|\n");
 }
 
