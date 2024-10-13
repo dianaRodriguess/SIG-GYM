@@ -40,11 +40,14 @@ void cadastrarEquipamento(void){
 }
 
 void pesquisarEquipamento(void){
+    char codBarras[13];
     system("clear");
     printf("|_______________________________________________________________|\n");
     printf("|.....  .  ... . .... PESQUISAR EQUIPAMENTO .... . ...  .  .....|\n");
     printf(" _______________________________________________________________|\n");
     printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
+    fgets(codBarras, sizeof(codBarras), stdin);
+    codBarras[strcspn(codBarras, "\n")] = '\0';
     printf("|_______________________________________________________________|\n");
 }
 
