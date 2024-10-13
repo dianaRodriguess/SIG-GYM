@@ -58,11 +58,14 @@ void pesquisarCliente(void){
 }
 
 void atualizarCliente(void){
+    char cpf [15];
     system("clear");
     printf("|_____________________________________________|\n");
     printf("|.....  .  ... ATUALIZAR CLIENTE ...  .  .....|\n");
     printf(" _____________________________________________|\n");
     printf("\n>Digite o CPF do cliente (apenas números): \n");
+    fgets(cpf, sizeof(cpf), stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
     printf("|_____________________________________________|\n");
 }
 
