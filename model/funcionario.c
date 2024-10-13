@@ -53,11 +53,14 @@ void pesquisarFuncionario(void){
 }
 
 void atualizarFuncionario(void){
+    char cpf [15];
     system("clear");
     printf("|_______________________________________________________________|\n");
     printf("|.....  .  ... . .... ATUALIZAR FUNCIONÁRIO .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o CPF do funcionário (apenas números): \n");
+    fgets(cpf, sizeof(cpf), stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
     printf("|_______________________________________________________________|\n");
 }
 
