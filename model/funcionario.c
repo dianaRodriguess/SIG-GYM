@@ -41,11 +41,14 @@ void cadastrarFuncionario(void){
 }
 
 void pesquisarFuncionario(void){
+    char cpf [15];
     system("clear");
     printf("|_______________________________________________________________|\n");
     printf("|.....  .  ... . .... PESQUISAR FUNCIONÁRIO .... . ...  .  .....|\n");
     printf("|_______________________________________________________________|\n");
     printf("\n>Digite o CPF do funcionário (apenas números): \n");
+    fgets(cpf, sizeof(cpf), stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
     printf("|_______________________________________________________________|\n");
 }
 
