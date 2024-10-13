@@ -64,10 +64,13 @@ void atualizarEquipamento(void){
 }
 
 void deletarEquipamento(void){
+    char codBarras[13];
     system("clear");
     printf("|_____________________________________________________________|\n");
     printf("|.....  .  ... . .... DELETAR EQUIPAMENTO .... . ...  .  .....|\n");
     printf("|_____________________________________________________________|\n");
     printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
+    fgets(codBarras, sizeof(codBarras), stdin);
+    codBarras[strcspn(codBarras, "\n")] = '\0';
     printf("|_____________________________________________________________|\n");
 }
