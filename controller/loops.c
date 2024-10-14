@@ -99,30 +99,10 @@ void loopRelatorios(void){
     do {
         telaRelatorios();
         opSub = lerOpcao();
-        
-        switch (opSub) {
-            case '1':
-                printf(">>>> Ver todos os clientes.\n");
-                pausarTela();
-                break;
-            case '2':
-                printf(">>>> Ver todos os treinos.\n");
-                pausarTela();
-                break;
-            case '3':
-                printf(">>>> Ver todos os funcionários.\n");
-                pausarTela();
-                break;
-            case '4':
-                printf(">>>> Ver todos os equipamnetos.\n");
-                pausarTela();
-                break;
-            case '0':
-                return;
-            default:
-                printf("Opção inválida!.\n");
-                pausarTela();
-                break;
-            }
+
+        if (opSub == '0') return;
+
+        processarOpcao(opSub, telaVerClientes, telaVerTreinos, telaVerFuncionarios, telaVerEquipamentos);
+
     } while (opSub != 0);
 }
