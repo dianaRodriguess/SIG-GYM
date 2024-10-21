@@ -44,7 +44,7 @@ void atualizarCliente(void) {
 void deletarCliente(void) {
     char cpf[15];
     
-    exibirMenuDeletar();
+    menuDeletarCliente();
     capturarCPF(cpf);
 
     printf("|_____________________________________________|\n");
