@@ -3,6 +3,12 @@
 
 void capturarNome(char *nome){
     printf("> Nome: \n");
-    fgets(nome, sizeof(nome), stdin);
+    fgets(nome, 55, stdin);
     nome[strcspn(nome, "\n")] = '\0';
+}
+
+void capturarCPF(char *cpf){
+    printf("> CPF: \n");
+    fgets(cpf, 15, stdin);
+    cpf[strcspn(cpf, "\n")] = '\0';
 }
