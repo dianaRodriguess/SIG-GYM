@@ -36,3 +36,9 @@ void capturarDataNasc(char *dataNasc){
     fgets(dataNasc, 11, stdin);
     dataNasc[strcspn(dataNasc, "\n")] = '\0';
 }
+
+void capturarSexo(char *sexo){
+    printf("> Sexo: \n");
+    fgets(sexo, 11, stdin);
+    sexo[strcspn(sexo, "\n")] = '\0';
+}
