@@ -42,3 +42,9 @@ void capturarSexo(char *sexo){
     fgets(sexo, 11, stdin);
     sexo[strcspn(sexo, "\n")] = '\0';
 }
+
+void capturarPlano(char *plano){
+    printf("> Plano: \n");
+    fgets(plano, 11, stdin);
+    plano[strcspn(plano, "\n")] = '\0';
+}

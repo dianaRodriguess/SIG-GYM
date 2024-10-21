@@ -8,5 +8,6 @@ void capturarTelefone(char *telefone);
 void capturarEmail(char *email);
 void capturarDataNasc(char *dataNasc);
 void capturarSexo(char *sexo);
+void capturarPlano(char *plano);
 
 #endif
