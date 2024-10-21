@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../view/interface.h"
-#include "../model/cliente.h"
+#include "../clientes/controller.h"
 #include "../model/equipamentos.h"
 #include "../model/funcionario.h"
 #include "../model/treino.h"

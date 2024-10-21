@@ -1,9 +1,10 @@
-#if !defined(_CLIENTE_H)
-#define _CLIENTE_H
+#ifndef CONTROLER_H
+#define CONTROLER_H
 
 void cadastrarCliente(void);
 void pesquisarCliente(void);
 void atualizarCliente(void);
 void deletarCliente(void);
 
-#endif // _CLIENTE_H
+
+#endif
