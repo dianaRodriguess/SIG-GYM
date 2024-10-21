@@ -33,7 +33,12 @@ void pesquisarCliente(void) {
 }
 
 void atualizarCliente(void) {
+    char cpf[15];
+
     menuAtualizarCliente();
+    capturarCPF(cpf);
+
+    printf("|_____________________________________________|\n");
 }
 
 void deletarCliente(void) {
