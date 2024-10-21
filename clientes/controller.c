@@ -24,7 +24,12 @@ void cadastrarCliente(void) {
 }
 
 void pesquisarCliente(void) {
+    char cpf[15];
+
     menuPesquisarCliente();
+    capturarCPF(cpf);
+
+    printf("|_____________________________________________|\n");
 }
 
 void atualizarCliente(void) {
