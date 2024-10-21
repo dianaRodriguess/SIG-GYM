@@ -30,3 +30,9 @@ void capturarEmail(char *email){
     fgets(email, 55, stdin);
     email[strcspn(email, "\n")] = '\0';
 }
+
+void capturarDataNasc(char *dataNasc){
+    printf("> Data de nascimento: \n");
+    fgets(dataNasc, 11, stdin);
+    dataNasc[strcspn(dataNasc, "\n")] = '\0';
+}

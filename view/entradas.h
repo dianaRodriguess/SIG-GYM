@@ -6,5 +6,6 @@ void capturarCPF(char *cpf);
 void capturarEndereco(char *endereco);
 void capturarTelefone(char *telefone);
 void capturarEmail(char *email);
+void capturarDataNasc(char *dataNasc);
 
 #endif
