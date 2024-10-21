@@ -18,3 +18,9 @@ void capturarEndereco(char *endereco){
     fgets(endereco, 55, stdin);
     endereco[strcspn(endereco, "\n")] = '\0';
 }
+
+void capturarTelefone(char *telefone){
+    printf("> Telefone: \n");
+    fgets(telefone, 15, stdin);
+    telefone[strcspn(telefone, "\n")] = '\0';
+}
