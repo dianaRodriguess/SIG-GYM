@@ -24,3 +24,9 @@ void capturarTelefone(char *telefone){
     fgets(telefone, 15, stdin);
     telefone[strcspn(telefone, "\n")] = '\0';
 }
+
+void capturarEmail(char *email){
+    printf("> Email: \n");
+    fgets(email, 55, stdin);
+    email[strcspn(email, "\n")] = '\0';
+}
