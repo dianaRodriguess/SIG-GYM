@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void capturarNome(char *nome){
     printf("> Nome: \n");
@@ -39,12 +40,12 @@ void capturarDataNasc(char *dataNasc){
 
 void capturarSexo(char *sexo){
     printf("> Sexo: \n");
-    fgets(sexo, 11, stdin);
-    sexo[strcspn(sexo, "\n")] = '\0';
+    scanf(" %c", sexo);
+    getchar();
 }
 
 void capturarPlano(char *plano){
     printf("> Plano: \n");
-    fgets(plano, 11, stdin);
-    plano[strcspn(plano, "\n")] = '\0';
+    scanf(" %c", plano);
+    getchar();
 }
