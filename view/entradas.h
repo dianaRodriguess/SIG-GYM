@@ -10,4 +10,10 @@ void capturarDataNasc(char *dataNasc);
 void capturarSexo(char *sexo);
 void capturarPlano(char *plano);
 
+void limparBuffer(void);
+void pausarTela(void);
+
+char lerOpcao(void);
+char lerOpcaoMain(void);
+
 #endif

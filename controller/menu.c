@@ -5,7 +5,7 @@
 #include "../model/equipamentos.h"
 #include "../model/funcionario.h"
 #include "../model/treino.h"
-#include "entradas.h"
+#include "../view/entradas.h"
 #include "loops.h"
 
 void menu(void){

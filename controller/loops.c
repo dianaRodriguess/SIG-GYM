@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "entradas.h"
+#include "../view/entradas.h"
 #include "loops.h"
 #include "../clientes/controller.h"
 #include "../model/equipamentos.h"
