@@ -8,6 +8,13 @@ void capturarNome(char *nome){
     nome[strcspn(nome, "\n")] = '\0';
 }
 
+void capturarFuncao(char *funcao){
+    printf("> Função: \n");
+    fgets(funcao, 55, stdin);
+    funcao[strcspn(funcao, "\n")] = '\0';
+}
+
+
 void capturarCPF(char *cpf){
     printf("> CPF: \n");
     fgets(cpf, 15, stdin);
