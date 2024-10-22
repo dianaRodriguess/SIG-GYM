@@ -19,8 +19,8 @@ void capturarPlano(char *plano);
 void capturarCodBarras(char *codBarras);
 
 // Funções para capturar valores numéricos
-void capturarInt(int *quantidade);
-void capturarFloat(float *preco);
+void capturarInt(int quantidade);
+void capturarFloat(float preco);
 
 // Função para limpar o buffer de entrada
 void limparBuffer(void);

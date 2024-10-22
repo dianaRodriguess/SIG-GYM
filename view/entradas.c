@@ -68,13 +68,13 @@ void capturarCodBarras(char *codBarras){
     codBarras[strcspn(codBarras, "\n")] = '\0';
 }
 
-void capturarInt(int *quantidade){
+void capturarInt(int quantidade){
     printf("> Quantidade: \n");
     scanf("%d", quantidade);
     limparBuffer();
 }
 
-void capturarFloat(float *preco){
+void capturarFloat(float preco){
     printf("> Preço: \n");
     scanf("%f", preco);
     limparBuffer();
