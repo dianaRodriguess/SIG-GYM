@@ -2,7 +2,7 @@
 #include "../view/entradas.h"
 #include "loops.h"
 #include "../clientes/controller.h"
-#include "../model/equipamentos.h"
+#include "../equipamentos/controller.h"
 #include "../model/funcionario.h"
 #include "../model/treino.h"
 #include "../view/interface.h"

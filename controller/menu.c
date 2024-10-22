@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "../view/interface.h"
 #include "../clientes/controller.h"
-#include "../model/equipamentos.h"
+#include "../equipamentos/controller.h"
 #include "../model/funcionario.h"
 #include "../model/treino.h"
 #include "../view/entradas.h"
