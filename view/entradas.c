@@ -62,6 +62,12 @@ void capturarInt(int *quantidade){
     quantidade[strcspn(quantidade, "\n")] = '\0';
 }
 
+void capturarFloat(float *preco){
+    printf("> Preço: \n");
+    fgets(preco, sizeof(preco), stdin);
+    preco[strcspn(preco, "\n")] = '\0';
+}
+
 void limparBuffer(void) {
     int buffer;
     while ((buffer = getchar()) != '\n' && buffer != EOF);
