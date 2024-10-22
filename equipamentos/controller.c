@@ -20,16 +20,31 @@ void cadastrarEquipamento(void){
 }
 
 void pesquisarEquipamento(void){
+    char codBarras[13];
+
     menuPesquisarEquipamento();
+
+    capturarCodBarras(codBarras);
+
     printf("|________________________________________________|\n");
 }
 
 void atualizarEquipamento(void){
+    char codBarras[13];
+
     menuAtualizarEquipamento();
+
+    capturarCodBarras(codBarras);
+
     printf("|________________________________________________|\n");
 }
 
 void deletarEquipamento(void){
+    char codBarras[13];
+
     menuDeletarEquipamento();
+
+    capturarCodBarras(codBarras);
+
     printf("|________________________________________________|\n");
 }
