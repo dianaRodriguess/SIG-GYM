@@ -13,7 +13,7 @@ void cadastrarEquipamento(void){
     capturarFuncao(funcao);
     capturarMarca(marca);
     capturarPreco(preco);
-    capturarInt(quantidade);
+    capturarQuantidade(quantidade);
     capturarCodBarras(codBarras);
 
     printf("|________________________________________________|\n");

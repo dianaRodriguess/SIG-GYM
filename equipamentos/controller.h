@@ -1,9 +1,9 @@
-#ifndef CONTROLER_H
-#define CONTROLER_H
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
 void cadastrarEquipamento(void);
 void pesquisarEquipamento(void);
 void atualizarEquipamento(void);
 void deletarEquipamento(void);
 
-#endif
+#endif // CONTROLLER_H
