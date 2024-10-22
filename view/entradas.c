@@ -14,6 +14,11 @@ void capturarFuncao(char *funcao){
     funcao[strcspn(funcao, "\n")] = '\0';
 }
 
+void capturarMarca(char *marca){
+    printf("> Marca: \n");
+    fgets(marca, 15, stdin);
+    marca[strcspn(marca, "\n")] = '\0';
+}
 
 void capturarCPF(char *cpf){
     printf("> CPF: \n");
