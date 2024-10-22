@@ -50,6 +50,12 @@ void capturarPlano(char *plano){
     getchar();
 }
 
+void capturarCodBarras(char *codBarras){
+    printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
+    fgets(codBarras, 13, stdin);
+    codBarras[strcspn(codBarras, "\n")] = '\0';
+}
+
 void limparBuffer(void) {
     int buffer;
     while ((buffer = getchar()) != '\n' && buffer != EOF);
