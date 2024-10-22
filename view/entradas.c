@@ -56,6 +56,12 @@ void capturarCodBarras(char *codBarras){
     codBarras[strcspn(codBarras, "\n")] = '\0';
 }
 
+void capturarInt(int *quantidade){
+    printf("> Quantidade: \n");
+    fgets(quantidade, sizeof(quantidade), stdin);
+    quantidade[strcspn(quantidade, "\n")] = '\0';
+}
+
 void limparBuffer(void) {
     int buffer;
     while ((buffer = getchar()) != '\n' && buffer != EOF);
