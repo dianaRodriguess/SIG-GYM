@@ -25,5 +25,8 @@ void menuAtualizarFuncionario(void){
 }
 
 void menuDeletarFuncionario(void){
-
+    system("clear");
+    printf("|_________________________________________________|\n");
+    printf("|......  .  ... DELETAR FUNCIONÁRIO ...  .  ......|\n");
+    printf("|_________________________________________________|\n");
 }
