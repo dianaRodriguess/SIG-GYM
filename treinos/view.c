@@ -25,5 +25,8 @@ void menuAtualizarTreino(void){
 }
 
 void menuDeletarTreino(void){
-
+    system("clear");
+    printf("|____________________________________________|\n");
+    printf("|......  .  ... DELETAR TREINO ...  .  ......|\n");
+    printf("|____________________________________________|\n");
 }
