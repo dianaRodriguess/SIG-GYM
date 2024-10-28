@@ -10,6 +10,7 @@ void capturarEndereco(char *endereco);
 void capturarTelefone(char *telefone);
 void capturarEmail(char *email);
 void capturarDataNasc(char *dataNasc);
+void capturarCargo(char *cargo);
 
 // Funções para capturar caracteres
 void capturarSexo(char *sexo);
