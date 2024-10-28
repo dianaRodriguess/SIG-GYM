@@ -13,6 +13,7 @@ void capturarDataNasc(char *dataNasc);
 void capturarCargo(char *cargo);
 void capturarMusculos(char *musculos);
 void capturarRepeticao(char *repeticao);
+void capturarCodTreino(char *codTreino);
 
 // Funções para capturar caracteres
 void capturarSexo(char *sexo);

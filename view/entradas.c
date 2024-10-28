@@ -26,6 +26,12 @@ void capturarRepeticao(char *repeticao){
     repeticao[strcspn(repeticao, "\n")] = '\0';
 }
 
+void capturarCodTreino(char *codTreino){
+    printf("> Código do treino: \n");
+    fgets(codTreino, 6, stdin);
+    codTreino[strcspn(codTreino, "\n")] = '\0';
+}
+
 void capturarFuncao(char *funcao){
     printf("> Função: \n");
     fgets(funcao, 55, stdin);
