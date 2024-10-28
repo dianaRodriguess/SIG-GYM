@@ -20,6 +20,12 @@ void capturarMusculos(char *musculos){
     musculos[strcspn(musculos, "\n")] = '\0';
 }
 
+void capturarRepeticao(char *repeticao){
+    printf("> Repetição: \n");
+    fgets(repeticao, 32, stdin);
+    repeticao[strcspn(repeticao, "\n")] = '\0';
+}
+
 void capturarFuncao(char *funcao){
     printf("> Função: \n");
     fgets(funcao, 55, stdin);
