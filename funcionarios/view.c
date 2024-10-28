@@ -18,7 +18,10 @@ void menuPesquisarFuncionario(void){
 }
 
 void menuAtualizarFuncionario(void){
-
+    system("clear");
+    printf("|_________________________________________________|\n");
+    printf("|.....  .  ... ATUALIZAR FUNCIONÁRIO ...  .  .....|\n");
+    printf("|_________________________________________________|\n");
 }
 
 void menuDeletarFuncionario(void){
