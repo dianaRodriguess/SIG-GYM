@@ -4,7 +4,10 @@
 
 
 void menuCadastrarFuncionario(void){
-
+    system("clear");
+    printf("|_________________________________________________|\n");
+    printf("|.....  .  ... CADASTRAR FUNCIONÁRIO ...  .  .....|\n");
+    printf("|_________________________________________________|\n");
 }
 
 void menuPesquisarFuncionario(void){
