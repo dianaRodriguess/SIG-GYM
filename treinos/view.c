@@ -4,7 +4,10 @@
 
 
 void menuCadastrarTreino(void){
-
+    system("clear");
+    printf("|____________________________________________|\n");
+    printf("|.....  .  ... CADASTRAR TREINO ...  .  .....|\n");
+    printf("|____________________________________________|\n");
 }
 
 void menuPesquisarTreino(void){
