@@ -40,5 +40,10 @@ void atualizarFuncionario(void) {
 }
 
 void deletarFuncionario(void) {
+    char cpf[15];
+    
+    menuDeletarFuncionario();
+    capturarCPF(cpf);
 
+    printf("|_____________________________________________|\n");
 }
