@@ -11,7 +11,10 @@ void menuCadastrarFuncionario(void){
 }
 
 void menuPesquisarFuncionario(void){
-
+    system("clear");
+    printf("|_________________________________________________|\n");
+    printf("|.....  .  ... PESQUISAR FUNCIONÁRIO ...  .  .....|\n");
+    printf("|_________________________________________________|\n");
 }
 
 void menuAtualizarFuncionario(void){
