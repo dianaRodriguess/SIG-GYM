@@ -18,7 +18,10 @@ void menuPesquisarTreino(void){
 }
 
 void menuAtualizarTreino(void){
-
+    system("clear");
+    printf("|____________________________________________|\n");
+    printf("|.....  .  ... ATUALIZAR TREINO ...  .  .....|\n");
+    printf("|____________________________________________|\n");
 }
 
 void menuDeletarTreino(void){
