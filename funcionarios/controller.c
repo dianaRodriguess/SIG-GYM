@@ -22,7 +22,12 @@ void cadastrarFuncionario(void) {
 }
 
 void pesquisarFuncionario(void) {
+    char cpf[15];
 
+    menuPesquisarFuncionario();
+    capturarCPF(cpf);
+
+    printf("|_____________________________________________|\n");
 }
 
 void atualizarFuncionario(void) {
