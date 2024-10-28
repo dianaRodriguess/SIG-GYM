@@ -6,7 +6,19 @@
 
 
 void cadastrarFuncionario(void) {
+    char nome [55], cpf [15], endereco [55], telefone [15], email [55], dataNasc [11];
+    char cargo [22];
 
+    menuCadastrarFuncionario();
+    capturarNome(nome);
+    capturarCPF(cpf);
+    capturarEndereco(endereco);
+    capturarTelefone(telefone);
+    capturarEmail(email);
+    capturarDataNasc(dataNasc);
+    capturarCargo(cargo);
+
+    printf("|_____________________________________________|\n");
 }
 
 void pesquisarFuncionario(void) {
