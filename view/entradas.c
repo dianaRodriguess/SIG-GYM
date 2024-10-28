@@ -8,6 +8,12 @@ void capturarNome(char *nome){
     nome[strcspn(nome, "\n")] = '\0';
 }
 
+void capturarCargo(char *cargo){
+    printf("> Cargo: \n");
+    fgets(cargo, 22, stdin);
+    cargo[strcspn(cargo, "\n")] = '\0';
+}
+
 void capturarFuncao(char *funcao){
     printf("> Função: \n");
     fgets(funcao, 55, stdin);
