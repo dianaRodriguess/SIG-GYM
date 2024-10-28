@@ -31,7 +31,12 @@ void pesquisarFuncionario(void) {
 }
 
 void atualizarFuncionario(void) {
+    char cpf[15];
 
+    menuAtualizarFuncionario();
+    capturarCPF(cpf);
+
+    printf("|_____________________________________________|\n");
 }
 
 void deletarFuncionario(void) {
