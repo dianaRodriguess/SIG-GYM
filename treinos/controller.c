@@ -27,9 +27,19 @@ void pesquisarTreino(void) {
 }
 
 void atualizarTreino(void) {
+    char CodTreino[6];
 
+    menuAtualizarTreino();
+    capturarCPF(CodTreino);
+
+    printf("|_____________________________________________|\n");
 }
 
 void deletarTreino(void) {
+    char CodTreino[6];
+    
+    menuDeletarTreino();
+    capturarCPF(CodTreino);
 
+    printf("|_____________________________________________|\n");
 }
