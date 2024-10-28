@@ -3,8 +3,8 @@
 #include "../view/interface.h"
 #include "../clientes/controller.h"
 #include "../equipamentos/controller.h"
-#include "../model/funcionario.h"
-#include "../model/treino.h"
+#include "../funcionarios/controller.h"
+#include "../treinos/controller.h"
 #include "../view/entradas.h"
 #include "loops.h"
 
