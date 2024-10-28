@@ -11,6 +11,7 @@ void capturarTelefone(char *telefone);
 void capturarEmail(char *email);
 void capturarDataNasc(char *dataNasc);
 void capturarCargo(char *cargo);
+void capturarMusculos(char *musculos);
 
 // Funções para capturar caracteres
 void capturarSexo(char *sexo);

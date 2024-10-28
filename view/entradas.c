@@ -14,6 +14,12 @@ void capturarCargo(char *cargo){
     cargo[strcspn(cargo, "\n")] = '\0';
 }
 
+void capturarMusculos(char *musculos){
+    printf("> Musculos: \n");
+    fgets(musculos, 62, stdin);
+    musculos[strcspn(musculos, "\n")] = '\0';
+}
+
 void capturarFuncao(char *funcao){
     printf("> Função: \n");
     fgets(funcao, 55, stdin);
