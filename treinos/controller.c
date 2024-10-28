@@ -18,7 +18,12 @@ void cadastrarTreino(void) {
 }
 
 void pesquisarTreino(void) {
+    char CodTreino[6];
 
+    menuPesquisarTreino();
+    capturarCodTreino(CodTreino);
+
+    printf("|_____________________________________________|\n");
 }
 
 void atualizarTreino(void) {
