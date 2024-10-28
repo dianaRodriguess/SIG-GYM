@@ -11,7 +11,10 @@ void menuCadastrarTreino(void){
 }
 
 void menuPesquisarTreino(void){
-
+    system("clear");
+    printf("|____________________________________________|\n");
+    printf("|.....  .  ... PESQUISAR TREINO ...  .  .....|\n");
+    printf("|____________________________________________|\n");
 }
 
 void menuAtualizarTreino(void){
