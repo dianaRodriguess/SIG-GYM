@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../view/interface.h"
-#include "../model/cliente.h"
-#include "../model/equipamentos.h"
-#include "../model/funcionario.h"
-#include "../model/treino.h"
-#include "entradas.h"
+#include "../clientes/controller.h"
+#include "../equipamentos/controller.h"
+#include "../funcionarios/controller.h"
+#include "../treinos/controller.h"
+#include "../view/entradas.h"
 #include "loops.h"
 
 void menu(void){

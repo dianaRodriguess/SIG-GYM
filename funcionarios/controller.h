@@ -1,9 +1,10 @@
-#if !defined(_FUNCIONARIO_H_)
-#define _FUNCIONARIO_H_
+#ifndef FUN_CONTROLLER_H
+#define FUN_CONTROLLER_H
 
 void cadastrarFuncionario(void);
 void pesquisarFuncionario(void);
 void atualizarFuncionario(void);
 void deletarFuncionario(void);
 
-#endif // __FUNCIONARIO_H_f
+
+#endif // FUN_CONTROLLER_H

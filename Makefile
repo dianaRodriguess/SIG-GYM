@@ -7,13 +7,13 @@ CC := gcc
 CFLAGS := -Wall -Wextra -pedantic
 
 # Source files
-SRCS := main.c view/interface.c model/cliente.c model/equipamentos.c model/funcionario.c model/treino.c controller/entradas.c controller/loops.c controller/menu.c
+SRCS := main.c $(wildcard view/*.c) $(wildcard model/*.c) $(wildcard controller/*.c)  $(wildcard clientes/*.c) $(wildcard equipamentos/*.c) $(wildcard treinos/*.c) $(wildcard funcionarios/*.c)
 
 # Object files
 OBJS := $(SRCS:.c=.o)
 
 # Header files
-HDRS := view/interface.h model/cliente.h model/equipamentos.h model/funcionario.h model/treino.h controller/entradas.h controller/loops.h controller/menu.h
+HDRS := $(wildcard view/*.h) $(wildcard model/*.h) $(wildcard controller/*.h) $(wildcard clientes/*.h) $(wildcard equipamentos/*.h) $(wildcard treinos/*.h) $(wildcard funcionarios/*.h)
 
 # Executable name
 TARGET := main

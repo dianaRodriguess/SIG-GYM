@@ -1,9 +1,9 @@
-#if !defined(_EQUIPAMENTOS_H)
-#define _EQUIPAMENTOS_H
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
 void cadastrarEquipamento(void);
 void pesquisarEquipamento(void);
 void atualizarEquipamento(void);
 void deletarEquipamento(void);
 
-#endif // _EQUIPAMENTOS_H
+#endif // CONTROLLER_H
