@@ -41,3 +41,49 @@ int valida_telefone(char* numero) {
     
     return 1; // Número Válido
 }
+
+int valida_cpf(char* cpf) { // 
+    int digito1 = 0, digito2 = 0;
+
+    if(strlen(cpf) != 11){
+        return 0; 
+    } // Verifica se o vetor fornecido tem 11 caracteres
+
+    for(int i = 0; i < 11; i++){
+        if(!isdigit(cpf[i])){
+            return 0;
+        } // Verifica se todos os caracteres são digitos
+    }
+
+    for(int i = 1; i < 11; i++){
+        if(cpf[i] != cpf[0]){
+            break;
+        } else {
+            return 0; 
+        }
+    }
+
+    for(int i = 0; i < 9; i++){
+        digito1 += (cpf[i] - '0') * (10 - i);
+    } // Faz a multiplicação e a soma do primeiro digito verificador
+
+    digito1 %= 11;
+    digito1 = (digito1 < 2) ? 0 : 11 - digito1;
+
+    if(cpf[9] - '0' != digito1){
+        return 0; // Verifica se o primeiro dígito verificador corresponde ao cálculo de validação
+    }
+
+    for(int i = 0; i < 10; i++){
+        digito2 += (cpf[i] - '0') * (11 - i);
+    } // Faz a multiplicação e a soma do segundo digito verificador
+
+    digito2 %= 11;
+    digito2 = (digito2 < 2) ? 0 : 11 - digito2;
+
+    if(cpf[10] - '0' != digito2){
+        return 0; // Verifica se o segundo dígito verificador corresponde ao cálculo de validação
+    }
+
+    return 1;
+}
