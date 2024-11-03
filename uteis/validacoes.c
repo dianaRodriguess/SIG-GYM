@@ -100,7 +100,7 @@ int valida_cpf(char* cpf) { //
     }
 
     return 1;
-}
+} // Cálculo/Lógica de como validar um CPF retirado do site: https://www.macoratti.net/alg_cpf.htm
 
 DataAtual obter_data_atual(void) {
     time_t t = time(NULL);
@@ -157,4 +157,16 @@ int valida_data(int dia, int mes, int ano) {
     }
 
     return 1; // Data válida
+}
+
+int valida_quantidade(char* quantidade) {
+    if(!verifica_digito(quantidade, strlen(quantidade))){
+        return 0; // Verifica se todos os caracteres do array são digitos
+    }
+
+    if((quantidade - '0') < 0){
+        return 0; // Verifica se a quantidade é um número negativo
+    }
+
+    return 1;
 }
