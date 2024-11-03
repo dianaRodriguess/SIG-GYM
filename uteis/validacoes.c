@@ -35,10 +35,8 @@ int valida_telefone(char* numero) {
         return 0;
     } // Verifica se o número fornecido tem 11 caracteres
 
-    for(int i = 0; i < 11; i++){ // Verifica se todos os caracteres são digitos
-        if(!isdigit(numero[i])){
-            return 0; 
-        }
+    if(!verifica_digito(numero, 11)){
+        return 0;
     }
 
     ddd = (numero[0] - '0') * 10 + (numero[1] - '0'); // Transforma os dois primeiros digitos em inteiros e armazena na váriavel ddd
