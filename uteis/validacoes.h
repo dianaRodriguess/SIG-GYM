@@ -12,5 +12,6 @@ int valida_cpf(char*);
 int verifica_digito(char*, int);
 int veri_num_iguais(char*, int);
 int ano_bissexto(int);
+int valida_data(int, int, int);
 
 #endif

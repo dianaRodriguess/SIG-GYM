@@ -117,3 +117,44 @@ DataAtual obter_data_atual(void) {
 int ano_bissexto(int ano) {
     return ((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0) ? 1 : 0;
 } // Adaptada por - Paulo Douglas // Autor - ChatGPT
+
+int valida_data(int dia, int mes, int ano) {
+    DataAtual dataAtual = obter_data_atual();
+
+    if(ano > dataAtual.ano){
+        return 0; // Verifica se é um ano do futuro
+    }
+
+    if(ano < dataAtual.ano - 90){
+        return 0; // Ano informado é muito antigo 
+    }
+
+    if(mes < 1 || mes > 12){
+        return 0; // Mês inválido
+    }
+
+    if(dia < 1) {
+        return 0; // Dia deve ser maior que 0
+    }
+
+    // Verifica os dias máximos para cada mês
+    if (mes == 2) {
+        if(ano_bissexto(ano)) {
+            if(dia > 29){
+                return 0; // Fevereiro em ano bissexto não pode ter mais de 29 dias
+            }
+        } else if(dia > 28) {
+            return 0; // Fevereiro em ano não bissexto não pode ter mais de 28 dias
+        }
+    } else if(mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+        if(dia > 30) {
+            return 0; // Abril, Junho, Setembro e Novembro têm 30 dias
+        }
+    } else { // Meses de 31 dias
+        if(dia > 31) {
+            return 0; // Janeiro, Março, Maio, Julho, Agosto, Outubro e Dezembro têm 31 dias
+        }
+    }
+
+    return 1; // Data válida
+}
