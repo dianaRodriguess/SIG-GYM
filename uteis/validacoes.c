@@ -2,6 +2,24 @@
 #include <string.h>
 #include <ctype.h>
 
+int verifica_digito(char* array, int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (!isdigit(array[i])) {
+            return 0; // Retorna 0 se algum caractere não for dígito
+        }
+    }
+    return 1; // Retorna 1 se todos os caracteres forem dígitos
+}
+
+int veri_num_iguais(char* array, int tamanho) {
+    for (int i = 1; i < tamanho; i++) {
+        if (array[i] != array[0]) {
+            return 1; // Retorna 1 se encontrar um dígito diferente
+        }
+    }
+    return 0; // Retorna 0 se todos os dígitos forem iguais
+}
+
 int valida_telefone(char* numero) {
     int ddd;
     int ddd_valido = 0;
@@ -49,18 +67,12 @@ int valida_cpf(char* cpf) { //
         return 0; 
     } // Verifica se o vetor fornecido tem 11 caracteres
 
-    for(int i = 0; i < 11; i++){
-        if(!isdigit(cpf[i])){
-            return 0;
-        } // Verifica se todos os caracteres são digitos
+    if(!verifica_digito(cpf, 11)){
+        return 0;
     }
 
-    for(int i = 1; i < 11; i++){
-        if(cpf[i] != cpf[0]){
-            break;
-        } else {
-            return 0; 
-        }
+    if(!veri_num_iguais(cpf, 11)){
+        return 0; // Todos os digitos são iguais
     }
 
     for(int i = 0; i < 9; i++){
