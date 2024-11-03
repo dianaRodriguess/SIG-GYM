@@ -113,3 +113,7 @@ DataAtual obter_data_atual(void) {
 
     return dataAtual;
 }
+
+int ano_bissexto(int ano) {
+    return ((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0) ? 1 : 0;
+} // Adaptada por - Paulo Douglas // Autor - ChatGPT
