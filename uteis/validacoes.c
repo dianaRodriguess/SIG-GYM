@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
+#include "validacoes.h"
 
 int verifica_digito(char* array, int tamanho) {
     for (int i = 0; i < tamanho; i++) {
@@ -98,4 +100,16 @@ int valida_cpf(char* cpf) { //
     }
 
     return 1;
+}
+
+DataAtual obter_data_atual(void) {
+    time_t t = time(NULL);
+    struct tm* data = localtime(&t);
+    DataAtual dataAtual;
+
+    dataAtual.dia = data->tm_mday;
+    dataAtual.mes = data->tm_mon + 1;
+    dataAtual.ano = data->tm_year + 1900;
+
+    return dataAtual;
 }
