@@ -1,6 +1,26 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
+#include "validacoes.h"
+
+int verifica_digito(char* array, int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (!isdigit(array[i])) {
+            return 0; // Retorna 0 se algum caractere não for dígito
+        }
+    }
+    return 1; // Retorna 1 se todos os caracteres forem dígitos
+}
+
+int veri_num_iguais(char* array, int tamanho) {
+    for (int i = 1; i < tamanho; i++) {
+        if (array[i] != array[0]) {
+            return 1; // Retorna 1 se encontrar um dígito diferente
+        }
+    }
+    return 0; // Retorna 0 se todos os dígitos forem iguais
+}
 
 int valida_telefone(char* numero) {
     int ddd;
@@ -49,18 +69,12 @@ int valida_cpf(char* cpf) { //
         return 0; 
     } // Verifica se o vetor fornecido tem 11 caracteres
 
-    for(int i = 0; i < 11; i++){
-        if(!isdigit(cpf[i])){
-            return 0;
-        } // Verifica se todos os caracteres são digitos
+    if(!verifica_digito(cpf, 11)){
+        return 0;
     }
 
-    for(int i = 1; i < 11; i++){
-        if(cpf[i] != cpf[0]){
-            break;
-        } else {
-            return 0; 
-        }
+    if(!veri_num_iguais(cpf, 11)){
+        return 0; // Todos os digitos são iguais
     }
 
     for(int i = 0; i < 9; i++){
@@ -86,4 +100,61 @@ int valida_cpf(char* cpf) { //
     }
 
     return 1;
+}
+
+DataAtual obter_data_atual(void) {
+    time_t t = time(NULL);
+    struct tm* data = localtime(&t);
+    DataAtual dataAtual;
+
+    dataAtual.dia = data->tm_mday;
+    dataAtual.mes = data->tm_mon + 1;
+    dataAtual.ano = data->tm_year + 1900;
+
+    return dataAtual;
+}
+
+int ano_bissexto(int ano) {
+    return ((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0) ? 1 : 0;
+} // Adaptada por - Paulo Douglas // Autor - ChatGPT
+
+int valida_data(int dia, int mes, int ano) {
+    DataAtual dataAtual = obter_data_atual();
+
+    if(ano > dataAtual.ano){
+        return 0; // Verifica se é um ano do futuro
+    }
+
+    if(ano < dataAtual.ano - 90){
+        return 0; // Ano informado é muito antigo 
+    }
+
+    if(mes < 1 || mes > 12){
+        return 0; // Mês inválido
+    }
+
+    if(dia < 1) {
+        return 0; // Dia deve ser maior que 0
+    }
+
+    // Verifica os dias máximos para cada mês
+    if (mes == 2) {
+        if(ano_bissexto(ano)) {
+            if(dia > 29){
+                return 0; // Fevereiro em ano bissexto não pode ter mais de 29 dias
+            }
+        } else if(dia > 28) {
+            return 0; // Fevereiro em ano não bissexto não pode ter mais de 28 dias
+        }
+    } else if(mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+        if(dia > 30) {
+            return 0; // Abril, Junho, Setembro e Novembro têm 30 dias
+        }
+    } else { // Meses de 31 dias
+        if(dia > 31) {
+            return 0; // Janeiro, Março, Maio, Julho, Agosto, Outubro e Dezembro têm 31 dias
+        }
+    }
+
+    return 1; // Data válida
 }
