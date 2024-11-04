@@ -198,3 +198,30 @@ int valida_name(char *name, int nchar){
     }
     return 1;
 }
+
+int valida_email(char *email) {
+    regex_t regex;
+    char pattern[100];
+    int reti;
+    regmatch_t matches[1];
+
+    sprintf(pattern,"([a-zA-Z0-9\.\-\_]{2,})@([a-zA-Z0-9]{2,})(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?(\.[a-z]{2,})?");
+
+    reti = regcomp(&regex, pattern, REG_EXTENDED);
+    if (reti) {
+        printf(" :Could not compile regex:\n");
+        return 0;
+    }
+
+    reti = regexec(&regex, email, 1, matches, 0);
+    if (!reti){
+        regfree(&regex);
+        return 1;
+    } else if (reti == REG_NOMATCH) {
+        regfree(&regex);
+        return 0;
+    } else {
+        regfree(&regex);
+        return 0;
+    }
+}
