@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include <regex.h>
 #include "validacoes.h"
 
 int verifica_digito(char* array, int tamanho) {
@@ -166,5 +167,34 @@ int valida_quantidade(char* quantidade) {
         return 0; // Verifica se a quantidade é um número negativo
     }
 
+    return 1;
+}
+
+int valida_name(char *name, int nchar){
+    regex_t regex;
+    char pattern[100];
+    int reti;
+    regmatch_t matches[1];
+    
+    // formata o padrão com limite de caracteres
+    sprintf(pattern, "^[A-Za-zÀ-ÿ ]{1,%d}$", nchar);
+    // compile regex
+    reti = regcomp(&regex, pattern, REG_EXTENDED);
+    if (reti) {
+        printf(" :Could not compile regex:\n");
+        return 0;
+    }
+    // execute regex
+    reti = regexec(&regex, name, 1, matches, 0);
+    if (!reti){
+        regfree(&regex);
+        return 1;
+    } else if (reti == REG_NOMATCH) {
+        regfree(&regex);
+        return 0;
+    } else {
+        regfree(&regex);
+        return 0;
+    }
     return 1;
 }
