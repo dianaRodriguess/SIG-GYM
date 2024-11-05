@@ -226,6 +226,15 @@ int valida_email(char *email) {
     }
 }
 
+int checar_preco(char *preco) {
+    float preco_f;
+    preco_f = atof(preco);
+    if (preco_f < 0){
+        return 0;
+    }
+    return 1;
+}
+
 int validatePrice(char *price){
     regex_t regex;
     char pattern[] = "([0-9]{1,}(\\.[0-9]{3})*)[,\\.]([0-9]{2})";
