@@ -235,7 +235,7 @@ int checar_preco(char *preco) {
     return 1;
 }
 
-int validatePrice(char *preco){
+int valida_preco(char *preco){
     regex_t regex;
     char pattern[] = "([0-9]{1,}(\\.[0-9]{3})*)[,\\.]([0-9]{2})";
     int reti;
