@@ -16,5 +16,6 @@ int valida_data(int, int, int);
 int valida_quantidade(char*);
 int valida_name(char*, int);
 int valida_email(char*);
+int valida_preco(char*);
 
 #endif
