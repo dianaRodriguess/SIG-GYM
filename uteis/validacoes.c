@@ -235,15 +235,15 @@ int checar_preco(char *preco) {
     return 1;
 }
 
-int validatePrice(char *price){
+int validatePrice(char *preco){
     regex_t regex;
     char pattern[] = "([0-9]{1,}(\\.[0-9]{3})*)[,\\.]([0-9]{2})";
     int reti;
     regmatch_t matches[1];
 
-    for (int i = 0; price[i] != '\0'; i++) {
-        if (price[i] == ',') {
-            price[i] = '.';
+    for (int i = 0; preco[i] != '\0'; i++) {
+        if (preco[i] == ',') {
+            preco[i] = '.';
         }
     }
 
@@ -252,10 +252,10 @@ int validatePrice(char *price){
         printf(" :Could not compile regex:\n");
         return 0;
     }
-    if (!checkPrice(price)) {
+    if (!checkPrice(preco)) {
         return 0;
     }
-    reti = regexec(&regex, price, 1, matches, 0);
+    reti = regexec(&regex, preco, 1, matches, 0);
     if (!reti){
         regfree(&regex);
         return 1;
