@@ -14,5 +14,6 @@ int veri_num_iguais(char*, int);
 int ano_bissexto(int);
 int valida_data(int, int, int);
 int valida_quantidade(char*);
+int valida_name(char*, int);
 
 #endif
