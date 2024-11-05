@@ -225,3 +225,36 @@ int valida_email(char *email) {
         return 0;
     }
 }
+
+int validatePrice(char *price){
+    regex_t regex;
+    char pattern[] = "([0-9]{1,}(\\.[0-9]{3})*)[,\\.]([0-9]{2})";
+    int reti;
+    regmatch_t matches[1];
+
+    for (int i = 0; price[i] != '\0'; i++) {
+        if (price[i] == ',') {
+            price[i] = '.';
+        }
+    }
+
+    reti = regcomp(&regex, pattern, REG_EXTENDED);
+    if (reti) {
+        printf(" :Could not compile regex:\n");
+        return 0;
+    }
+    if (!checkPrice(price)) {
+        return 0;
+    }
+    reti = regexec(&regex, price, 1, matches, 0);
+    if (!reti){
+        regfree(&regex);
+        return 1;
+    } else if (reti == REG_NOMATCH) {
+        regfree(&regex);
+        return 0;
+    } else {
+        regfree(&regex);
+        return 0;
+    }
+}
