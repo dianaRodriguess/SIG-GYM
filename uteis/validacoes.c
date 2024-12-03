@@ -267,3 +267,17 @@ int valida_preco(char *preco){
         return 0;
     }
 }
+
+int verificaCargo(const int cargo){
+    if(cargo < 1 || cargo > 4){
+        return 0;
+    }
+    return 1;
+}
+
+int verificaPlano(const int plano){
+    if(plano < 1 || plano > 3){
+        return 0;
+    }
+    return 1;
+}
