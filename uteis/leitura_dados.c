@@ -25,3 +25,17 @@ void leNome(char* nome) {
         }
     } while(!valido);
 }
+
+void leCPF(char* cpf) {
+    int valido = 0;
+
+    do {
+        capturarCPF(cpf);
+
+        if (!validaCpf(cpf)) {
+            printf("CPF inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+}
