@@ -2,5 +2,6 @@
 #define LEITURA_DADOS_H
 
 void leNome(char*);
+void leCPF(char*);
 
 #endif
