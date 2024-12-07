@@ -50,12 +50,6 @@ void capturarCPF(char *cpf){
     cpf[strcspn(cpf, "\n")] = '\0';
 }
 
-void capturarEndereco(char *endereco){
-    printf("> Endereço: \n");
-    fgets(endereco, 55, stdin);
-    endereco[strcspn(endereco, "\n")] = '\0';
-}
-
 void capturarTelefone(char *telefone){
     printf("> Telefone: \n");
     fgets(telefone, 15, stdin);
