@@ -95,3 +95,17 @@ void lePlano(char* plano) {
         }
     } while(!valido);
 }
+
+void leDataNasc(char* dataNasc) {
+    int valido = 0;
+
+    do {
+        capturarDataNasc(dataNasc);
+
+        if (!validaData(dataNasc)) {
+            printf("Data de nascimento inválida, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+}
