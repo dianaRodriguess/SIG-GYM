@@ -39,3 +39,17 @@ void leCPF(char* cpf) {
         }
     } while(!valido);
 }
+
+void leTelefone(char* telefone){
+    int valido = 0;
+
+    do {
+        capturarTelefone(telefone);
+
+        if (!validaTelefone(telefone)) {
+            printf("Telefone inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+}
