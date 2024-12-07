@@ -63,7 +63,7 @@ void capturarEmail(char *email){
 }
 
 void capturarDataNasc(char *dataNasc){
-    printf("> Data de nascimento: ");
+    printf("> Data de nascimento (dd/mm/aaaa): ");
     fgets(dataNasc, 11, stdin);
     dataNasc[strcspn(dataNasc, "\n")] = '\0';
 }
