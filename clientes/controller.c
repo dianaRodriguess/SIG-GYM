@@ -7,45 +7,43 @@
 
 
 void cadastrarCliente(void) {
-    char nome[55], cpf[15], telefone[15], email[55], dataNasc[11];
-    char sexo, plano;
+    Cliente cliente;
 
     menuCadastrarCliente();
-    capturarNome(nome);
-    capturarCPF(cpf);
-    capturarTelefone(telefone);
-    capturarEmail(email);
-    capturarDataNasc(dataNasc);
-    capturarSexo(&sexo);
-    capturarPlano(&plano);
+    capturarNome(cliente.nome);
+    capturarCPF(cliente.cpf);
+    capturarTelefone(cliente.telefone);
+    capturarEmail(cliente.email);
+    capturarDataNasc(cliente.dataNasc);
+    capturarSexo(&cliente.sexo);
+    capturarPlano(&cliente.plano);
 
     printf("|_____________________________________________|\n");
-
 }
 
 void pesquisarCliente(void) {
-    char cpf[15];
+    Cliente cliente;
 
     menuPesquisarCliente();
-    capturarCPF(cpf);
+    capturarCPF(cliente.cpf);
 
     printf("|_____________________________________________|\n");
 }
 
 void atualizarCliente(void) {
-    char cpf[15];
+    Cliente cliente;
 
     menuAtualizarCliente();
-    capturarCPF(cpf);
+    capturarCPF(cliente.cpf);
 
     printf("|_____________________________________________|\n");
 }
 
 void deletarCliente(void) {
-    char cpf[15];
+    Cliente cliente;
     
     menuDeletarCliente();
-    capturarCPF(cpf);
+    capturarCPF(cliente.cpf);
 
     printf("|_____________________________________________|\n");
 }
