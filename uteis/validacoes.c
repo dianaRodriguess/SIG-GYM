@@ -252,7 +252,7 @@ int validaPreco(char *preco){
         printf(" :Could not compile regex:\n");
         return 0;
     }
-    if (!checkPrice(preco)) {
+    if (!checaPreco(preco)) {
         return 0;
     }
     reti = regexec(&regex, preco, 1, matches, 0);
