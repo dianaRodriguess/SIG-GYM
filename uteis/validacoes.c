@@ -5,7 +5,7 @@
 #include <regex.h>
 #include "validacoes.h"
 
-int verifica_digito(char* array, int tamanho) {
+int verificaDigito(char* array, int tamanho) {
     for (int i = 0; i < tamanho; i++) {
         if (!isdigit(array[i])) {
             return 0; // Retorna 0 se algum caractere não for dígito
@@ -14,7 +14,7 @@ int verifica_digito(char* array, int tamanho) {
     return 1; // Retorna 1 se todos os caracteres forem dígitos
 }
 
-int veri_num_iguais(char* array, int tamanho) {
+int veriNumIguais(char* array, int tamanho) {
     for (int i = 1; i < tamanho; i++) {
         if (array[i] != array[0]) {
             return 1; // Retorna 1 se encontrar um dígito diferente
@@ -23,7 +23,7 @@ int veri_num_iguais(char* array, int tamanho) {
     return 0; // Retorna 0 se todos os dígitos forem iguais
 }
 
-int valida_telefone(char* numero) {
+int validaTelefone(char* numero) {
     int ddd;
     int ddd_valido = 0;
     int ddds_validos[] = {11, 12, 13, 14, 15, 16, 17, 18, 19,
@@ -38,7 +38,7 @@ int valida_telefone(char* numero) {
         return 0;
     } // Verifica se o número fornecido tem 11 caracteres
 
-    if(!verifica_digito(numero, 11)){
+    if(!verificaDigito(numero, 11)){
         return 0;
     }
 
@@ -61,18 +61,18 @@ int valida_telefone(char* numero) {
     return 1; // Número Válido
 }
 
-int valida_cpf(char* cpf) { // 
+int validaCpf(char* cpf) { // 
     int digito1 = 0, digito2 = 0;
 
     if(strlen(cpf) != 11){
         return 0; 
     } // Verifica se o vetor fornecido tem 11 caracteres
 
-    if(!verifica_digito(cpf, 11)){
+    if(!verificaDigito(cpf, 11)){
         return 0;
     }
 
-    if(!veri_num_iguais(cpf, 11)){
+    if(!veriNumIguais(cpf, 11)){
         return 0; // Todos os digitos são iguais
     }
 
@@ -101,7 +101,7 @@ int valida_cpf(char* cpf) { //
     return 1;
 } // Cálculo/Lógica de como validar um CPF retirado do site: https://www.macoratti.net/alg_cpf.htm
 
-DataAtual obter_data_atual(void) {
+DataAtual obterDataAtual(void) {
     time_t t = time(NULL);
     struct tm* data = localtime(&t);
     DataAtual dataAtual;
@@ -113,12 +113,12 @@ DataAtual obter_data_atual(void) {
     return dataAtual;
 }
 
-int ano_bissexto(int ano) {
+int anoBissexsto(int ano) {
     return ((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0) ? 1 : 0;
 } // Adaptada por - Paulo Douglas // Autor - ChatGPT
 
-int valida_data(int dia, int mes, int ano) {
-    DataAtual dataAtual = obter_data_atual();
+int validaData(int dia, int mes, int ano) {
+    DataAtual dataAtual = obterDataAtual();
 
     if(ano > dataAtual.ano){
         return 0; // Verifica se é um ano do futuro
@@ -138,7 +138,7 @@ int valida_data(int dia, int mes, int ano) {
 
     // Verifica os dias máximos para cada mês
     if (mes == 2) {
-        if(ano_bissexto(ano)) {
+        if(anoBissexsto(ano)) {
             if(dia > 29){
                 return 0; // Fevereiro em ano bissexto não pode ter mais de 29 dias
             }
@@ -158,8 +158,8 @@ int valida_data(int dia, int mes, int ano) {
     return 1; // Data válida
 }
 
-int valida_quantidade(char* quantidade) {
-    if(!verifica_digito(quantidade, strlen(quantidade))){
+int validaQuantidade(char* quantidade) {
+    if(!verificaDigito(quantidade, strlen(quantidade))){
         return 0; // Verifica se todos os caracteres do array são digitos
     }
 
@@ -170,7 +170,7 @@ int valida_quantidade(char* quantidade) {
     return 1;
 }
 
-int valida_name(char *name, int nchar){
+int validaName(char *name, int nchar){
     regex_t regex;
     char pattern[100];
     int reti;
@@ -199,7 +199,7 @@ int valida_name(char *name, int nchar){
     return 1;
 }
 
-int valida_email(char *email) {
+int validaEmail(char *email) {
     regex_t regex;
     char pattern[100];
     int reti;
@@ -226,7 +226,7 @@ int valida_email(char *email) {
     }
 }
 
-int checar_preco(char *preco) {
+int checaPreco(char *preco) {
     float preco_f;
     preco_f = atof(preco);
     if (preco_f < 0){
@@ -235,7 +235,7 @@ int checar_preco(char *preco) {
     return 1;
 }
 
-int valida_preco(char *preco){
+int validaPreco(char *preco){
     regex_t regex;
     char pattern[] = "([0-9]{1,}(\\.[0-9]{3})*)[,\\.]([0-9]{2})";
     int reti;
