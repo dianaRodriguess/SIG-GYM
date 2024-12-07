@@ -2,17 +2,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include "view.h"
+#include "model.h"
 #include "../view/entradas.h"
 
 
 void cadastrarCliente(void) {
-    char nome[55], cpf[15], endereco[55], telefone[15], email[55], dataNasc[11];
+    char nome[55], cpf[15], telefone[15], email[55], dataNasc[11];
     char sexo, plano;
 
     menuCadastrarCliente();
     capturarNome(nome);
     capturarCPF(cpf);
-    capturarEndereco(endereco);
     capturarTelefone(telefone);
     capturarEmail(email);
     capturarDataNasc(dataNasc);
