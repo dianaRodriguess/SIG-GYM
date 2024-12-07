@@ -13,7 +13,7 @@ int verificaDigito(char*, int);
 int veriNumIguais(char*, int);
 DataAtual obterDataAtual(void);
 int anoBissexsto(int);
-int validaData(int, int, int);
+int validaData(const char*);
 int validaQuantidade(char*);
 int validaName(char*, int);
 int validaEmail(char*);
