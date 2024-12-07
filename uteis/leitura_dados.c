@@ -67,3 +67,17 @@ void leEmail(char* email) {
         }
     } while(!valido);
 }
+
+void leSexo(char* sexo) {
+    int valido = 0;
+
+    do {
+        capturarSexo(sexo);
+
+        if (*sexo != 'M' && *sexo != 'F') {
+            printf("Sexo inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+}
