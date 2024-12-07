@@ -9,6 +9,7 @@ typedef struct {
     char dataNasc[11];
     char sexo;
     char plano;
+    int status;
 } Cliente;
 
 #endif
