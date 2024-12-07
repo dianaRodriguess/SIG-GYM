@@ -40,7 +40,7 @@ void leCPF(char* cpf) {
     } while(!valido);
 }
 
-void leTelefone(char* telefone){
+void leTelefone(char* telefone) {
     int valido = 0;
 
     do {
@@ -48,6 +48,20 @@ void leTelefone(char* telefone){
 
         if (!validaTelefone(telefone)) {
             printf("Telefone inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+}
+
+void leEmail(char* email) {
+    int valido = 0;
+
+    do {
+        capturarEmail(email);
+
+        if (!validaEmail(email)) {
+            printf("Email inválido, tente novamente.\n");
         } else {
             valido = 1;
         }
