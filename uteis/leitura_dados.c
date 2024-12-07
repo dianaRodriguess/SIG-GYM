@@ -81,3 +81,17 @@ void leSexo(char* sexo) {
         }
     } while(!valido);
 }
+
+void lePlano(char* plano) {
+    int valido = 0;
+
+    do {
+        capturarPlano(plano);
+
+        if (!verificaPlano(atoi(plano))) {
+            printf("Plano inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+}

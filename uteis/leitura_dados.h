@@ -6,5 +6,6 @@ void leCPF(char*);
 void leTelefone(char*);
 void leEmail(char*);
 void leSexo(char*);
+void lePlano(char*);
 
 #endif
