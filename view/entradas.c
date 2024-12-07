@@ -3,97 +3,97 @@
 #include <string.h>
 
 void capturarNome(char *nome){
-    printf("> Nome: \n");
+    printf("> Nome: ");
     fgets(nome, 55, stdin);
     nome[strcspn(nome, "\n")] = '\0';
 }
 
 void capturarCargo(char *cargo){
-    printf("> Cargo: \n");
+    printf("> Cargo: ");
     fgets(cargo, 22, stdin);
     cargo[strcspn(cargo, "\n")] = '\0';
 }
 
 void capturarMusculos(char *musculos){
-    printf("> Musculos: \n");
+    printf("> Musculos: ");
     fgets(musculos, 62, stdin);
     musculos[strcspn(musculos, "\n")] = '\0';
 }
 
 void capturarRepeticao(char *repeticao){
-    printf("> Repetição: \n");
+    printf("> Repetição: ");
     fgets(repeticao, 32, stdin);
     repeticao[strcspn(repeticao, "\n")] = '\0';
 }
 
 void capturarCodTreino(char *codTreino){
-    printf("> Código do treino: \n");
+    printf("> Código do treino: ");
     fgets(codTreino, 6, stdin);
     codTreino[strcspn(codTreino, "\n")] = '\0';
 }
 
 void capturarFuncao(char *funcao){
-    printf("> Função: \n");
+    printf("> Função: ");
     fgets(funcao, 55, stdin);
     funcao[strcspn(funcao, "\n")] = '\0';
 }
 
 void capturarMarca(char *marca){
-    printf("> Marca: \n");
+    printf("> Marca: ");
     fgets(marca, 15, stdin);
     marca[strcspn(marca, "\n")] = '\0';
 }
 
 void capturarCPF(char *cpf){
-    printf("> CPF: \n");
+    printf("> CPF: ");
     fgets(cpf, 15, stdin);
     cpf[strcspn(cpf, "\n")] = '\0';
 }
 
 void capturarTelefone(char *telefone){
-    printf("> Telefone: \n");
+    printf("> Telefone: ");
     fgets(telefone, 15, stdin);
     telefone[strcspn(telefone, "\n")] = '\0';
 }
 
 void capturarEmail(char *email){
-    printf("> Email: \n");
+    printf("> Email: ");
     fgets(email, 55, stdin);
     email[strcspn(email, "\n")] = '\0';
 }
 
 void capturarDataNasc(char *dataNasc){
-    printf("> Data de nascimento: \n");
+    printf("> Data de nascimento (dd/mm/aaaa): ");
     fgets(dataNasc, 11, stdin);
     dataNasc[strcspn(dataNasc, "\n")] = '\0';
 }
 
 void capturarSexo(char *sexo){
-    printf("> Sexo: \n");
+    printf("> Sexo: ");
     scanf(" %c", sexo);
     getchar();
 }
 
 void capturarPlano(char *plano){
-    printf("> Plano: \n");
+    printf("> Plano: ");
     scanf(" %c", plano);
     getchar();
 }
 
 void capturarCodBarras(char *codBarras){
-    printf("\n>Digite o Código de barras do equipamento (apenas números): \n");
+    printf("\n>Digite o Código de barras do equipamento (apenas números): ");
     fgets(codBarras, 13, stdin);
     codBarras[strcspn(codBarras, "\n")] = '\0';
 }
 
 void capturarQuantidade(char *quantidade){
-    printf("> Quantidade: \n");
+    printf("> Quantidade: ");
     fgets(quantidade, 9, stdin);
     quantidade[strcspn(quantidade, "\n")] = '\0';
 }
 
 void capturarPreco(char *preco){
-    printf("> Preço: \n");
+    printf("> Preço: ");
     fgets(preco, 9, stdin);
     preco[strcspn(preco, "\n")] = '\0';
 }

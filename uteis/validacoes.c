@@ -117,8 +117,13 @@ int anoBissexsto(int ano) {
     return ((ano % 4 == 0) && (ano % 100 != 0)) || (ano % 400 == 0) ? 1 : 0;
 } // Adaptada por - Paulo Douglas // Autor - ChatGPT
 
-int validaData(int dia, int mes, int ano) {
+int validaData(const char* dataNasc) {
     DataAtual dataAtual = obterDataAtual();
+    int dia, mes, ano;
+
+    if(sscanf(dataNasc, "%d/%d/%d", &dia, &mes, &ano) != 3){
+        return 0; // Verifica se a data foi informada no formato correto
+    }
 
     if(ano > dataAtual.ano){
         return 0; // Verifica se é um ano do futuro
@@ -252,7 +257,7 @@ int validaPreco(char *preco){
         printf(" :Could not compile regex:\n");
         return 0;
     }
-    if (!checkPrice(preco)) {
+    if (!checaPreco(preco)) {
         return 0;
     }
     reti = regexec(&regex, preco, 1, matches, 0);
