@@ -7,11 +7,13 @@
 typedef struct {
     char nome[55]; 
     char marca[27];
-    char funcao[27];
-    int codBarras[13];
-    int quantidade[9]; 
-    float preco[9];
-    char status;
+    char funcao[27]; 
+    int codBarras;
+    int quantidade; 
+    int status; // 1 = ativo, 0 = passivo
+    float preco;
 } Equipamento;
+
+int escreverNoArquivoEqui(Equipamento* equi);
 
 #endif
