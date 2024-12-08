@@ -4,6 +4,20 @@
 #include "view.h"
 #include "../view/entradas.h"
 
+void mostrarEquipamentos(Equipamento* equi){
+    
+    printf("\n... INFORMAÇÕES DO EQUIPAMENTO ...\n");
+
+    printf(">> Nome: %s\n", equi->nome);
+    printf(">> Marca: %s\n", equi->marca);
+    printf(">> Funcao: %s\n", equi->funcao);
+    printf(">> Preco: %.2f\n", equi->preco);
+    printf(">> Quantidade: %d\n", equi->quantidade);
+    printf(">> Codigo de Barras: %d\n", equi->codBarras);
+    printf(">> Status: %d\n", equi->status);
+    printf("|________________________________________________|\n");
+}
+
 void cadastrarEquipamento(void){
     Equipamento* equi = malloc(sizeof(Equipamento));
     if (equi == NULL) {
@@ -19,14 +33,14 @@ void cadastrarEquipamento(void){
     capturarPreco(&(equi->preco));
     capturarQuantidade(&(equi->quantidade));
     capturarCodBarras(&(equi->codBarras));
-    printf("|________________________________________________|\n");
-    escreverNoArquivoEqui(equi);
     equi->status = 1;
+
+    escreverNoArquivoEqui(equi);
+    free(equi);
 }
 
 void pesquisarEquipamento(void){
     Equipamento* equi = malloc(sizeof(Equipamento));
-    // char codBarras[13];
 
     menuPesquisarEquipamento();
 
