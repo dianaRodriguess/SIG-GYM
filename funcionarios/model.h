@@ -12,6 +12,6 @@ typedef struct {
     char telefone[15];
     char dataNasc[11];
     char status;
-} Funcionario;
+} Funcionario; 
 
 #endif
