@@ -7,15 +7,19 @@ typedef struct{
    int ano;
 } DataAtual;
 
-int valida_telefone(char*);
-int valida_cpf(char*);
-int verifica_digito(char*, int);
-int veri_num_iguais(char*, int);
-int ano_bissexto(int);
-int valida_data(int, int, int);
-int valida_quantidade(char*);
-int valida_name(char*, int);
-int valida_email(char*);
-int valida_preco(char*);
+int validaTelefone   (char*);
+int validaCpf(char*);
+int verificaDigito(char*, int);
+int veriNumIguais(char*, int);
+DataAtual obterDataAtual(void);
+int anoBissexsto(int);
+int validaData(const char*);
+int validaQuantidade(char*);
+int validaName(char*, int);
+int validaEmail(char*);
+int checaPreco(char*);
+int validaPreco(char*);
+int verificaCargo(const int);
+int verificaPlano(const int);
 
 #endif
