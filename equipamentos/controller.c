@@ -1,50 +1,61 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "model.h"
 #include "view.h"
 #include "../view/entradas.h"
 
 void cadastrarEquipamento(void){
-    char nome[55], funcao[27], marca[27], preco[9];
-    char quantidade[9], codBarras[13];
+    Equipamento* equi = malloc(sizeof(Equipamento));
+    if (equi == NULL) {
+        printf("Erro ao alocar memória\n");
+        exit(1);
+    }
 
     menuCadastrarEquipamento();
 
-    capturarNome(nome);
-    capturarFuncao(funcao);
-    capturarMarca(marca);
-    capturarPreco(preco);
-    capturarQuantidade(quantidade);
-    capturarCodBarras(codBarras);
-
+    capturarNome(equi->nome);
+    capturarFuncao(equi->funcao);
+    capturarMarca(equi->marca);
+    capturarPreco(&(equi->preco));
+    capturarQuantidade(&(equi->quantidade));
+    capturarCodBarras(&(equi->codBarras));
     printf("|________________________________________________|\n");
+    escreverNoArquivoEqui(equi);
+    equi->status = 1;
 }
 
 void pesquisarEquipamento(void){
-    char codBarras[13];
+    Equipamento* equi = malloc(sizeof(Equipamento));
+    // char codBarras[13];
 
     menuPesquisarEquipamento();
 
-    capturarCodBarras(codBarras);
+    capturarCodBarras(&(equi->codBarras));
 
     printf("|________________________________________________|\n");
+    free(equi);
 }
 
 void atualizarEquipamento(void){
-    char codBarras[13];
+    Equipamento* equi = malloc(sizeof(Equipamento));
+    // char codBarras[13];
 
     menuAtualizarEquipamento();
 
-    capturarCodBarras(codBarras);
+    capturarCodBarras(&(equi->codBarras));
 
     printf("|________________________________________________|\n");
+    free(equi);
 }
 
 void deletarEquipamento(void){
-    char codBarras[13];
+    Equipamento* equi = malloc(sizeof(Equipamento));
+    // char codBarras[13];
 
     menuDeletarEquipamento();
 
-    capturarCodBarras(codBarras);
+    capturarCodBarras(&(equi->codBarras));
 
     printf("|________________________________________________|\n");
+    free(equi);
 }
