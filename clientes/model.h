@@ -1,11 +1,14 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-typedef struct{
-    char cidade[51];
-    char bairro[35];
-    char rua[51];
-    char numero[6];
-} Endereco;
+typedef struct {
+    char nome[61];
+    char cpf[15];
+    char telefone[12];
+    char email[55];
+    char dataNasc[11];
+    char sexo;
+    char plano;
+} Cliente;
 
 #endif
