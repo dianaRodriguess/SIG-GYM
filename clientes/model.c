@@ -1,8 +1,9 @@
-#include "model.h"
-#include "../libs/leitura_dados.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "libs/utils.h"
+#include "model.h"
+#include "../libs/leitura_dados.h"
 
 void salvarCliente(Cliente* cliente){
     FILE* arquivo = fopen("clientes.dat", "ab");
@@ -56,5 +57,29 @@ int regravaCliente(Cliente* cliente){
     fclose(arquivo);
     free(novoCliente);
     free(cliente);
+    return -1;
+}
+
+int excluirCliente(Cliente* cliente, char* cpf){
+    FILE* arquivo = fopen("clientes.dat", "r+b");
+    if(arquivo == NULL){
+        printf("Erro ao abrir o arquivo\n");
+        exit(1);
+    }
+
+    while(fread(cliente, sizeof(Cliente), 1, arquivo)){
+        if(!strcmp(cliente->cpf, cpf) && cliente->status == 1){
+            fseek(arquivo, -sizeof(Cliente), SEEK_CUR);
+            cliente->status = 0;
+            fclose(arquivo);
+            free(cliente);
+            free(cpf);
+            return 1;
+        }
+    }
+
+    fclose(arquivo);
+    free(cliente);
+    free(cpf);
     return -1;
 }

@@ -15,5 +15,6 @@ typedef struct {
 void salvarCliente(Cliente*);
 Cliente* carregarClientes(char*);
 int regravaCliente(Cliente*);
+int excluirCliente(Cliente*, char*);
 
 #endif
