@@ -12,4 +12,6 @@ typedef struct {
     int status;
 } Cliente;
 
+void salvarCliente(Cliente*);
+
 #endif
