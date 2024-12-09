@@ -1,10 +1,11 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-void menuCadastrarCliente(void);
-void menuPesquisarCliente(void);
-void menuAtualizarCliente(void);
-void menuDeletarCliente(void);
+char menuClientes(void);
+void cadastrarClientes(void);
+void exibirDados(void);
+void alterarDados(void);
+void excluirCliente(void);
+void dadosClientes(Cliente*);
 
-
-#endif // VIEW_H
+#endif
