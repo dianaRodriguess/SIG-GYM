@@ -1,24 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "view.h"
+#include "../libs/leitura_dados.h"
+#include "../libs/utils.h"
 #include "model.h"
-#include "../view/entradas.h"
+#include "view.h"
+#include "controller.h"
 
 
-void cadastrarCliente(void) {
-    Cliente cliente;
+Cliente* cadastrarCliente(void){
+    Cliente* cliente = (Cliente*) malloc(sizeof(Cliente));
+    if(cliente == NULL){
+        printf("Erro ao alocar memoria\n");
+        exit(1);
+    }
 
-    menuCadastrarCliente();
-    capturarNome(cliente.nome);
-    capturarCPF(cliente.cpf);
-    capturarTelefone(cliente.telefone);
-    capturarEmail(cliente.email);
-    capturarDataNasc(cliente.dataNasc);
-    capturarSexo(&cliente.sexo);
-    capturarPlano(&cliente.plano);
+    cadastrarClientes();
 
-    printf("|_____________________________________________|\n");
+    char* cpf = leCPF();
+    cpf = cancaleOperacao(cpf, cliente);
+    if(cpf == NULL) return NULL;
+    strcpy(cliente->cpf, cpf);
+    free(cpf);
+
+    char* nome = leNome();
+    nome = cancaleOperacao(nome, cliente);
+    if(nome == NULL) return NULL;
+    strcpy(cliente->nome, nome);
+    free(nome);
+
+    char* telefone = leTelefone();
+    telefone = cancaleOperacao(telefone, cliente);
+    if(telefone == NULL) return NULL;
+    strcpy(cliente->telefone, telefone);
+
+    char* email = leEmail();
+    email = cancaleOperacao(email, cliente);
+    if(email == NULL) return NULL;
+    strcpy(cliente->email, email);
+
+    char* dataNasc = leDataNasc();
+    dataNasc = cancaleOperacao(dataNasc, cliente);
+    if(dataNasc == NULL) return NULL;
+    strcpy(cliente->dataNasc, dataNasc);
+
+    char* sexo = leSexo();
+    sexo = cancaleOperacao(sexo, cliente);
+    if(sexo == NULL) return NULL;
+    cliente->sexo = *sexo;
+
+    char* plano = lePlano();
+    plano = cancaleOperacao(plano, cliente);
+    if(plano == NULL) return NULL;
+    cliente->plano = *plano;
+
+    cliente->status = 1;
+
+    return cliente;
 }
 
 void pesquisarCliente(void) {
