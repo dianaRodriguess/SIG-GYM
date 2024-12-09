@@ -13,5 +13,6 @@ typedef struct {
 } Cliente;
 
 void salvarCliente(Cliente*);
+Cliente* carregarClientes(char*);
 
 #endif
