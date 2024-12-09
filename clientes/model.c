@@ -40,8 +40,7 @@ Cliente* carregarClientes(char* cpf){
 int regravaCliente(Cliente* cliente){
     FILE* arquivo = fopen("clientes.dat", "r+b");
     if(arquivo == NULL){
-        printf("Erro ao abrir o arquivo\n");
-        exit(1);
+        return 0;
     }
 
     Cliente* novoCliente = (Cliente*)malloc(sizeof(Cliente));
@@ -50,15 +49,11 @@ int regravaCliente(Cliente* cliente){
             fseek(arquivo, -sizeof(Cliente), SEEK_CUR);
             fwrite(cliente, sizeof(Cliente), 1, arquivo);
             fclose(arquivo);
-            free(novoCliente);
-            free(cliente);
             return 1;
         }
     }
-
+    
     fclose(arquivo);
-    free(novoCliente);
-    free(cliente);
     return -1;
 }
 
