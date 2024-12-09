@@ -69,13 +69,20 @@ Cliente* cadastrarCliente(void){
     return cliente;
 }
 
-void pesquisarCliente(void) {
-    Cliente cliente;
+void listarDados(void){
+    char* cpf = leCPF();
+    Cliente* cliente = carregarClientes(cpf);
+    if (cliente == NULL) {
+        printf("Cliente não encontrado ou não está ativo.\n");
+        free(cliente);
+        free(cpf);
+        return;
+    }
 
-    menuPesquisarCliente();
-    capturarCPF(cliente.cpf);
+    dadosClientes(cliente);
 
-    printf("|_____________________________________________|\n");
+    free(cliente);
+    free(cpf);
 }
 
 void atualizarCliente(void) {

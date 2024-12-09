@@ -3,7 +3,7 @@
 
 char* cancaleOperacao(char*, Cliente*);
 Cliente* cadastrarCliente(void);
-void pesquisarCliente(void);
+void listarDados(void);
 void atualizarCliente(void);
 void deletarCliente(void);
 
