@@ -24,18 +24,16 @@ Cliente* carregarClientes(char* cpf){
     Cliente* cliente = (Cliente*)malloc(sizeof(Cliente));
     FILE* arquivo = fopen("clientes.dat", "rb");
     if(arquivo == NULL) {
-        printf("Erro ao abrir o arquivo\n");
-        exit(1);
+        return NULL;
     }
 
-    while (fread(cliente, sizeof(Cliente), 1, arquivo)) {
+    while(fread(cliente, sizeof(Cliente), 1, arquivo)) {
     if ((!strcmp(cliente->cpf, cpf)) && (cliente->status == 1)) {
         fclose(arquivo);
         return cliente;
     }}
 
     fclose(arquivo);
-    free(cliente);
     return NULL;
 }
 
