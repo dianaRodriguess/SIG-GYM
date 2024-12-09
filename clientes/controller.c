@@ -7,6 +7,16 @@
 #include "view.h"
 #include "controller.h"
 
+char* cancaleOperacao(char* op, Cliente* cliente){
+    if(op == NULL){
+        printf("Operação cancelada.\n");
+        pausarTela();
+        free(cliente);
+        free(op);
+        return NULL;
+    }
+    return op;
+}
 
 Cliente* cadastrarCliente(void){
     Cliente* cliente = (Cliente*) malloc(sizeof(Cliente));
