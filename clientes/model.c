@@ -5,15 +5,19 @@
 #include "model.h"
 #include "../libs/leitura_dados.h"
 
-void salvarCliente(Cliente* cliente){
+int salvarCliente(Cliente* cliente){
     FILE* arquivo = fopen("clientes.dat", "ab");
     if(arquivo == NULL){
-        printf("Erro ao abrir o arquivo\n");
-        exit(1);
+         return 0;
     }
-    fwrite(cliente, sizeof(Cliente), 1, arquivo);
-    fclose(arquivo);
-    free(cliente);
+    if(fwrite(cliente, sizeof(Cliente), 1, arquivo) != 1){
+        return -1;
+    }
+    if(fclose(arquivo) != 0){
+        return -2;
+    }
+
+    return 1;
 }
 
 Cliente* carregarClientes(char* cpf){

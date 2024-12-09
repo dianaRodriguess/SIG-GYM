@@ -12,7 +12,7 @@ typedef struct {
     int status;
 } Cliente;
 
-void salvarCliente(Cliente*);
+int salvarCliente(Cliente*);
 Cliente* carregarClientes(char*);
 int regravaCliente(Cliente*);
 int excluirCliente(Cliente*, char*);
