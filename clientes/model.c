@@ -73,16 +73,14 @@ int excluirCliente(Cliente* cliente, char* cpf){
         if(!strcmp(cliente->cpf, cpf) && cliente->status == 1){
             fseek(arquivo, -sizeof(Cliente), SEEK_CUR);
             cliente->status = 0;
-            fwrite(cliente, sizeof(Cliente), 1, arquivo);
+            if(fwrite(cliente, sizeof(Cliente), 1, arquivo)){
+                fclose(arquivo);
+                return 1;
+            }
             fclose(arquivo);
-            free(cliente);
-            free(cpf);
-            return 1;
+            return -1;   
         }
     }
-
     fclose(arquivo); 
-    free(cliente);
-    free(cpf);
-    return -1;
+    return -2;
 }
