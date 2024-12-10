@@ -31,9 +31,41 @@ int escreverNoArquivoEqui(Equipamento* equi){
 }
 
 // ler o arquivo de equipamentos
-int lerArquivoEqui(){
+int lerArquivoEqui(Equipamento* equi, int codigoBuscado){
+    FILE *arq = fopen("data/equipamentos.txt", "r");
+    if (arq == NULL) {
+        printf("Erro ao abrir o arquivo de equipamentos\n");
+        return FALSE;
+    }
 
-    return TRUE;
+    char linha[256]; // armazena uma linha do arquivo
+    while (fgets(linha, sizeof(linha), arq)) { // ler cada linha
+        
+        int codBarras, quantidade, status;
+        float preco;
+        char nome[55], marca[27], funcao[27];
+
+        if (sscanf(linha, "%54[^:]:%26[^:]:%26[^:]:%d:%d:%f:%d:", 
+                   nome, marca, funcao, &codBarras, &quantidade, &preco, &status) == 7) {
+            if (codBarras == codigoBuscado) {
+                // Preenche a estrutura com os dados encontrados
+                strcpy(equi->nome, nome);
+                strcpy(equi->marca, marca);
+                strcpy(equi->funcao, funcao);
+                equi->codBarras = codBarras;
+                equi->quantidade = quantidade;
+                equi->preco = preco;
+                equi->status = status;
+
+                fclose(arq);
+                return TRUE;
+            }
+        }
+    }
+
+    // Se o código não for encontrado
+    fclose(arq);
+    return FALSE;
 }
 
 // atualiza o status do equipamento no arquivo

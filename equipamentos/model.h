@@ -15,5 +15,6 @@ typedef struct {
 } Equipamento;
 
 int escreverNoArquivoEqui(Equipamento* equi);
+int lerArquivoEqui(Equipamento* equi, int codigoBuscado);
 
 #endif
