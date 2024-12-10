@@ -84,21 +84,3 @@ void listarDados(void){
     free(cliente);
     free(cpf);
 }
-
-void atualizarCliente(void) {
-    Cliente cliente;
-
-    menuAtualizarCliente();
-    capturarCPF(cliente.cpf);
-
-    printf("|_____________________________________________|\n");
-}
-
-void deletarCliente(void) {
-    Cliente cliente;
-    
-    menuDeletarCliente();
-    capturarCPF(cliente.cpf);
-
-    printf("|_____________________________________________|\n");
-}
