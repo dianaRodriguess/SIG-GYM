@@ -49,8 +49,8 @@ int regravaCliente(Cliente* cliente){
         if (!strcmp(novoCliente->cpf, cliente->cpf)) {
             fseek(arquivo, -sizeof(Cliente), SEEK_CUR);
             if(fwrite(cliente, sizeof(Cliente), 1, arquivo)){
-                free(novoCliente);
                 fclose(arquivo);
+                free(novoCliente);
                 return 1; // Sucesso
             }
             fclose(arquivo);
