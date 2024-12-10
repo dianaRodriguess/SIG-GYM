@@ -41,10 +41,30 @@ void cadastrarEquipamento(void){
 
 void pesquisarEquipamento(void){
     Equipamento* equi = malloc(sizeof(Equipamento));
+    if (equi == NULL) {
+        printf("Erro ao alocar memória\n");
+        return;
+    }
 
     menuPesquisarEquipamento();
 
-    capturarCodBarras(&(equi->codBarras));
+    int codigoBuscado;
+    printf("Digite o código de barras do equipamento: ");
+    scanf("%d", &codigoBuscado);
+
+    if (lerArquivoEqui(equi, codigoBuscado)) {
+        // Exibe as informações do equipamento
+        printf("Equipamento encontrado:\n");
+        printf("Nome: %s\n", equi->nome);
+        printf("Marca: %s\n", equi->marca);
+        printf("Função: %s\n", equi->funcao);
+        printf("Código de Barras: %d\n", equi->codBarras);
+        printf("Quantidade: %d\n", equi->quantidade);
+        printf("Preço: %.2f\n", equi->preco);
+        printf("Status: %s\n", equi->status ? "Ativo" : "Inativo");
+    } else {
+        printf("Equipamento com código de barras %d não encontrado.\n", codigoBuscado);
+    }
 
     printf("|________________________________________________|\n");
     free(equi);
