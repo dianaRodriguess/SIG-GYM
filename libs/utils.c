@@ -51,3 +51,11 @@ void centralizarTexto(char* texto, int tamanho){
         fputc(' ', stdout);
     }
 }
+
+int checaVariavel(char* variavel){
+    if(variavel == NULL){
+        free(variavel);
+        return 0;
+    }
+    return 1;
+}
