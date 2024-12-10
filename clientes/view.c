@@ -41,7 +41,7 @@ void alterarDados(void){
     printf("----------------------------------------------\n");
 }
 
-void excluirCliente(void){
+void excluirClientes(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|               Excluir Cliente              |\n");
