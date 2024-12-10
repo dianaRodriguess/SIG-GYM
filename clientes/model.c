@@ -31,9 +31,10 @@ Cliente* carregarClientes(char* cpf){
     if ((!strcmp(cliente->cpf, cpf)) && (cliente->status == 1)) {
         fclose(arquivo);
         return cliente;
-    }}
-
+    }
+    }
     fclose(arquivo);
+    free(cliente);
     return NULL;
 }
 
