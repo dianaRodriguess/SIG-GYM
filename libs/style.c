@@ -22,16 +22,7 @@ char* msgManipCliente(char* funcao, int op){
                 return "Erro desconhecido";
                 break;
         }
-    } else if (strcmp(funcao, "carregarCliente") == 0){
-        switch(op){
-        case 'NULL':
-            return "Erro ao abrir o arquivo ou cliente não encontrado";
-            break;
-        default:
-            return "Erro desconhecido";
-            break;
-        }
-    } else if (funcao, "regravarClientes"){
+    } else if(strcmp(funcao, "regravarClientes") == 0){
         switch (op){
         case 0:
             return "Erro ao abrir o arquivo";
@@ -49,7 +40,7 @@ char* msgManipCliente(char* funcao, int op){
             return "Erro desconhecido";
             break;
         }
-    } else if (strcmp(funcao, "excluirCliente") == 0){
+    } else if(strcmp(funcao, "excluirCliente") == 0){
         switch (op){
         case 0:
             return "Erro ao abrir o arquivo";
@@ -69,4 +60,5 @@ char* msgManipCliente(char* funcao, int op){
         }
     } else {
         return "Função não encontrada";
+}
 }
