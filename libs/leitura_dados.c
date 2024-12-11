@@ -96,18 +96,14 @@ char* leEmail(void) {
     return email;
 }
 
-char* leSexo(void) {
+int leSexo(void) {
     int valido = 0;
-    char* sexo = (char*)malloc(sizeof(char));
+    int sexo;
 
     do {
-        capturarSexo(sexo);
+        capturarSexo(&sexo);
 
-        if(strcmp(sexo, "0") == 0){
-            return NULL;
-        }
-
-        if (*sexo != 'M' && *sexo != 'F') {
+        if (sexo != 1 && sexo != 0) {
             printf("Sexo inválido, tente novamente.\n");
         } else {
             valido = 1;
