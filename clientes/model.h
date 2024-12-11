@@ -18,9 +18,9 @@ typedef enum {
 } Sexo;
 
 typedef enum {
-    Básico = 1,
-    Intermediário = 2,
-    Avançado = 3
+    Basico = 1,
+    Intermediario = 2,
+    Avancado = 3
 } Plano;
 
 typedef enum {
