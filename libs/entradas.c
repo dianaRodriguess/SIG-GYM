@@ -68,15 +68,15 @@ void capturarDataNasc(char *dataNasc){
     dataNasc[strcspn(dataNasc, "\n")] = '\0';
 }
 
-void capturarSexo(char *sexo){
+void capturarSexo(int *sexo){
     printf("> Sexo 1 - Masculino, 2 - Feminino: ");
-    scanf(" %c", sexo);
+    scanf(" %d", sexo);
     getchar();
 }
 
-void capturarPlano(char *plano){
-    printf("> Plano: ");
-    scanf(" %c", plano);
+void capturarPlano(int *plano){
+    printf("> Plano 1 - Básico, 2 - Intermediário, 3 - Avançado: ");
+    scanf(" %d", plano);
     getchar();
 }
 
