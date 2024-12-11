@@ -69,7 +69,7 @@ void capturarDataNasc(char *dataNasc){
 }
 
 void capturarSexo(char *sexo){
-    printf("> Sexo: ");
+    printf("> Sexo 1 - Masculino, 2 - Feminino: ");
     scanf(" %c", sexo);
     getchar();
 }
