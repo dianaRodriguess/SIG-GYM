@@ -20,11 +20,11 @@ void capturarSexo(char *sexo);
 void capturarPlano(char *plano);
 
 // Função para capturar código de barras
-void capturarCodBarras(char *codBarras);
+void capturarCodBarras(int* codBarras);
 
 // Funções para capturar valores numéricos
-void capturarQuantidade(char *quantidade);
-void capturarPreco(char *preco);
+void capturarQuantidade(int* quantidade);
+void capturarPreco(float* preco);
 
 // Função para limpar o buffer de entrada
 void limparBuffer(void);

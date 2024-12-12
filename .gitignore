@@ -12,6 +12,10 @@
 *.so
 *.o
 
+# data
+data/
+data/*
+
 # VScode
 .vscode
 .vscode/*

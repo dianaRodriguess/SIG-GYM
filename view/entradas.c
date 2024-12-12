@@ -80,22 +80,22 @@ void capturarPlano(char *plano){
     getchar();
 }
 
-void capturarCodBarras(char *codBarras){
+void capturarCodBarras(int* codBarras){
     printf("\n>Digite o Código de barras do equipamento (apenas números): ");
-    fgets(codBarras, 13, stdin);
-    codBarras[strcspn(codBarras, "\n")] = '\0';
+    scanf(" %d", codBarras);
+    getchar();
 }
 
-void capturarQuantidade(char *quantidade){
+void capturarQuantidade(int* quantidade){
     printf("> Quantidade: ");
-    fgets(quantidade, 9, stdin);
-    quantidade[strcspn(quantidade, "\n")] = '\0';
+    scanf(" %d", quantidade);
+    getchar();
 }
 
-void capturarPreco(char *preco){
+void capturarPreco(float* preco){
     printf("> Preço: ");
-    fgets(preco, 9, stdin);
-    preco[strcspn(preco, "\n")] = '\0';
+    scanf(" %f", preco);
+    getchar();
 }
 
 void limparBuffer(void) {
