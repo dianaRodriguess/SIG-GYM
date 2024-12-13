@@ -1,17 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-typedef struct {
-    char nome[61];
-    char cpf[15];
-    char telefone[12];
-    char email[55];
-    char dataNasc[11];
-    Sexo sexo;
-    Plano plano;
-    Status status;
-} Cliente;
-
 typedef enum {
     Masculino = 1,
     Feminino = 2
@@ -27,6 +16,18 @@ typedef enum {
     Ativo = 1,
     Inativo = 0
 } Status;
+
+typedef struct {
+    char nome[61];
+    char cpf[15];
+    char telefone[12];
+    char email[55];
+    char dataNasc[11];
+    Sexo sexo;
+    Plano plano;
+    Status status;
+} Cliente;
+
 
 int salvarCliente(Cliente*);
 Cliente* carregarClientes(char*);
