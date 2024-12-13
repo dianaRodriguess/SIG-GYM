@@ -15,9 +15,6 @@ char* msgManipCliente(char* funcao, int op){
             case -1:
                 return "Erro ao salvar o cliente";
                 break;
-            case -2:
-                return "Erro ao fechar o arquivo";
-                break;
             default:
                 return "Erro desconhecido";
                 break;

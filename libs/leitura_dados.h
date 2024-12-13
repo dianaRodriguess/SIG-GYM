@@ -6,7 +6,7 @@ char* leCPF(void);
 char* leTelefone(void);
 char* leEmail(void);
 int leSexo(void);
-char* lePlano(void);
+int lePlano(void);
 char* leDataNasc(void);
 
 #endif

@@ -87,7 +87,7 @@ int leSexo(void) {
     do {
         capturarSexo(&sexo);
 
-        if (sexo != 1 && sexo != 0) {
+        if (sexo != 1 && sexo != 2) {
             printf("Sexo inválido, tente novamente.\n");
         } else {
             valido = 1;
@@ -97,14 +97,14 @@ int leSexo(void) {
     return sexo;
 }
 
-char* lePlano(void) {
+int lePlano(void) {
     int valido = 0;
-    char* plano = (char*)malloc(sizeof(char));
+    int plano;
 
     do {
-        capturarPlano(plano);
+        capturarPlano(&plano);
 
-        if (!verificaPlano(atoi(plano))) {
+        if (!verificaPlano(plano)) {
             printf("Plano inválido, tente novamente.\n");
         } else {
             valido = 1;

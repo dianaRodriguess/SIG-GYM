@@ -12,10 +12,10 @@ void capturarCargo(char *cargo);
 void capturarMusculos(char *musculos);
 void capturarRepeticao(char *repeticao);
 void capturarCodTreino(char *codTreino);
-void capturarSexo(char *sexo);
-void capturarPlano(char *plano);
-void capturarCodBarras(int *codBarras);
-void capturarQuantidade(int *quantidade);
-void capturarPreco(float *preco);
+void capturarSexo(int *sexo);
+void capturarPlano(int *plano);
+void capturarCodBarras(char *codBarras);
+void capturarQuantidade(char *quantidade);
+void capturarPreco(char *preco);
 
 #endif 
