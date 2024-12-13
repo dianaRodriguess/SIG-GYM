@@ -5,7 +5,7 @@ void menuCadastrarCliente(void);
 void menuPesquisarCliente(void);
 void menuAtualizarCliente(void);
 void menuDeletarCliente(void);
-void mostrarEquipamentos(Cliente* cli);
+void mostrarCliente(Cliente* cli);
 char menuClientes(void);
 void cadastrarClientes(void);
 void exibirDados(void);

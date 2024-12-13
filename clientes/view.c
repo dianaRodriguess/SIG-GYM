@@ -59,7 +59,7 @@ void menuDeletarCliente(void){
     printf("|_____________________________________________|\n");
 }
 
-void mostrarEquipamentos(Cliente* cli){
+void mostrarCliente(Cliente* cli){
     
     printf("\n... INFORMAÇÕES DO CLIENTE ...\n");
 
