@@ -51,29 +51,6 @@ void excluirClientes(void){
     printf("----------------------------------------------\n");
 }
 
-
-void menuDeletarCliente(void){
-    system("clear");
-    printf("|_____________________________________________|\n");
-    printf("|......  .  ... DELETAR CLIENTE ...  .  ......|\n");
-    printf("|_____________________________________________|\n");
-}
-
-void mostrarCliente(Cliente* cli){
-    
-    printf("\n... INFORMAÇÕES DO CLIENTE ...\n");
-
-    printf(">> Nome: %s\n", cli->nome);
-    printf(">> CPF: %s\n", cli->cpf);
-    printf(">> Telefone: %s\n", cli->telefone);
-    printf(">> Email: %s\n", cli->email);
-    printf(">> Data de Nascimento: %s\n", cli->dataNasc);
-    printf(">> Plano: %c\n", cli->plano);
-    printf(">> Sexo: %c\n", cli->sexo);
-    printf(">> Status: %d\n", cli->status);
-    printf("|________________________________________________|\n");
-}
-
 void dadosClientes(Cliente* cliente){
     limparTela();
     printf("----------------------------------------------------------------------------------------------------\n");
@@ -86,4 +63,3 @@ void dadosClientes(Cliente* cliente){
     printf("| Plano: %c \n", cliente->plano);
     printf("----------------------------------------------------------------------------------------------------\n");
 }
-

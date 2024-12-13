@@ -1,8 +1,6 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-void menuDeletarCliente(void);
-void mostrarCliente(Cliente* cli);
 char menuClientes(void);
 void cadastrarClientes(void);
 void exibirDados(void);
