@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libs/utils.h"
 #include "model.h"
+#include "../libs/utils.h"
+#include "../libs/style.h"
 #include "../libs/leitura_dados.h"
 
 int salvarCliente(Cliente* cliente){
@@ -13,10 +14,7 @@ int salvarCliente(Cliente* cliente){
     if(fwrite(cliente, sizeof(Cliente), 1, arquivo) != 1){
         return -1;
     }
-    if(fclose(arquivo) != 0){
-        return -2;
-    }
-
+    fclose(arquivo);
     return 1;
 }
 
@@ -83,4 +81,61 @@ int excluirCliente(Cliente* cliente, char* cpf){
     }
     fclose(arquivo); 
     return -2;
+}
+
+void alteraCliente(Cliente* cliente, int op){
+    char* entrada = NULL;
+    int opcao;
+    int resultado;
+
+    switch(op){
+        case 1:
+            limparBuffer();
+            entrada = leNome();
+            strcpy(cliente->nome, entrada);
+            break;
+        case 2:
+            limparBuffer();
+            entrada = leCPF();
+            strcpy(cliente->cpf, entrada);
+            break;
+        case 3:
+            limparBuffer();
+            entrada = leTelefone();
+            strcpy(cliente->telefone, entrada);
+            break;
+        case 4:
+            limparBuffer();
+            entrada = leEmail();
+            strcpy(cliente->email, entrada);
+            break;
+        case 5:
+            limparBuffer();
+            entrada = leDataNasc();
+            strcpy(cliente->dataNasc, entrada);
+            break;
+        case 6:
+            limparBuffer();
+            opcao = leSexo();
+            cliente->sexo = opcao;
+            break;
+        case 7:
+            limparBuffer();
+            opcao = lePlano();
+            cliente->plano = opcao;
+            break;
+        case 8:
+            limparBuffer();
+            entrada = leDataNasc();
+            strcpy(cliente->dataNasc, entrada);
+            break;
+        default:
+            printf("Opção inválida\n");
+            break;
+    }
+
+    resultado = regravaCliente(cliente);
+    msgManipCliente("regravarClientes", resultado);
+    pausarTela();
+    free(entrada);
 }
