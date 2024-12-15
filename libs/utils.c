@@ -59,3 +59,12 @@ const char* nomeSexo(int sexo) {
         default:  return "Desconhecido";
     }
 }
+
+const char* nomePlano(int plano) {
+    switch (plano) {
+        case 1:   return "Básico";
+        case 2:   return "Intermediário";
+        case 3:   return "Avançado";
+        default:  return "Desconhecido";
+    }
+}

@@ -8,5 +8,6 @@ char lerOpcao(void);
 void limparTela(void);
 void centralizarTexto(char*, int);
 const char* nomeSexo(int);
+const char* nomePlano(int);
 
 #endif
