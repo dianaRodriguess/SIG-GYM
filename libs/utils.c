@@ -52,10 +52,3 @@ void centralizarTexto(char* texto, int tamanho){
     }
 }
 
-int checaVariavel(char* variavel){
-    if(variavel == NULL){
-        free(variavel);
-        return 0;
-    }
-    return 1;
-}
