@@ -52,3 +52,10 @@ void centralizarTexto(char* texto, int tamanho){
     }
 }
 
+const char* nomeSexo(int sexo) {
+    switch (sexo) {
+        case 1:   return "Masculino";
+        case 2:    return "Feminino";
+        default:  return "Desconhecido";
+    }
+}
