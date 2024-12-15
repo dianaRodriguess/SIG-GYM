@@ -60,6 +60,6 @@ void dadosClientes(Cliente* cliente){
     printf("| Email: %s \n", cliente->email);
     printf("| Data de Nascimento: %s\n", cliente->dataNasc);
     printf("| Sexo: %s \n", nomeSexo(cliente->sexo));
-    printf("| Plano: %d \n", cliente->plano);
+    printf("| Plano: %s \n", nomePlano(cliente->plano));
     printf("----------------------------------------------------------------------------------------------------\n");
 }
