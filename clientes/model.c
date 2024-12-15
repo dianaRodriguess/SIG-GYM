@@ -84,7 +84,7 @@ int excluirCliente(Cliente* cliente, char* cpf){
 }
 
 void alteraCliente(Cliente* cliente, int op){
-    char* entrada = NULL;
+    char* entrada;
     int opcao;
     int resultado;
 
