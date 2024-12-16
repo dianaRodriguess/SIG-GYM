@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model.h"
+#include "view.h"
 #include "../libs/utils.h"
 #include "../libs/style.h"
 #include "../libs/leitura_dados.h"
@@ -124,17 +125,13 @@ void alteraCliente(Cliente* cliente, int op){
             opcao = lePlano();
             cliente->plano = opcao;
             break;
-        case 8:
-            limparBuffer();
-            entrada = leDataNasc();
-            strcpy(cliente->dataNasc, entrada);
-            break;
         default:
             printf("Opção inválida\n");
             break;
     }
 
     resultado = regravaCliente(cliente);
+    dadosClientes(cliente);
     msgManipCliente("regravarClientes", resultado);
     pausarTela();
     free(entrada);
