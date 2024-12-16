@@ -69,13 +69,13 @@ void capturarDataNasc(char *dataNasc){
 }
 
 void capturarSexo(int *sexo){
-    printf("> Sexo 1 - Masculino, 2 - Feminino: ");
+    printf("> Selecione um sexo -> 1 - Masculino, 2 - Feminino: ");
     scanf(" %d", sexo);
     getchar();
 }
 
 void capturarPlano(int *plano){
-    printf("> Plano 1 - Básico, 2 - Intermediário, 3 - Avançado: ");
+    printf("> Selecione um plano -> 1 - Básico, 2 - Intermediário, 3 - Avançado: ");
     scanf(" %d", plano);
     getchar();
 }
