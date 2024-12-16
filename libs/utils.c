@@ -26,7 +26,7 @@ int lerOpcao(const char* msg, int num) {
     int opcao;
     do {
         printf("> %s ", msg);
-        opcao = getchar();
+        scanf(" %d", &opcao);
         limparBuffer();
     } while (opcao < 0 || opcao > num);
     return opcao;
@@ -73,5 +73,6 @@ char confirmação(const char* pessoa, const char* msg) {
     char op;
     printf("> Caro %s, você quer mesmo realizar %s? - Digite 1 para continuar e 0 para sair: ", pessoa, msg);
     scanf(" %c", &op);
+    limparBuffer();
     return op;
 }
