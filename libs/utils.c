@@ -71,7 +71,7 @@ const char* nomePlano(int plano) {
 
 char confirmação(const char* pessoa, const char* msg) {
     char op;
-    printf("> Caro %s, você quer mesmo realizar %s? - Digite 1 para continuar e 0 para sair: ", pessoa, msg);
+    printf("> Caro %s, %s? - Digite 1 para continuar e 0 para sair: ", pessoa, msg);
     scanf(" %c", &op);
     limparBuffer();
     return op;
