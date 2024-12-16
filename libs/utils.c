@@ -68,3 +68,10 @@ const char* nomePlano(int plano) {
         default:  return "Desconhecido";
     }
 }
+
+char confirmação(const char* pessoa, const char* msg) {
+    char op;
+    printf("> Caro %s, você quer mesmo realizar %s? - Digite 1 para continuar e 0 para sair: ", pessoa, msg);
+    scanf(" %c", &op);
+    return op;
+}

@@ -9,5 +9,6 @@ void limparTela(void);
 void centralizarTexto(char*, int);
 const char* nomeSexo(int);
 const char* nomePlano(int);
+char confirmação(const char*, const char*);
 
 #endif
