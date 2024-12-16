@@ -85,9 +85,8 @@ int excluirCliente(Cliente* cliente, char* cpf){
 }
 
 void alteraCliente(Cliente* cliente, int op){
-    char* entrada;
     int opcao;
-    int resultado;
+    char* entrada = NULL;
 
     switch(op){
         case 1:
@@ -130,8 +129,9 @@ void alteraCliente(Cliente* cliente, int op){
             break;
     }
 
-    resultado = regravaCliente(cliente);
+    regravaCliente(cliente);
     dadosClientes(cliente);
-    msgManipCliente("regravarClientes", resultado);
-    free(entrada);
+    if(entrada != NULL){
+        free(entrada);
+    }
 }
