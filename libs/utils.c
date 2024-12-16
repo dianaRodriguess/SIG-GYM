@@ -22,13 +22,13 @@ char lerOpcaoMain(void) {
     return opcao;
 }
 
-char lerOpcao(void) {
-    char opcao;
+int lerOpcao(const char* msg, int num) {
+    int opcao;
     do {
-        printf("> Selecione uma opção válida:\n");
+        printf("> %s ", msg);
         opcao = getchar();
         limparBuffer();
-    } while (opcao < '0' || opcao > '4');
+    } while (opcao < 0 || opcao > num);
     return opcao;
 }
 

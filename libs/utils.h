@@ -4,7 +4,7 @@
 void limparBuffer(void);
 void pausarTela(void);
 char lerOpcaoMain(void);
-char lerOpcao(void);
+int lerOpcao(const char*, int);
 void limparTela(void);
 void centralizarTexto(char*, int);
 const char* nomeSexo(int);
