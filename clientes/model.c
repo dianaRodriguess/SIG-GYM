@@ -133,6 +133,5 @@ void alteraCliente(Cliente* cliente, int op){
     resultado = regravaCliente(cliente);
     dadosClientes(cliente);
     msgManipCliente("regravarClientes", resultado);
-    pausarTela();
     free(entrada);
 }
