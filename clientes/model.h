@@ -34,5 +34,6 @@ Cliente* carregarClientes(char*);
 int regravaCliente(Cliente*);
 int excluirCliente(Cliente*, char*);
 void alteraCliente(Cliente*, int);
+int checaCPF(char*);
 
 #endif

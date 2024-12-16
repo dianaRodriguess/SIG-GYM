@@ -27,10 +27,10 @@ Cliente* carregarClientes(char* cpf){
     }
 
     while(fread(cliente, sizeof(Cliente), 1, arquivo)) {
-    if ((!strcmp(cliente->cpf, cpf)) && (cliente->status == 1)) {
-        fclose(arquivo);
-        return cliente;
-    }
+        if (!strcmp(cliente->cpf, cpf)) {
+            fclose(arquivo);
+            return cliente;
+        }
     }
     fclose(arquivo);
     free(cliente);
@@ -134,4 +134,34 @@ void alteraCliente(Cliente* cliente, int op){
     if(entrada != NULL){
         free(entrada);
     }
+}
+
+int checaCPF(char* cpf){
+    char op;
+    Cliente* cliente = carregarClientes(cpf);
+
+    if(cliente != NULL){
+        if(cliente->status == 0){
+            op = confirmação("cliente", "você possui uma conta inativa no nosso sistema. Deseja reativá-la?");
+            switch(op) {
+            case '1':
+                cliente->status = 1;
+                regravaCliente(cliente);
+                return 1;
+                break;
+            case '0':
+                return 0;
+                break;
+            default:
+                printf("Opção inválida\n");
+                break;
+            }
+        } else if (cliente->status == 1){
+            return -1;
+        }
+    } else {
+       return 0;
+    }
+
+    return -4;
 }
