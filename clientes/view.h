@@ -7,7 +7,7 @@ void cadastrarClientes(void);
 void exibirDados(void);
 void alterarDados(void);
 void numDados(void);
-void excluirClientes(void);
+void excluiClientes(void);
 void dadosClientes(Cliente*);
 
 #endif

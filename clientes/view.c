@@ -53,7 +53,7 @@ void numDados(void) {
     printf("-------------------------------------------------------------------------------------------------\n");
 }
 
-void excluirClientes(void){
+void excluiClientes(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|               Excluir Cliente              |\n");
