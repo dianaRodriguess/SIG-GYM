@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "model.h"
 #include "view.h"
-#include "../view/entradas.h"
+#include "../libs/entradas.h"
 
 void mostrarEquipamentos(Equipamento* equi){
     

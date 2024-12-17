@@ -5,7 +5,7 @@
 #include <sys/types.h>
 
 #include "model.h"
-#include "../view/entradas.h"
+#include "../libs/entradas.h"
 
 // escreve no arquivo de equipamentos
 int escreverNoArquivoEqui(Equipamento* equi){

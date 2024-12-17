@@ -68,15 +68,15 @@ void capturarDataNasc(char *dataNasc){
     dataNasc[strcspn(dataNasc, "\n")] = '\0';
 }
 
-void capturarSexo(char *sexo){
-    printf("> Sexo: ");
-    scanf(" %c", sexo);
+void capturarSexo(int *sexo){
+    printf("> Selecione um sexo -> 1 - Masculino, 2 - Feminino: ");
+    scanf(" %d", sexo);
     getchar();
 }
 
-void capturarPlano(char *plano){
-    printf("> Plano: ");
-    scanf(" %c", plano);
+void capturarPlano(int *plano){
+    printf("> Selecione um plano -> 1 - Básico, 2 - Intermediário, 3 - Avançado: ");
+    scanf(" %d", plano);
     getchar();
 }
 
@@ -96,36 +96,4 @@ void capturarPreco(float* preco){
     printf("> Preço: ");
     scanf(" %f", preco);
     getchar();
-}
-
-void limparBuffer(void) {
-    int buffer;
-    while ((buffer = getchar()) != '\n' && buffer != EOF);
-}
-
-void pausarTela(void) {
-    int pausa;
-    printf("Tecle <0> para continuar.\n");
-    scanf("%d", &pausa);
-    limparBuffer();
-}
-
-char lerOpcaoMain(void) {
-    char opcao;
-    do {
-        printf("> Selecione o módulo:\n");
-        opcao = getchar();
-        limparBuffer();
-    } while (opcao < '0' || opcao > '6');
-    return opcao;
-}
-
-char lerOpcao(void) {
-    char opcao;
-    do {
-        printf("> Selecione uma opção válida:\n");
-        opcao = getchar();
-        limparBuffer();
-    } while (opcao < '0' || opcao > '4');
-    return opcao;
 }
