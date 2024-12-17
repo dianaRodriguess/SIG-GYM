@@ -6,7 +6,7 @@
 
 // salva o funcionário no arquivo
 int salvarFuncionario(Funcionario* funcionario){
-    FILE* arquivo = fopen("clientes.dat", "ab");
+    FILE* arquivo = fopen("funcionarios.dat", "ab");
     if(arquivo == NULL){
          return 0;
     }
