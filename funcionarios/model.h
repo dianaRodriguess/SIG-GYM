@@ -20,5 +20,6 @@ typedef struct {
 
 int salvarFuncionario(Funcionario* funcionario);
 Funcionario* carregarFuncionarios(char* cpf);
+int regravaFuncionario(Funcionario* funcionario);
 
 #endif

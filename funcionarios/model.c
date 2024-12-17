@@ -36,11 +36,30 @@ Funcionario* carregarFuncionarios(char* cpf){
     return NULL;
 }
 
+// atualiza os dados do funcionário no arquivo
+int regravaFuncionario(Funcionario* funcionario){
+    FILE* arquivo = fopen("funcinarios.dat", "r+b");
+    if(arquivo == NULL){
+        return 0; 
+    }
 
-// atualiza o status do funcionário no arquivo
-int atualizarStatusFun(){
-
-    // return TRUE;
+    Funcionario* novofuncionario = (Funcionario*)malloc(sizeof(Funcionario));
+    while (fread(novofuncionario, sizeof(Funcionario), 1, arquivo)) {
+        if (!strcmp(novofuncionario->cpf, funcionario->cpf)) {
+            fseek(arquivo, -sizeof(Funcionario), SEEK_CUR);
+            if(fwrite(funcionario, sizeof(Funcionario), 1, arquivo)){
+                fclose(arquivo);
+                free(novofuncionario);
+                return 1; 
+            }
+            fclose(arquivo);
+            free(novofuncionario);
+            return -1; 
+        }
+    }
+    fclose(arquivo);
+    free(novofuncionario);
+    return -2; 
 }
 
 
