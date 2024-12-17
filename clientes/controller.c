@@ -20,8 +20,8 @@ void menuCliente(void){
                 if(cliente != NULL){
                     salvarCliente(cliente);
                     free(cliente);
-                    pausarTela();
                 }
+                pausarTela();
                 break;
             case '2':
                 limparBuffer();
@@ -31,6 +31,11 @@ void menuCliente(void){
             case '3':
                 limparBuffer();
                 editarDados();
+                pausarTela();
+                break;
+            case '4':
+                limparBuffer();
+                excluirCliente();
                 pausarTela();
                 break;
         }
@@ -120,17 +125,17 @@ void listarDados(void){
     exibirDados();
     char* cpf = leCPF();
     Cliente* cliente = carregarClientes(cpf);
-    if (cliente == NULL) {
-        printf("Cliente não encontrado ou não está ativo.\n");
+    if (cliente != NULL) {
+        if (cliente->status == 1) {
+            dadosClientes(cliente);
+        } else {
+            printf("Cliente não encontrado ou não está ativo.\n");
+        }
         free(cliente);
-        free(cpf);
-        return;
+    } else {
+        printf("Cliente não encontrado.\n");
     }
-
-    dadosClientes(cliente);
-
-    free(cliente);
-    free(cpf);
+    free(cpf);    
 }
 
 void editarDados(void) {
@@ -170,7 +175,52 @@ void editarDados(void) {
     } while(verif != 1);
 }
 
-int main(void){
-    menuCliente();
-    return 0;
+void excluirCliente(void) {
+    char conf;
+    int resultado;
+    int verificar = 0;
+    Cliente* cliente = NULL;
+    char* cpf = NULL;
+
+    while(verificar != 1) {
+        conf = confirmação("cliente", "você quer mesmo realizar a exclusão da sua conta");
+        switch(conf) {
+            case '1':
+                cpf = leCPF();
+                cliente = carregarClientes(cpf);
+                if(cliente != NULL) {
+                    resultado = deletarCliente(cliente);
+                    switch(resultado) {
+                        case 1:
+                            printf("Cliente excluído com sucesso!\n");
+                            break;
+                        case -1:
+                            printf("Cliente já está inativo.\n");
+                            break;
+                        case -2:
+                            printf("Erro inesperado.\n");
+                            break;
+                        default:
+                            printf("ERRO!!.\n");
+                            break;
+                    }
+                    free(cliente);
+                    free(cpf);
+                    verificar = 1;
+                } else {
+                    printf("Cliente não encontrado.\n");
+                    free(cpf);
+                    verificar = 1;
+                }
+                break;
+            case '0':
+                limparTela();
+                printf("Operação cancelada.\n");
+                verificar = 1;
+                break;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+                continue;
+        }
+    }
 }
