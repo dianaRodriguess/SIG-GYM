@@ -62,7 +62,7 @@ int regravaCliente(Cliente* cliente){
     return -2; // Cliente não encontrado
 }
 
-int excluirCliente(Cliente* cliente, char* cpf){
+int excluirClientes(Cliente* cliente, char* cpf){
     FILE* arquivo = fopen("clientes.dat", "r+b");
     if(arquivo == NULL){
         return 0;
@@ -136,6 +136,18 @@ void alteraCliente(Cliente* cliente, int op){
     }
 }
 
+int deletarCliente(Cliente* cliente){
+    if(cliente->status == 1){
+        cliente->status = 0;
+        regravaCliente(cliente);
+        return 1;
+    } else {
+        return -1;
+    }
+    
+    return -2;
+}
+
 int checaCPF(char* cpf){
     char op;
     Cliente* cliente = carregarClientes(cpf);
@@ -147,11 +159,11 @@ int checaCPF(char* cpf){
             case '1':
                 cliente->status = 1;
                 regravaCliente(cliente);
+                free(cliente);
                 return 1;
-                break;
             case '0':
+                free(cliente);
                 return 0;
-                break;
             default:
                 printf("Opção inválida\n");
                 break;

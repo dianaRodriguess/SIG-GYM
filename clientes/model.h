@@ -32,8 +32,9 @@ typedef struct {
 int salvarCliente(Cliente*);
 Cliente* carregarClientes(char*);
 int regravaCliente(Cliente*);
-int excluirCliente(Cliente*, char*);
+int excluirClientes(Cliente*, char*);
 void alteraCliente(Cliente*, int);
+int deletarCliente(Cliente*);
 int checaCPF(char*);
 
 #endif
