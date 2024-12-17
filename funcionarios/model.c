@@ -62,9 +62,15 @@ int regravaFuncionario(Funcionario* funcionario){
     return -2; 
 }
 
-
-// atualiza os dados do funcionário no arquivo
-int atualizarDadosFun(){
-
-    // return TRUE;
+// muda o status do funcionário
+int deletarFuncionario(Funcionario* funcionario){
+    if(funcionario->status == 1){
+        funcionario->status = 0;
+        regravaCliente(funcionario);
+        return 1;
+    } else {
+        return -1;
+    }
+    
+    return -2;
 }
