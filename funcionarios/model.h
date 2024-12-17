@@ -18,4 +18,6 @@ typedef struct {
     int status;
 } Funcionario; 
 
+int salvarFuncionario(Funcionario* funcionario);
+
 #endif

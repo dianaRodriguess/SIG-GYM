@@ -2,30 +2,37 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model.h"
-#include "../view/entradas.h"
+#include "../libs/entradas.h"
 
-// escreve no arquivo de funcionário
-int escreverNoArquivoFun(){
-
-    return TRUE;
+// salva o funcionário no arquivo
+int salvarFuncionario(Funcionario* funcionario){
+    FILE* arquivo = fopen("clientes.dat", "ab");
+    if(arquivo == NULL){
+         return 0;
+    }
+    if(fwrite(funcionario, sizeof(funcionario), 1, arquivo) != 1){
+        return -1;
+    }
+    fclose(arquivo);
+    return 1;
 }
 
 // ler o arquivo de funcionário
 int lerArquivoFun(){
 
-    return TRUE;
+    // return TRUE;
 }
 
 
 // atualiza o status do funcionário no arquivo
 int atualizarStatusFun(){
 
-    return TRUE;
+    // return TRUE;
 }
 
 
 // atualiza os dados do funcionário no arquivo
 int atualizarDadosFun(){
 
-    return TRUE;
+    // return TRUE;
 }
