@@ -2,19 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model.h"
-#include "../libs/entradas.h"
+#include "../view/entradas.h"
 
 // escreve no arquivo de funcionário
-int salvarFuncionario(Funcionario* funcionario){
-    FILE* arquivo = fopen("funcinarios.dat", "ab");
-    if(arquivo == NULL){
-         return 0;
-    }
-    if(fwrite(funcionario, sizeof(funcionario), 1, arquivo) != 1){
-        return -1;
-    }
-    fclose(arquivo);
-    return 1;
+int escreverNoArquivoFun(){
+
+    return TRUE;
 }
 
 // ler o arquivo de funcionário

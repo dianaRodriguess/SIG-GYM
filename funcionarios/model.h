@@ -1,21 +1,17 @@
 #ifndef _FUN_MODEL_H
 #define _FUN_MODEL_H
 
-typedef enum {
-    Gerente = 1,
-    Professor,
-    ASG,
-    Atendente
-} Cargo;
+#define FALSE 0
+#define TRUE 1
 
 typedef struct {
     char cpf[15];
     char nome[55];
-    Cargo cargo;
+    char cargo[22];
     char email[55];
     char telefone[15];
     char dataNasc[11];
-    int status;
+    char status;
 } Funcionario; 
 
 #endif
