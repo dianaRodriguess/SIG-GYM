@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "validacoes.h"
-#include "../view/entradas.h"
+#include "entradas.h"
 #include "../clientes/model.h"
 
-void leNome(char* nome) {
+char* leNome(void) {
     int valido = 0;
     int tamanho;
+    char* nome = (char*)malloc(61 * sizeof(char));
     
     do {
         capturarNome(nome);
@@ -24,10 +25,13 @@ void leNome(char* nome) {
             valido = 1;  
         }
     } while(!valido);
+
+    return nome;
 }
 
-void leCPF(char* cpf) {
+char* leCPF(void) {
     int valido = 0;
+    char* cpf = (char*)malloc(15 * sizeof(char));
 
     do {
         capturarCPF(cpf);
@@ -38,10 +42,13 @@ void leCPF(char* cpf) {
             valido = 1;
         }
     } while(!valido);
+
+    return cpf;
 }
 
-void leTelefone(char* telefone) {
+char* leTelefone(void) {
     int valido = 0;
+    char* telefone = (char*)malloc(15 * sizeof(char));
 
     do {
         capturarTelefone(telefone);
@@ -52,10 +59,13 @@ void leTelefone(char* telefone) {
             valido = 1;
         }
     } while(!valido);
+
+    return telefone;
 }
 
-void leEmail(char* email) {
+char* leEmail(void) {
     int valido = 0;
+    char* email = (char*)malloc(55 * sizeof(char));
 
     do {
         capturarEmail(email);
@@ -66,38 +76,47 @@ void leEmail(char* email) {
             valido = 1;
         }
     } while(!valido);
+
+    return email;
 }
 
-void leSexo(char* sexo) {
+int leSexo(void) {
     int valido = 0;
+    int sexo;
 
     do {
-        capturarSexo(sexo);
+        capturarSexo(&sexo);
 
-        if (*sexo != 'M' && *sexo != 'F') {
+        if (sexo != 1 && sexo != 2) {
             printf("Sexo inválido, tente novamente.\n");
         } else {
             valido = 1;
         }
     } while(!valido);
+
+    return sexo;
 }
 
-void lePlano(char* plano) {
+int lePlano(void) {
     int valido = 0;
+    int plano;
 
     do {
-        capturarPlano(plano);
+        capturarPlano(&plano);
 
-        if (!verificaPlano(atoi(plano))) {
+        if (!verificaPlano(plano)) {
             printf("Plano inválido, tente novamente.\n");
         } else {
             valido = 1;
         }
     } while(!valido);
+
+    return plano;
 }
 
-void leDataNasc(char* dataNasc) {
+char* leDataNasc(void) {
     int valido = 0;
+    char* dataNasc = (char*)malloc(11 * sizeof(char));
 
     do {
         capturarDataNasc(dataNasc);
@@ -108,4 +127,6 @@ void leDataNasc(char* dataNasc) {
             valido = 1;
         }
     } while(!valido);
+
+    return dataNasc;
 }

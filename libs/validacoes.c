@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
 #include <regex.h>
@@ -210,7 +211,7 @@ int validaEmail(char *email) {
     int reti;
     regmatch_t matches[1];
 
-    sprintf(pattern,"([a-zA-Z0-9\.\-\_]{2,})@([a-zA-Z0-9]{2,})(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?(\.[a-z]{2,})?");
+    sprintf(pattern,"([a-zA-Z0-9\\.\\-\\_]{2,})@([a-zA-Z0-9]{2,})(\\.[a-zA-Z]{2,})(\\.[a-zA-Z]{2,})?(\\.[a-z]{2,})?");
 
     reti = regcomp(&regex, pattern, REG_EXTENDED);
     if (reti) {
