@@ -17,10 +17,23 @@ int salvarFuncionario(Funcionario* funcionario){
     return 1;
 }
 
-// ler o arquivo de funcionário
-int lerArquivoFun(){
+// ler o arquivo de funcionários
+Funcionario* carregarFuncionarios(char* cpf){
+    Funcionario* funcionario = (Funcionario*)malloc(sizeof(Funcionario));
+    FILE* arquivo = fopen("funcionarios.dat", "rb");
+    if(arquivo == NULL) {
+        return NULL;
+    }
 
-    // return TRUE;
+    while(fread(funcionario, sizeof(Funcionario), 1, arquivo)) {
+        if (!strcmp(funcionario->cpf, cpf)) {
+            fclose(arquivo);
+            return funcionario;
+        }
+    }
+    fclose(arquivo);
+    free(funcionario);
+    return NULL;
 }
 
 
