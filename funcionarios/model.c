@@ -3,6 +3,7 @@
 #include <string.h>
 #include "model.h"
 #include "../libs/entradas.h"
+#include "../libs/utils.h"
 
 // salva o funcionário no arquivo
 int salvarFuncionario(Funcionario* funcionario){
@@ -73,4 +74,34 @@ int deletarFuncionario(Funcionario* funcionario){
     }
     
     return -2;
+}
+
+int checaCPF(char* cpf){
+    char op;
+    Funcionario* funcionario = carregarFuncionario(cpf);
+
+    if(funcionario != NULL){
+        if(funcionario->status == 0){
+            op = confirmação("funcionario", "você possui uma conta inativa no nosso sistema. Deseja reativá-la?");
+            switch(op) {
+            case '1':
+                funcionario->status = 1;
+                regravaCliente(funcionario);
+                free(funcionario);
+                return 1;
+            case '0':
+                free(funcionario);
+                return 0;
+            default:
+                printf("Opção inválida\n");
+                break;
+            }
+        } else if (funcionario->status == 1){
+            return -1;
+        }
+    } else {
+       return 0;
+    }
+
+    return -4;
 }

@@ -22,5 +22,6 @@ int salvarFuncionario(Funcionario* funcionario);
 Funcionario* carregarFuncionarios(char* cpf);
 int regravaFuncionario(Funcionario* funcionario);
 int deletarFuncionario(Funcionario* funcionario);
+int checaCPF(char* cpf);
 
 #endif
