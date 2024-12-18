@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "view.h"
+#include "../libs/utils.h"
 
 
 char menuFuncionarios(void){
@@ -20,30 +21,25 @@ char menuFuncionarios(void){
     return opcao;
 }
 
-void menuCadastrarFuncionario(void){
-    system("clear");
-    printf("|_________________________________________________|\n");
-    printf("|.....  .  ... CADASTRAR FUNCIONÁRIO ...  .  .....|\n");
-    printf("|_________________________________________________|\n");
+void cadastrarFuncionario(void){
+    limparTela();
+    printf("------------------------------------------------\n");
+    printf("|             Cadastro de Funcinarios           |\n");
+    printf("------------------------------------------------\n");
 }
 
-void menuPesquisarFuncionario(void){
-    system("clear");
-    printf("|_________________________________________________|\n");
-    printf("|.....  .  ... PESQUISAR FUNCIONÁRIO ...  .  .....|\n");
-    printf("|_________________________________________________|\n");
+void numDadosFun(void){
+    limparTela();
+    printf("--------------------------------------------------------------------------------------\n");
+    printf("|                                     Alterar Dados                                  |\n");
+    printf("--------------------------------------------------------------------------------------\n");
+    printf("| 1 - Nome | 2 - CPF | 3 - Telefone | 4 - Email | 5 - Data de Nascimento | 6 - Cargo |\n");
+    printf("--------------------------------------------------------------------------------------\n");
 }
 
-void menuAtualizarFuncionario(void){
-    system("clear");
-    printf("|_________________________________________________|\n");
-    printf("|.....  .  ... ATUALIZAR FUNCIONÁRIO ...  .  .....|\n");
-    printf("|_________________________________________________|\n");
-}
-
-void menuDeletarFuncionario(void){
-    system("clear");
-    printf("|_________________________________________________|\n");
-    printf("|......  .  ... DELETAR FUNCIONÁRIO ...  .  ......|\n");
-    printf("|_________________________________________________|\n");
+void excluirFuncionario(void){
+    limparTela();
+    printf("--------------------------------------------------\n");
+    printf("|               Excluir Funcionário              |\n");
+    printf("--------------------------------------------------\n");
 }
