@@ -23,5 +23,6 @@ Funcionario* carregarFuncionarios(char* cpf);
 int regravaFuncionario(Funcionario* funcionario);
 int deletarFuncionario(Funcionario* funcionario);
 int checaCPF(char* cpf);
+void alteraFuncionario(Funcionario* funcionario, int op);
 
 #endif

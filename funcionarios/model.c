@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model.h"
+#include "../libs/leitura_dados.h"
 #include "../libs/entradas.h"
 #include "../libs/utils.h"
 
@@ -61,6 +62,53 @@ int regravaFuncionario(Funcionario* funcionario){
     fclose(arquivo);
     free(novofuncionario);
     return -2; 
+}
+
+void alteraFuncionario(Funcionario* funcionario, int op){
+    int opcao;
+    char* entrada = NULL;
+
+    switch(op){
+        case 1:
+            limparBuffer();
+            entrada = leNome();
+            strcpy(funcionario->nome, entrada);
+            break;
+        case 2:
+            limparBuffer();
+            entrada = leCPF();
+            strcpy(funcionario->cpf, entrada);
+            break;
+        case 3:
+            limparBuffer();
+            entrada = leTelefone();
+            strcpy(funcionario->telefone, entrada);
+            break;
+        case 4:
+            limparBuffer();
+            entrada = leEmail();
+            strcpy(funcionario->email, entrada);
+            break;
+        case 5:
+            limparBuffer();
+            entrada = leDataNasc();
+            strcpy(funcionario->dataNasc, entrada);
+            break;
+        case 6:
+            limparBuffer();
+            opcao = leCargo();
+            funcionario->cargo = opcao;
+            break;
+        default:
+            printf("Opção inválida\n");
+            break;
+    }
+
+    regravaCliente(funcionario);
+    dadosClientes(funcionario);
+    if(entrada != NULL){
+        free(entrada);
+    }
 }
 
 // muda o status do funcionário
