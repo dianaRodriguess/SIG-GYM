@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "view.h"
+#include "model.h"
 #include "../libs/utils.h"
 
 
@@ -42,4 +43,16 @@ void excluirFuncionario(void){
     printf("--------------------------------------------------\n");
     printf("|               Excluir Funcionário              |\n");
     printf("--------------------------------------------------\n");
+}
+
+void dadosFuncionarios(Funcionario* funcionario){
+    limparTela();
+    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("| Nome: %s \n", funcionario->nome);
+    printf("| CPF: %s \n", funcionario->cpf);
+    printf("| Telefone: %s \n", funcionario->telefone);
+    printf("| Email: %s \n", funcionario->email);
+    printf("| Data de Nascimento: %s\n", funcionario->dataNasc);
+    printf("| Plano: %s \n", nomeCargo(funcionario->cargo));
+    printf("----------------------------------------------------------------------------------------------------\n");
 }
