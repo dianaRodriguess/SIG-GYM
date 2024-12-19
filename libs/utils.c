@@ -69,6 +69,16 @@ const char* nomePlano(int plano) {
     }
 }
 
+const char* nomeCargo(int cargo) {
+    switch (cargo) {
+        case 1:   return "Gerente";
+        case 2:   return "Professor";
+        case 3:   return "ASG";
+        case 4:   return "Atendente";
+        default:  return "Desconhecido";
+    }
+}
+
 char confirmação(const char* pessoa, const char* msg) {
     char op;
     printf("> Caro %s, %s? - Digite 1 para continuar e 0 para sair: ", pessoa, msg);
