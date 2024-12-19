@@ -38,6 +38,20 @@ void numDadosFun(void){
     printf("--------------------------------------------------------------------------------------\n");
 }
 
+void exibirDados(void){
+    limparTela();
+    printf("----------------------------------------------\n");
+    printf("|                 Exibir Dados               |\n");
+    printf("----------------------------------------------\n");
+}
+
+void alterarDados(void){
+    limparTela();
+    printf("----------------------------------------------\n");
+    printf("|                 Alterar Dados              |\n");
+    printf("----------------------------------------------\n");
+}
+
 void excluirFuncionario(void){
     limparTela();
     printf("--------------------------------------------------\n");
