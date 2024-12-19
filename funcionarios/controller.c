@@ -2,47 +2,86 @@
 #include <stdlib.h>
 #include <string.h>
 #include "view.h"
-#include "../view/entradas.h"
+#include "model.h"
+#include "controller.h"
+#include "../libs/entradas.h"
+#include "../libs/utils.h"
+#include "../libs/style.h"
+#include "../libs/leitura_dados.h"
 
 
-void cadastrarFuncionario(void) {
-    char nome[55], cpf[15], telefone[15], email[55], dataNasc[11];
-    char cargo [22];
+Funcionario* cadastrarFuncionario(void){
+    char conf;
+    int resultado;
+    int verificar = 0;
+    Funcionario* funcionario = (Funcionario*) malloc(sizeof(Funcionario));
+    if(funcionario == NULL){
+        printf("Erro ao alocar memória\n");
+        exit(1);
+    }
 
-    menuCadastrarFuncionario();
-    capturarNome(nome);
-    capturarCPF(cpf);
-    capturarTelefone(telefone);
-    capturarEmail(email);
-    capturarDataNasc(dataNasc);
-    capturarCargo(cargo);
+    while (verificar != 1){
+        cadastrarClientes();
+        conf = confirmação("funcinario", "você quer mesmo realizar o cadastro");
+        switch(conf){
+            case '1':
+                char* cpf = leCPF();
+                resultado = checaCPF(cpf);
+                switch(resultado) {
+                    case 1:
+                        printf("Funcinário reativado com sucesso!\n");
+                        verificar = 1;
+                        free(funcionario);
+                        free(cpf);
+                        return NULL;
+                        break;
+                    case 0:
+                        strcpy(funcionario->cpf, cpf);
+                        free(cpf);
 
-    printf("|_____________________________________________|\n");
-}
+                        char* nome = leNome();
+                        strcpy(funcionario->nome, nome);
+                        free(nome);
 
-void pesquisarFuncionario(void) {
-    char cpf[15];
+                        char* telefone = leTelefone();
+                        strcpy(funcionario->telefone, telefone);
+                        free(telefone);
 
-    menuPesquisarFuncionario();
-    capturarCPF(cpf);
+                        char* email = leEmail();
+                        strcpy(funcionario->email, email);
+                        free(email);
 
-    printf("|_____________________________________________|\n");
-}
+                        char* dataNasc = leDataNasc();
+                        strcpy(funcionario->dataNasc, dataNasc);
+                        free(dataNasc);
 
-void atualizarFuncionario(void) {
-    char cpf[15];
+                        Cargo cargo = leCargo();
+                        funcionario->cargo = cargo;
 
-    menuAtualizarFuncionario();
-    capturarCPF(cpf);
+                        funcionario->status = 1;
 
-    printf("|_____________________________________________|\n");
-}
+                        verificar = 1;
+                        return funcionario;
+                    case -1:
+                        limparTela();
+                        printf("Já existe uma conta ativa com esse CPF. Por favor, informe um novo CPF.\n");
+                        pausarTela();
+                        continue;
+                    default:
+                        printf("Erro inesperado.\n");
+                        free(cpf);
+                        free(funcionario);
+                        return NULL;
+                        break;
+                    }
+            case '0':
+                free(funcionario);
+                return NULL;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+                break;
+        }
+    }
 
-void deletarFuncionario(void) {
-    char cpf[15];
-    
-    menuDeletarFuncionario();
-    capturarCPF(cpf);
-
-    printf("|_____________________________________________|\n");
+    return NULL;
 }
