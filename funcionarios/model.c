@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "model.h"
+#include "view.h"
 #include "../libs/leitura_dados.h"
 #include "../libs/entradas.h"
 #include "../libs/utils.h"
@@ -12,7 +13,7 @@ int salvarFuncionario(Funcionario* funcionario){
     if(arquivo == NULL){
          return 0;
     }
-    if(fwrite(funcionario, sizeof(funcionario), 1, arquivo) != 1){
+    if(fwrite(funcionario, sizeof(Funcionario), 1, arquivo) != 1){
         return -1;
     }
     fclose(arquivo);
@@ -40,7 +41,7 @@ Funcionario* carregarFuncionarios(char* cpf){
 
 // atualiza os dados do funcionário no arquivo
 int regravaFuncionario(Funcionario* funcionario){
-    FILE* arquivo = fopen("funcinarios.dat", "r+b");
+    FILE* arquivo = fopen("funcionarios.dat", "r+b");
     if(arquivo == NULL){
         return 0; 
     }
@@ -104,8 +105,8 @@ void alteraFuncionario(Funcionario* funcionario, int op){
             break;
     }
 
-    regravaCliente(funcionario);
-    dadosClientes(funcionario);
+    regravaFuncionario(funcionario);
+    dadosFuncionarios(funcionario);
     if(entrada != NULL){
         free(entrada);
     }
@@ -115,7 +116,7 @@ void alteraFuncionario(Funcionario* funcionario, int op){
 int deletarFuncionario(Funcionario* funcionario){
     if(funcionario->status == 1){
         funcionario->status = 0;
-        regravaCliente(funcionario);
+        regravaFuncionario(funcionario);
         return 1;
     } else {
         return -1;
@@ -126,7 +127,7 @@ int deletarFuncionario(Funcionario* funcionario){
 
 int checaCPF(char* cpf){
     char op;
-    Funcionario* funcionario = carregarFuncionario(cpf);
+    Funcionario* funcionario = carregarFuncionarios(cpf);
 
     if(funcionario != NULL){
         if(funcionario->status == 0){
@@ -134,7 +135,7 @@ int checaCPF(char* cpf){
             switch(op) {
             case '1':
                 funcionario->status = 1;
-                regravaCliente(funcionario);
+                regravaFuncionario(funcionario);
                 free(funcionario);
                 return 1;
             case '0':
