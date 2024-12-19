@@ -139,3 +139,53 @@ void editarDados(void) {
             }
     } while(verif != 1);
 }
+
+void excluirFuncionario(void) {
+    char conf;
+    int resultado;
+    int verificar = 0;
+    Funcionario* funcionario = NULL;
+    char* cpf = NULL;
+
+    while(verificar != 1) {
+        conf = confirmação("funcionario", "você quer mesmo realizar a exclusão da sua conta");
+        switch(conf) {
+            case '1':
+                cpf = leCPF();
+                funcionario = carregarFuncionarios(cpf);
+                if(funcionario != NULL) {
+                    resultado = deletarFuncionario(funcionario);
+                    switch(resultado) {
+                        case 1:
+                            printf("Funcinario excluído com sucesso!\n");
+                            break;
+                        case -1:
+                            printf("Funcinario já está inativo.\n");
+                            break;
+                        case -2:
+                            printf("Erro inesperado.\n");
+                            break;
+                        default:
+                            printf("ERRO!!.\n");
+                            break;
+                    }
+                    free(funcionario);
+                    free(cpf);
+                    verificar = 1;
+                } else {
+                    printf("Funcinario não encontrado.\n");
+                    free(cpf);
+                    verificar = 1;
+                }
+                break;
+            case '0':
+                limparTela();
+                printf("Operação cancelada.\n");
+                verificar = 1;
+                break;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+                continue;
+        }
+    }
+}
