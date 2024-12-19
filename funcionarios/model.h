@@ -18,11 +18,11 @@ typedef struct {
     int status;
 } Funcionario; 
 
-int salvarFuncionario(Funcionario* funcionario);
-Funcionario* carregarFuncionarios(char* cpf);
-int regravaFuncionario(Funcionario* funcionario);
-int deletarFuncionario(Funcionario* funcionario);
+int salvarFuncionario(Funcionario*);
+Funcionario* carregarFuncionarios(char*);
+int regravaFuncionario(Funcionario*);
+int deletarFuncionario(Funcionario*);
 int checaCPF(char* cpf);
-void alteraFuncionario(Funcionario* funcionario, int op);
+void alteraFuncionario(Funcionario*, int);
 
 #endif
