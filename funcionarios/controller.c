@@ -102,3 +102,40 @@ void listarDados(void){
     }
     free(cpf);    
 }
+
+void editarDados(void) {
+    int op;
+    char conf;
+    int verif = 0;
+
+    do{
+        alterarDados();
+        conf = confirmação("funcionario", "você quer mesmo realizar a alteração dos seus dados");
+        switch(conf) {
+            case '1':
+                limparBuffer();
+                char* cpf = leCPF();
+                Funcionario* funcionario = carregarFuncionarios(cpf);
+                if(funcionario == NULL){
+                    printf("Funcinario não encontrado ou não está ativo.\n");
+                    free(funcionario);
+                    free(cpf);
+                    verif = 1;
+                }
+
+                dadosClientes(funcionario);
+                op = lerOpcao("Selecione o dado que deseja alterar - Somente números: ", 6);
+                alteraFuncionario(funcionario, op);
+                free(funcionario);
+                free(cpf);
+                verif = 1;
+                break;
+            case '0':
+                verif = 1;
+                break;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+                break;
+            }
+    } while(verif != 1);
+}
