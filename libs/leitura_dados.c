@@ -4,6 +4,7 @@
 #include "validacoes.h"
 #include "entradas.h"
 #include "../clientes/model.h"
+#include "../funcionarios/model.h"
 
 char* leNome(void) {
     int valido = 0;
@@ -129,4 +130,21 @@ char* leDataNasc(void) {
     } while(!valido);
 
     return dataNasc;
+}
+
+int lePlano(void) {
+    int valido = 0;
+    int cargo;
+
+    do {
+        capturarCargo(&cargo);
+
+        if (!verificaPlano(cargo)) {
+            printf("Cargo inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+
+    return cargo;
 }
