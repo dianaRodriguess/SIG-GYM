@@ -85,3 +85,20 @@ Funcionario* cadastrarFuncionario(void){
 
     return NULL;
 }
+
+void listarDados(void){
+    exibirDados();
+    char* cpf = leCPF();
+    Funcionario* funcionario = carregarFuncionarios(cpf);
+    if (funcionario != NULL) {
+        if (funcionario->status == 1) {
+            dadosFncionarios(funcionario);
+        } else {
+            printf("Cliente não encontrado ou não está ativo.\n");
+        }
+        free(funcionario);
+    } else {
+        printf("Cliente não encontrado.\n");
+    }
+    free(cpf);    
+}
