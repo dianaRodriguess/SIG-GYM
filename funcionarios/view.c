@@ -22,7 +22,7 @@ char menuFuncionarios(void){
     return opcao;
 }
 
-void cadastrarFuncionario(void){
+void telaCadastrarFuncionario(void){
     limparTela();
     printf("------------------------------------------------\n");
     printf("|             Cadastro de Funcinarios           |\n");
@@ -38,21 +38,21 @@ void numDadosFun(void){
     printf("--------------------------------------------------------------------------------------\n");
 }
 
-void exibirDados(void){
+void telaExibirDados(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|                 Exibir Dados               |\n");
     printf("----------------------------------------------\n");
 }
 
-void alterarDados(void){
+void telaAlterarDados(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|                 Alterar Dados              |\n");
     printf("----------------------------------------------\n");
 }
 
-void excluirFuncionario(void){
+void telaExcluirFuncionario(void){
     limparTela();
     printf("--------------------------------------------------\n");
     printf("|               Excluir Funcionário              |\n");
