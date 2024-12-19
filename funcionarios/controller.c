@@ -36,7 +36,7 @@ void menuFuncionario(void){
                 break;
             case '4':
                 limparBuffer();
-                excluirCliente();
+                excluirFuncionario();
                 pausarTela();
                 break;
         }
@@ -54,11 +54,12 @@ Funcionario* cadastrarFuncionario(void){
     }
 
     while (verificar != 1){
-        cadastrarClientes();
+        telaCadastrarFuncionario();
         conf = confirmação("funcinario", "você quer mesmo realizar o cadastro");
+        char* cpf;
         switch(conf){
             case '1':
-                char* cpf = leCPF();
+                cpf = leCPF();
                 resultado = checaCPF(cpf);
                 switch(resultado) {
                     case 1:
@@ -120,18 +121,18 @@ Funcionario* cadastrarFuncionario(void){
 }
 
 void listarDados(void){
-    exibirDados();
+    telaExibirDados();
     char* cpf = leCPF();
     Funcionario* funcionario = carregarFuncionarios(cpf);
     if (funcionario != NULL) {
         if (funcionario->status == 1) {
-            dadosFncionarios(funcionario);
+            dadosFuncionarios(funcionario);
         } else {
-            printf("Cliente não encontrado ou não está ativo.\n");
+            printf("Funcionário não encontrado ou não está ativo.\n");
         }
         free(funcionario);
     } else {
-        printf("Cliente não encontrado.\n");
+        printf("Funcionário não encontrado.\n");
     }
     free(cpf);    
 }
@@ -142,7 +143,7 @@ void editarDados(void) {
     int verif = 0;
 
     do{
-        alterarDados();
+        telaAlterarDados();
         conf = confirmação("funcionario", "você quer mesmo realizar a alteração dos seus dados");
         switch(conf) {
             case '1':
@@ -156,7 +157,7 @@ void editarDados(void) {
                     verif = 1;
                 }
 
-                dadosClientes(funcionario);
+                dadosFuncionarios(funcionario);
                 op = lerOpcao("Selecione o dado que deseja alterar - Somente números: ", 6);
                 alteraFuncionario(funcionario, op);
                 free(funcionario);
