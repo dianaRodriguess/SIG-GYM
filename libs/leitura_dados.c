@@ -132,7 +132,7 @@ char* leDataNasc(void) {
     return dataNasc;
 }
 
-int lePlano(void) {
+int leCargo(void) {
     int valido = 0;
     int cargo;
 
