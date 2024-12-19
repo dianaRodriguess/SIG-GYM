@@ -8,5 +8,6 @@ char* leEmail(void);
 int leSexo(void);
 int lePlano(void);
 char* leDataNasc(void);
+int leCargo(void);
 
 #endif
