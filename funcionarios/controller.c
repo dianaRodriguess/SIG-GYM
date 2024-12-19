@@ -6,9 +6,42 @@
 #include "controller.h"
 #include "../libs/entradas.h"
 #include "../libs/utils.h"
-#include "../libs/style.h"
 #include "../libs/leitura_dados.h"
 
+
+void menuFuncionario(void){
+    Funcionario* funcionario;
+    char opcao;
+    do {
+        opcao = menuFuncionarios();
+        switch(opcao){
+            case '1':
+                limparBuffer();
+                funcionario = cadastrarFuncionario();
+                if(funcionario != NULL){
+                    salvarFuncionario(funcionario);
+                    free(funcionario);
+                }
+                pausarTela();
+                break;
+            case '2':
+                limparBuffer();
+                listarDados();
+                pausarTela();
+                break;
+            case '3':
+                limparBuffer();
+                editarDados();
+                pausarTela();
+                break;
+            case '4':
+                limparBuffer();
+                excluirCliente();
+                pausarTela();
+                break;
+        }
+    } while (opcao != '0');
+}
 
 Funcionario* cadastrarFuncionario(void){
     char conf;
