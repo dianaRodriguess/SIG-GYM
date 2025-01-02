@@ -1,6 +1,7 @@
 #ifndef FUN_VIEW_H
 #define FUN_VIEW_H
 
+char menuFuncionario(void);
 void menuCadastrarFuncionario(void);
 void menuPesquisarFuncionario(void);
 void menuAtualizarFuncionario(void);
