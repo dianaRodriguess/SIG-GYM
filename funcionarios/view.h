@@ -6,6 +6,7 @@
 char menuFuncionarios(void);
 void telaCadastrarFuncionario(void);
 void numDadosFun(void);
+void numDadosCad(void);
 void telaExcluirFuncionario(void);
 void telaExibirDados(void);
 void telaAlterarDados(void);

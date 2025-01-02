@@ -27,6 +27,17 @@ void telaCadastrarFuncionario(void){
     printf("------------------------------------------------\n");
     printf("|             Cadastro de Funcinarios           |\n");
     printf("------------------------------------------------\n");
+
+    
+}
+
+void numDadosCad(void){
+    limparTela();
+    printf("--------------------------------------------------------------------------------------\n");
+    printf("|                                   Cadastrar Dados                                  |\n");
+    printf("--------------------------------------------------------------------------------------\n");
+    printf("| 1 - Nome | 2 - CPF | 3 - Telefone | 4 - Email | 5 - Data de Nascimento | 6 - Cargo |\n");
+    printf("--------------------------------------------------------------------------------------\n");
 }
 
 void numDadosFun(void){
