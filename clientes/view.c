@@ -71,13 +71,14 @@ void excluiClientes(void){
 
 void dadosClientes(Cliente* cliente){
     limparTela();
-    printf("----------------------------------------------------------------------------------------------------\n");
-    printf("| Nome: %s \n", cliente->nome);
-    printf("| CPF: %s \n", cliente->cpf);
-    printf("| Telefone: %s \n", cliente->telefone);
-    printf("| Email: %s \n", cliente->email);
-    printf("| Data de Nascimento: %s\n", cliente->dataNasc);
-    printf("| Sexo: %s \n", nomeSexo(cliente->sexo));
-    printf("| Plano: %s \n", nomePlano(cliente->plano));
-    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("|\t\t\033[1m-> Dados do Usuário\033[m \n");
+    printf("\033[1m|Nome:\033[m %s\n", cliente->nome);
+    printf("\033[1m|CPF:\033[m %s\n", cliente->cpf);
+    printf("\033[1m|Telefone:\033[m %s\n", cliente->telefone);
+    printf("\033[1m|Email:\033[m %s\n", cliente->email);
+    printf("\033[1m|Data de nascimento:\033[m %s\n", cliente->dataNasc);
+    printf("\033[1m|Sexo:\033[m %s\n", nomeSexo(cliente->sexo));
+    printf("\033[1m|Plano:\033[m %s\n", nomePlano(cliente->plano));
+    printf("|+---------------------------------------------------------------------+-----------------------------------------------------------------------+|\n");
 }
+
