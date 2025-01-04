@@ -72,12 +72,13 @@ void telaExcluirFuncionario(void){
 
 void dadosFuncionarios(Funcionario* funcionario){
     limparTela();
-    printf("----------------------------------------------------------------------------------------------------\n");
-    printf("| Nome: %s \n", funcionario->nome);
-    printf("| CPF: %s \n", funcionario->cpf);
-    printf("| Telefone: %s \n", funcionario->telefone);
-    printf("| Email: %s \n", funcionario->email);
-    printf("| Data de Nascimento: %s\n", funcionario->dataNasc);
-    printf("| Plano: %s \n", nomeCargo(funcionario->cargo));
-    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("|\t\t\033[1m-> Dados do Funcionario\033[m \n");
+    printf("\033[1m|Nome:\033[m %s\n", funcionario->nome);
+    printf("\033[1m|CPF:\033[m %s\n", funcionario->cpf);
+    printf("\033[1m|Telefone:\033[m %s\n", funcionario->telefone);
+    printf("\033[1m|Email:\033[m %s\n", funcionario->email);
+    printf("\033[1m|Data de nascimento:\033[m %s\n", funcionario->dataNasc);
+    printf("\033[1m|Plano:\033[m %s\n", nomeCargo(funcionario->cargo));
+    printf("|+---------------------------------------------------------------------+-----------------------------------------------------------------------+|\n");
 }
+
