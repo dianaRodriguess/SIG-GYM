@@ -7,6 +7,41 @@
 #include "../libs/leitura_dados.h"
 #include "../libs/utils.h"
 
+char menuEquipamentos(void){
+    Equipamento* equipamento;
+    char opcao;
+    do {
+        opcao = menuEquipamentos();
+        switch(opcao){
+            case '1':
+                limparBuffer();
+                equipamento = CadastroEquipamento();
+                if (equipamento != NULL){
+                    salvarEquipamento(equipamento);
+                    free(equipamento);
+                }
+                pausarTela();
+                break;
+            case '2':
+                limparBuffer();
+                listarEquipamento(); // ajeitar depois a funcao que esta errada
+                pausarTela();
+                break;
+            case '3':
+                limparBuffer();
+                editarEquipamento();
+                pausarTela();
+                break;
+            case '4':
+                limparBuffer();
+                excluirEquipamento();
+                pausarTela();
+                break;
+        }
+    } while(opcao != '0');
+}
+
+
 
 Equipamento* CadastroEquipamento(void){
     char conf;
