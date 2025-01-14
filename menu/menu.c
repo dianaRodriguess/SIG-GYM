@@ -11,8 +11,9 @@ char menuPrincipal(void){
     printf("----------------------------------------------\n");
     printf("|             1 - Clientes                   |\n");
     printf("|             2 - Treinos                    |\n");
-    printf("|             3 - Alterar Dados              |\n");
-    printf("|             4 - Excluir Cliente            |\n");
+    printf("|             3 - Exercícios                 |\n");
+    printf("|             4 - Equipamentos               |\n");
+    printf("|             5 - Funcionários               |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
