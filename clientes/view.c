@@ -72,3 +72,52 @@ void dadosClientes(Cliente* cliente){
     printf("| Plano: %s \n", nomePlano(cliente->plano));
     printf("----------------------------------------------------------------------------------------------------\n");
 }
+
+char relatorioClientes(void){
+    limparTela();
+    char opcao;
+    printf("----------------------------------------------\n");
+    printf("|                  Relatório                 |\n");
+    printf("----------------------------------------------\n");
+    printf("|           1 - Status dos cliente           |\n");
+    printf("|           2 - Clientes por plano           |\n");
+    printf("|           3 - Clientes por ordem alf.      |\n");
+    printf("|           4 - Recuperação de dados         |\n");
+    printf("|           0 - Retornar ao Menu Principal   |\n");
+    printf("----------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char statusClientes(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Status                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Clientes ativos                    |\n");
+    printf("|              2 - Clinetes inativos                  |\n");
+    printf("|              3 - Todos os clientes                  |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char planoClientes(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Planos                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Clientes básicos                   |\n");
+    printf("|              2 - Clientes intermediários            |\n");
+    printf("|              3 - Clientes avançados                 |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
