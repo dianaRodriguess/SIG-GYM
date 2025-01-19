@@ -10,5 +10,8 @@ void telaExibirDados(void);
 void telaAlterarDados(void);
 void telaExcluirFuncionario(void);
 void dadosFuncionarios(Funcionario* funcionario);
+char statusFuncionarios(void);
+char relatorioFuncionarios(void);
+char cargoFuncionarios(void);
 
 #endif // FUN_VIEW_H
