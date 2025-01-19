@@ -3,79 +3,144 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-
+#include "../libs/utils.h"
+#include "../libs/leitura_dados.h"
 #include "model.h"
 #include "../libs/entradas.h"
 
-// escreve no arquivo de equipamentos
-int escreverNoArquivoEqui(Equipamento* equi){
-    struct stat st = {0};
-    if (stat("data/", &st) == -1) {
-        if (mkdir("data/", 0700) != 0) {
-            printf("Erro ao criar o diretório 'data'\n");
-            return FALSE;
-        }
+int salvarEquipamento(Equipamento* equipamento){
+    FILE* arquivo = fopen("equipamentos.dat", "ab");
+    if(arquivo == NULL){
+         return 0;
     }
-
-    FILE *arq = fopen("data/equipamentos.txt", "a"); // abre o arquivo para leitura e escrita
-
-    if(arq == NULL) { 
-        printf("erro ao abrir o arquivo de equipamentos\n"); 
-        return FALSE;
+    if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo) != 1){
+        return -1;
     }
-
-    fprintf(arq, "%s:%s:%s:%d:%d:%.2f:%d:\n", equi->nome, equi->marca, equi->funcao, equi->codBarras, equi->quantidade, equi->preco, equi->status);
-
-    fclose(arq);
-    return TRUE;
+    fclose(arquivo);
+    return 1;
 }
 
-// ler o arquivo de equipamentos
-int lerArquivoEqui(Equipamento* equi, int codigoBuscado){
-    FILE *arq = fopen("data/equipamentos.txt", "r");
-    if (arq == NULL) {
-        printf("Erro ao abrir o arquivo de equipamentos\n");
-        return FALSE;
+Equipamento* carregarEquipamentos(char* codBarras){
+    Equipamento* equipamento = (Equipamento*)malloc(sizeof(Equipamento));
+    FILE* arquivo = fopen("equipamentos.dat", "rb");
+    if(arquivo == NULL) {
+        return NULL;
     }
 
-    char linha[256]; // armazena uma linha do arquivo
-    while (fgets(linha, sizeof(linha), arq)) { // ler cada linha
-        
-        int codBarras, quantidade, status;
-        float preco;
-        char nome[55], marca[27], funcao[27];
+    while(fread(equipamento, sizeof(Equipamento), 1, arquivo)) {
+        if (!strcmp(equipamento->codBarras, codBarras)) {
+            fclose(arquivo);
+            return equipamento;
+        }
+    }
+    fclose(arquivo);
+    free(equipamento);
+    return NULL;
+}
 
-        if (sscanf(linha, "%54[^:]:%26[^:]:%26[^:]:%d:%d:%f:%d:", 
-                   nome, marca, funcao, &codBarras, &quantidade, &preco, &status) == 7) {
-            if (codBarras == codigoBuscado) {
-                // Preenche a estrutura com os dados encontrados
-                strcpy(equi->nome, nome);
-                strcpy(equi->marca, marca);
-                strcpy(equi->funcao, funcao);
-                equi->codBarras = codBarras;
-                equi->quantidade = quantidade;
-                equi->preco = preco;
-                equi->status = status;
+void alteraEquipamento(Equipamento* equipamento, int op){
+    int opcao;
+    char* entrada = NULL;
 
-                fclose(arq);
+    switch(op){
+        case 1:
+            limparBuffer();
+            entrada = leNome();
+            strcpy(equipamento ->nome, entrada);
+            break;
+        case 2:
+            limparBuffer();
+            entrada = leMarca();
+            strcpy(equipamento->marca, entrada);
+            break;
+        case 3:
+            limparBuffer();
+            entrada = leFuncao();
+            strcpy(equipamento->funcao, entrada);
+            break;
+        case 4:
+            limparBuffer();
+            entrada = leBarras();
+            strcpy(equipamento->codBarras, entrada);
+            break;
+        case 5:
+            limparBuffer();
+            entrada = leQuantidade();
+            strcpy(equipamento->quantidade, entrada);
+            break;
+        case 6:
+            limparBuffer();
+            entrada = lePreco();  
+            equipamento->preco = strtof(entrada, NULL);  // converte a string para float e armazena no campo 'preco'
+            break;
+        default:
+            printf("Opção inválida\n");
+            break;
+    }
+
+    regravaEquipamento(equipamento); // terminando ainda 
+    
+}
+
+int regravaEquipamento(Equipamento* equipamento){
+    FILE* arquivo = fopen("equipamentos.dat", "r+b");
+    if(arquivo == NULL){
+        return 0;
+    
+    }
+    Equipamento* novoEquipamento = (Equipamento*)malloc(sizeof(Equipamento));
+    while (fread(novoEquipamento, sizeof(Equipamento), 1, arquivo)){
+        if (!strcmp(novoEquipamento->codBarras, equipamento->codBarras)) {
+            fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
+            if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
+                fclose(arquivo);
+                free(novoEquipamento);
+                return TRUE;
+        }
+        fclose(arquivo);
+        free(novoEquipamento);
+        return -1;
+        }
+    }
+    fclose(arquivo);
+    fclose(novoEquipamento);
+    return -2;
+}
+
+
+int excluirClientes(Equipamento* equipamento, char *codBarras){
+    FILE* arquivo = fopen("equipamentos.dat", "r+b");
+    if(arquivo == NULL){
+        return 0;
+    }
+
+    while(fread(equipamento, sizeof(Equipamento), 1, arquivo)){
+        if(!strcmp(equipamento->codBarras, codBarras) && equipamento->status == 1){
+            fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
+            equipamento->status = 0;
+            if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
+                fclose(arquivo);
                 return TRUE;
             }
+            fclose(arquivo);
+            return -1;
         }
     }
-
-    // Se o código não for encontrado
-    fclose(arq);
-    return FALSE;
+    fclose(arquivo);
+    return -2;
 }
 
-// atualiza o status do equipamento no arquivo
-int atualizarStatusEqui(){
-
-    return TRUE;
+int deletarEquipamento(Equipamento* equipamento){
+    if(equipamento->status == 1){
+        equipamento->status = 0;
+        regravaEquipamento(equipamento);
+        return 1;
+    } else {
+        return -1;
+    }
+    
+    return -2;
 }
 
-// atualiza os dados do equipamentos no arquivo
-int atualizarDadosEqui(){
 
-    return TRUE;
-}
+
