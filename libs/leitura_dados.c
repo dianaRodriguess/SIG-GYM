@@ -4,6 +4,7 @@
 #include "validacoes.h"
 #include "entradas.h"
 #include "../clientes/model.h"
+#include "../funcionarios/model.h"
 
 char* leNome(void) {
     int valido = 0;
@@ -129,4 +130,116 @@ char* leDataNasc(void) {
     } while(!valido);
 
     return dataNasc;
+}
+
+char* leMarca(void){
+    int valido = 0;
+    int tamanho;
+    char* marca = (char*)malloc(50 * sizeof(char));
+
+    do{
+        capturarMarca(marca);
+        tamanho = strlen(marca);
+
+        if (tamanho == 0){
+            printf("Marca inválida. Por favor, insira uma marca correta.\n");
+            continue; 
+        }
+
+        if(!validaName(marca, tamanho)){
+            printf("Marca inválida. Tente novamente.\n");
+        } else{
+            valido = 1;
+        }
+    } while(!valido);
+
+    return marca;
+}
+int leCargo(void) {
+    int valido = 0;
+    int cargo;
+
+    do {
+        capturarCargo(&cargo);
+
+        if (!verificaPlano(cargo)) {
+            printf("Cargo inválido, tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while(!valido);
+
+    return cargo;
+}
+
+char* leFuncao(void){
+    int valido = 0;
+    int tamanho;
+    char* funcao = (char*)malloc(100 * sizeof(char));
+
+    do{
+        capturarFuncao(funcao);
+        tamanho = strlen(funcao);
+
+        if (tamanho == 0){
+            printf("Função inválida. Por favor, insira uma descrição correta.\n");
+            continue; 
+        }
+
+        if(!validaName(funcao, tamanho)){
+            printf("Descrição inválida. Tente novamente.\n");
+        } else{
+            valido = 1;
+        }
+    } while(!valido);
+    
+    return funcao;
+}
+
+char* leQuantidade(void) {
+    int valido = 0;
+    int tamanho;
+    char* quantidade = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+
+    do {
+        capturarQuantidade(quantidade); // Função já existente para capturar a entrada do usuário
+        tamanho = strlen(quantidade);
+
+        if (tamanho == 0) {
+            printf("Quantidade inválida. Por favor, insira um valor correto.\n");
+            continue; 
+        }
+
+        if (!validaQuantidade(quantidade)) {
+            printf("Quantidade inválida. Tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while (!valido);
+
+    return quantidade;
+}
+
+char* lePreco(void) {
+    int valido = 0;
+    int tamanho;
+    char* preco = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+
+    do {
+        capturarPreco(preco); // Função já existente para capturar a entrada do usuário
+        tamanho = strlen(preco);
+
+        if (tamanho == 0) {
+            printf("Preço inválido. Por favor, insira um valor correto.\n");
+            continue; 
+        }
+
+        if (!validaPreco(preco)) {
+            printf("Preço inválido. Tente novamente.\n");
+        } else {
+            valido = 1;
+        }
+    } while (!valido);
+
+    return preco;
 }

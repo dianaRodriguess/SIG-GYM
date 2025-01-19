@@ -8,7 +8,7 @@ void capturarCPF(char *cpf);
 void capturarTelefone(char *telefone);
 void capturarEmail(char *email);
 void capturarDataNasc(char *dataNasc);
-void capturarCargo(char *cargo);
+void capturarCargo(int *cargo);
 void capturarMusculos(char *musculos);
 void capturarRepeticao(char *repeticao);
 void capturarCodTreino(char *codTreino);

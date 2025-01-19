@@ -4,6 +4,7 @@
 
 char menuClientes(void);
 void cadastrarClientes(void);
+void cadDados(void);
 void exibirDados(void);
 void alterarDados(void);
 void numDados(void);

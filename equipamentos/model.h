@@ -14,7 +14,11 @@ typedef struct {
     float preco;
 } Equipamento;
 
-int escreverNoArquivoEqui(Equipamento* equi);
-int lerArquivoEqui(Equipamento* equi, int codigoBuscado);
+int salvarEquipamento(Equipamento* equipamento);
+Equipamento* carregarEquipamentos(char* codBarras);
+void alteraEquipamento(Equipamento* equipamento, int op);
+int deletarEquipamento(Equipamento* equipamento);
+int regravaEquipamento(Equipamento* equipamento);
+int excluirClientes(Equipamento* equipamento, char *codBarras);
 
 #endif

@@ -3,10 +3,10 @@
 
 #include "model.h"
 
-void cadastrarEquipamento(void);
-void pesquisarEquipamento(void);
-void atualizarEquipamento(void);
-void deletarEquipamento(void);
-void mostrarEquipamentos(Equipamento* equi);
+char menuEquipamentos(void);
+Equipamento* CadastroEquipamento(void);
+void listarEquipamento(void);
+void editarEquipamento(void);
+void excluirEquipamento(void);
 
 #endif // CONTROLLER_H

@@ -1,4 +1,4 @@
-#include "controller/menu.h"
+#include "menu/menu.h"
 
 int main(void){
     menu();
