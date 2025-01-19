@@ -8,12 +8,6 @@ void capturarNome(char *nome){
     nome[strcspn(nome, "\n")] = '\0';
 }
 
-void capturarCargo(char *cargo){
-    printf("> Cargo: ");
-    fgets(cargo, 22, stdin);
-    cargo[strcspn(cargo, "\n")] = '\0';
-}
-
 void capturarMusculos(char *musculos){
     printf("> Musculos: ");
     fgets(musculos, 62, stdin);
@@ -77,6 +71,12 @@ void capturarSexo(int *sexo){
 void capturarPlano(int *plano){
     printf("> Selecione um plano -> 1 - Básico, 2 - Intermediário, 3 - Avançado: ");
     scanf(" %d", plano);
+    getchar();
+}
+
+void capturarCargo(int *cargo){
+    printf("> Selecione um plano -> 1 - Gerente, 2 - Professor, 3 - ASG, 4 - Atendente: ");
+    scanf(" %d", cargo);
     getchar();
 }
 
