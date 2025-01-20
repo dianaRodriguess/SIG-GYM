@@ -97,3 +97,9 @@ void capturarPreco(float* preco){
     scanf(" %f", preco);
     getchar();
 }
+
+void capturarID(int id) {
+    printf("> ID (6 dígitos): ");
+    scanf(" %i", id);
+    getchar();
+}
