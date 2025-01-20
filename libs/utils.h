@@ -11,5 +11,9 @@ const char* nomeSexo(int);
 const char* nomePlano(int);
 const char* nomeCargo(int);
 char confirmação(const char*, const char*);
+int idExisteExercicio(int codigo);
+int gerarExercicioID();
+int gerarEquipamentoID();
+int idExisteEquipamento(int codigo);
 
 #endif

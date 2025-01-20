@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "utils.h"
+
+#include "../equipamentos/model.h"
+#include "../exercicios/model.h"
 
 void pausarTela(void) {
     printf("Tecle <ENTER> para continuar.");
@@ -85,4 +89,59 @@ char confirmação(const char* pessoa, const char* msg) {
     scanf(" %c", &op);
     limparBuffer();
     return op;
+}
+
+int idExisteExercicio(int codigo) {
+    FILE *arquivo = fopen("exercicios.dat", "rb");
+    if (!arquivo) {
+        return 0; 
+    }
+
+    Exercicio exercicio;
+    while (fread(&exercicio, sizeof(Exercicio), 1, arquivo) == 1) {
+        if (codigo == exercicio.id_exercicio) {
+            fclose(arquivo);
+            return 1;
+        }
+    }
+
+    fclose(arquivo);
+    return 0; 
+}
+
+
+int gerarExercicioID() {
+    int codigo;
+    do {
+        codigo = 100000 + rand() % 900000; 
+    } while (idExisteExercicio(codigo));
+    return codigo;
+}
+
+
+int idExisteEquipamento(int codigo) {
+    FILE *arquivo = fopen("equipamentos.dat", "rb");
+    if (!arquivo) {
+        return 0; 
+    }
+
+    Equipamento equipamento;
+    while (fread(&equipamento, sizeof(Equipamento), 1, arquivo) == 1) {
+        if (codigo == equipamento.id) {
+            fclose(arquivo);
+            return 1;
+        }
+    }
+
+    fclose(arquivo);
+    return 0; 
+}
+
+
+int gerarEquipamentoID() {
+    int codigo;
+    do {
+        codigo = 100000 + rand() % 900000; 
+    } while (idExisteEquipamento(codigo));
+    return codigo;
 }
