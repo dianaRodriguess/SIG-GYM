@@ -225,4 +225,4 @@ int leCargo(void) {
     } while(!valido);
 
     return cargo;
-}
+}   
