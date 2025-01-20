@@ -8,17 +8,18 @@ typedef struct {
     char nome[55]; 
     char marca[27];
     char funcao[27]; 
-    int codBarras;
+    int id;
     int quantidade; 
     int status; // 1 = ativo, 0 = passivo
     float preco;
 } Equipamento;
 
 int salvarEquipamento(Equipamento* equipamento);
-Equipamento* carregarEquipamentos(char* codBarras);
+Equipamento* carregarEquipamentos(int id);
 void alteraEquipamento(Equipamento* equipamento, int op);
 int deletarEquipamento(Equipamento* equipamento);
 int regravaEquipamento(Equipamento* equipamento);
-int excluirClientes(Equipamento* equipamento, char *codBarras);
+int excluirClientes(Equipamento* equipamento, char *);
+int checaEquipamentoID(int id);
 
 #endif

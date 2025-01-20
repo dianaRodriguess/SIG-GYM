@@ -1,7 +1,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-char menuEquipamentos(void);
+char menuCentralEquipamentos(void);
 void cadastrarEquipamento(void);
 void exibirDados(void);
 void alterarDados(void);

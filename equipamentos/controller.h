@@ -3,7 +3,7 @@
 
 #include "model.h"
 
-char menuEquipamentos(void);
+void menuEquipamentos(void);
 Equipamento* CadastroEquipamento(void);
 void listarEquipamento(void);
 void editarEquipamento(void);

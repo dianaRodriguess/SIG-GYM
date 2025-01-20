@@ -7,6 +7,8 @@
 #include "../libs/leitura_dados.h"
 #include "model.h"
 #include "../libs/entradas.h"
+#include "view.h"
+
 
 int salvarEquipamento(Equipamento* equipamento){
     FILE* arquivo = fopen("equipamentos.dat", "ab");
@@ -20,15 +22,16 @@ int salvarEquipamento(Equipamento* equipamento){
     return 1;
 }
 
-Equipamento* carregarEquipamentos(char* codBarras){
+Equipamento* carregarEquipamentos(int id) {
     Equipamento* equipamento = (Equipamento*)malloc(sizeof(Equipamento));
     FILE* arquivo = fopen("equipamentos.dat", "rb");
-    if(arquivo == NULL) {
+    if (arquivo == NULL) {
+        free(equipamento);
         return NULL;
     }
 
-    while(fread(equipamento, sizeof(Equipamento), 1, arquivo)) {
-        if (!strcmp(equipamento->codBarras, codBarras)) {
+    while (fread(equipamento, sizeof(Equipamento), 1, arquivo)) {
+        if (equipamento->id == id) {
             fclose(arquivo);
             return equipamento;
         }
@@ -39,7 +42,6 @@ Equipamento* carregarEquipamentos(char* codBarras){
 }
 
 void alteraEquipamento(Equipamento* equipamento, int op){
-    int opcao;
     char* entrada = NULL;
 
     switch(op){
@@ -60,15 +62,10 @@ void alteraEquipamento(Equipamento* equipamento, int op){
             break;
         case 4:
             limparBuffer();
-            entrada = leBarras();
-            strcpy(equipamento->codBarras, entrada);
+            entrada = leQuantidade();
+            equipamento->quantidade = atoi(entrada);
             break;
         case 5:
-            limparBuffer();
-            entrada = leQuantidade();
-            strcpy(equipamento->quantidade, entrada);
-            break;
-        case 6:
             limparBuffer();
             entrada = lePreco();  
             equipamento->preco = strtof(entrada, NULL);  // converte a string para float e armazena no campo 'preco'
@@ -78,7 +75,11 @@ void alteraEquipamento(Equipamento* equipamento, int op){
             break;
     }
 
-    regravaEquipamento(equipamento); // terminando ainda 
+    regravaEquipamento(equipamento); 
+    dadosEquipamentos(equipamento);
+    if (entrada != NULL){
+        free(entrada);
+    }
     
 }
 
@@ -90,7 +91,7 @@ int regravaEquipamento(Equipamento* equipamento){
     }
     Equipamento* novoEquipamento = (Equipamento*)malloc(sizeof(Equipamento));
     while (fread(novoEquipamento, sizeof(Equipamento), 1, arquivo)){
-        if (!strcmp(novoEquipamento->codBarras, equipamento->codBarras)) {
+        if (novoEquipamento->id == equipamento->id) {
             fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
             if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
                 fclose(arquivo);
@@ -103,19 +104,18 @@ int regravaEquipamento(Equipamento* equipamento){
         }
     }
     fclose(arquivo);
-    fclose(novoEquipamento);
     return -2;
 }
 
 
-int excluirClientes(Equipamento* equipamento, char *codBarras){
+int excluirClientes(Equipamento* equipamento, char *id){
     FILE* arquivo = fopen("equipamentos.dat", "r+b");
     if(arquivo == NULL){
         return 0;
     }
 
     while(fread(equipamento, sizeof(Equipamento), 1, arquivo)){
-        if(!strcmp(equipamento->codBarras, codBarras) && equipamento->status == 1){
+        if((equipamento->id == *id) && equipamento->status == 1){
             fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
             equipamento->status = 0;
             if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
@@ -142,5 +142,33 @@ int deletarEquipamento(Equipamento* equipamento){
     return -2;
 }
 
+int checaEquipamentoID(int id){
+    char op;
+    Equipamento* equipamento = carregarEquipamentos(id);
 
+    if(equipamento != NULL){
+        if(equipamento->status == 0){
+            op = confirmação("cliente", "você possui um equipamento inativo no nosso sistema. Deseja reativá-la?");
+            switch(op) {
+            case '1':
+                equipamento->status = 1;
+                regravaEquipamento(equipamento);
+                free(equipamento);
+                return 1;
+            case '0':
+                free(equipamento);
+                return 0;
+            default:
+                printf("Opção inválida\n");
+                break;
+            }
+        } else if (equipamento->status == 1){
+            return -1;
+        }
+    } else {
+       return 0;
+    }
+
+    return -4;
+}
 

@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "model.h"
+#include "../libs/utils.h"
 
 
-char menuEquipamentos(void){
+
+char menuCentralEquipamentos(void){
     limparTela();
     char opcao;
     printf("----------------------------------------------\n");
@@ -63,9 +65,9 @@ void dadosEquipamentos(Equipamento* equipamento){
     printf("| Nome: %s \n", equipamento->nome);
     printf("| Marca: %s \n", equipamento->marca);
     printf("| Função: %s \n", equipamento->funcao);
-    printf("| Código de Barras: %s \n", equipamento->codBarras);
-    printf("| Quantidade: %s\n", equipamento->quantidade);
-    printf("| Status: %s \n", nomeSexo(equipamento->status));
-    printf("| Preço: %s \n", nomePlano(equipamento->preco));
+    printf("| Código de Barras: %d \n", equipamento->id);
+    printf("| Quantidade: %d\n", equipamento->quantidade);
+    printf("| Status: %d \n", equipamento->status);
+    printf("| Preço: %f \n", equipamento->preco);
     printf("----------------------------------------------------------------------------------------------------\n");
 }

@@ -6,12 +6,13 @@
 #include "../libs/entradas.h"
 #include "../libs/leitura_dados.h"
 #include "../libs/utils.h"
+#include "controller.h"
 
-char menuEquipamentos(void){
+void menuEquipamentos(void){
     Equipamento* equipamento;
     char opcao;
     do {
-        opcao = menuEquipamentos();
+        opcao = menuCentralEquipamentos();
         switch(opcao){
             case '1':
                 limparBuffer();
@@ -56,56 +57,57 @@ Equipamento* CadastroEquipamento(void){
         cadastrarEquipamento();
         conf = confirmação("funcionário", "você quer mesmo realizar o cadastro");
         switch(conf){
-            case '0':
-                char* nome = leNome();
-                strcpy(equipamento->nome, nome);
-                free(nome);    
-                
-                char* marca = leMarca(); // essa funcao nao existe ainda
-                strcpy(equipamento->marca, marca);
-                free(marca);
+            case '1':
+            int id = gerarEquipamentoID();
+            resultado = checaEquipamentoID(id);
+            switch (resultado){
+                case '0':
+                    char* nome = leNome();
+                    strcpy(equipamento->nome, nome);
+                    free(nome);    
+                    
+                    char* marca = leMarca(); // essa funcao nao existe ainda
+                    strcpy(equipamento->marca, marca);
+                    free(marca);
 
-                char* funcao = leFuncao(); 
-                strcpy(equipamento->funcao, funcao);
-                free(funcao);
+                    char* funcao = leFuncao(); 
+                    strcpy(equipamento->funcao, funcao);
+                    free(funcao);
 
-                char* codBarras; // tem que fazer
-                sprintf(codBarras, "%d", equipamento->quantidade);
-                free(codBarras);
+                    char* quantidade = leQuantidade(); 
+                    sprintf(quantidade, "%d", equipamento->quantidade);
+                    free(quantidade);
 
-                char* quantidade = leQuantidade(); 
-                sprintf(quantidade, "%d", equipamento->quantidade);
-                free(quantidade);
+                    
+                    char* preco = lePreco();  
+                    equipamento->preco = strtof(preco, NULL);  // converte a string para float e armazena no campo 'preco'
+                    free(preco);
 
-                
-                char* preco = lePreco();  
-                equipamento->preco = strtof(preco, NULL);  // converte a string para float e armazena no campo 'preco'
-                free(preco);
-
-                equipamento->status = 1;
-                verificar = 1;
-                return equipamento;
-            case -1:
-                        limparTela();
-                        printf("Já existe uma conta ativa com esse Código de Barras. Por favor, informe um novo Código de Barras.\n");
-                        pausarTela();
-                        continue;
-                    default:
-                        printf("Erro inesperado.\n");
-                        free(codBarras);
-                        free(equipamento);
-                        return NULL;
-                        break;    
-        }   
+                    equipamento->status = 1;
+                    verificar = 1;
+                    return equipamento;
+                default:
+                    printf("Erro inesperado.\n");
+                    free(equipamento);
+                    return NULL;
+                    break;
+            }
+        case '0':
+            free(equipamento);
+            return NULL;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+                break;
     }
+}
     return NULL;
 
-} 
+}
 
 void listarEquipamento(void){
-    exibirDados();
-    char* codBarras;
-    Equipamento* equipamento = carregarEquipamentos(codBarras);
+    exibirDados();  
+    int id = 0;
+    Equipamento* equipamento = carregarEquipamentos(id);
     if (equipamento != NULL){
         if(equipamento->status == 1){
             dadosEquipamentos(equipamento);
@@ -116,7 +118,7 @@ void listarEquipamento(void){
     }else{
         printf("Equipamento não encontrado;\n");
     }
-    free(codBarras);
+
 
 
 }
@@ -131,13 +133,13 @@ void editarEquipamento(void){
         conf = confirmação("funcionário", "você quer mesmo realizar a alteração dos seus dados");
         switch(conf){
             case '1':
+                int id = 0;
                 limparBuffer();
-                char* codBarras;
-                Equipamento* equipamento = carregarEquipamentos(codBarras);
+                capturarID(id);
+                Equipamento* equipamento = carregarEquipamentos(id);
                 if(equipamento == NULL){
                     printf("Equipamento não encontrado ou não está ativo.\n");
                     free(equipamento);
-                    free(codBarras);
                     verif = 1;
             }
 
@@ -145,7 +147,6 @@ void editarEquipamento(void){
                 op = lerOpcao("Selecione o dado que deseja alterar - Somente números: ", 7);
                 alteraEquipamento(equipamento, op);
                 free(equipamento);
-                free(codBarras);
                 verif = 1;
                 break;
             case '0':
@@ -163,14 +164,14 @@ void excluirEquipamento(void){
     int resultado;
     int verificar = 0;
     Equipamento* equipamento = NULL;
-    char* codBarras = NULL;
+    int id = 0;
 
     while(verificar != 1){
         conf = confirmação("funcionário", "você quer mesmo realizar a exclusão do equipamento");
         switch(conf) {
             case '1':
-                char* codBarras;  // tem que fazer uma funcao para ler codBarras
-                equipamento = carregarEquipamentos(codBarras);
+                capturarID(id);
+                equipamento = carregarEquipamentos(id);
                 if(equipamento != NULL){
                     resultado = deletarEquipamento(equipamento);
                     switch(resultado){
@@ -188,11 +189,9 @@ void excluirEquipamento(void){
                             break;    
                     }
                     free(equipamento);
-                    free(codBarras);
                     verificar = 1;
                 } else {
                     printf("Equipamento não encontrado.\n");
-                    free(codBarras);
                     verificar = 1;
                 }
                 break;
