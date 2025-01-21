@@ -86,10 +86,10 @@ void capturarCodBarras(int* codBarras){
     getchar();
 }
 
-void capturarQuantidade(int* quantidade){
+void capturarQuantidade(char* quantidade){
     printf("> Quantidade: ");
-    scanf(" %d", quantidade);
-    getchar();
+    fgets(quantidade, 11, stdin);
+    quantidade[strcspn(quantidade, "\n")] = '\0';
 }
 
 void capturarPreco(char* preco){
