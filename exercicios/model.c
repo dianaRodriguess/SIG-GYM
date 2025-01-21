@@ -23,6 +23,7 @@ Exercicio* carregarExercicio(int id){
     Exercicio* exercicio = (Exercicio*)malloc(sizeof(Exercicio));
     FILE* arquivo = fopen("exercicios.dat", "rb");
     if(arquivo == NULL) {
+        printf("Erro ao alocar memória.\n");
         return NULL;
     }
 

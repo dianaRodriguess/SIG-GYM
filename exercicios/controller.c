@@ -10,6 +10,7 @@
 #include "../libs/entradas.h"
 
 
+
 void menuExercicio(void){
     Exercicio* exercicio;
     char opcao;
@@ -28,17 +29,17 @@ void menuExercicio(void){
             case '2':
                 limparBuffer();
                 listarDadosExercicio();
-                pausarTela();
+                
                 break;
             case '3':
                 limparBuffer();
                 editarExercicio();
-                pausarTela();
+             
                 break;
             case '4':
                 limparBuffer();
                 excluirExercicio();
-                pausarTela();
+               
                 break;
         }
     } while (opcao != '0');
@@ -77,6 +78,7 @@ Exercicio* cadastrarExercicio(void){
 
                         exercicio->status = 1;
                         verificar = 1;
+                        printf("O id do exercício será: %i \n", id);
                         return exercicio;
                     default:
                         printf("Erro inesperado.\n");
@@ -98,59 +100,82 @@ Exercicio* cadastrarExercicio(void){
 
 void listarDadosExercicio(void){
     menuExibirExercicio();
+    int op;
     int id = 0;
-    capturarID(id);
+    capturarID(&id);
     Exercicio* exercicio = carregarExercicio(id);
     if (exercicio != NULL) {
         if (exercicio->status == 1) {
             dadosExercicios(exercicio);
-        } else {
+            op = lerOpcao("Tecle 0 para continuar." , 1 );
+        } 
+        else {
             printf("Exercício não encontrado ou não está ativo.\n");
-        }
-        free(exercicio);
+            op = lerOpcao("Tecle 0 para continuar." , 1 );
+            
+         }
     } else {
-        printf("Exercícioo não encontrado.\n");
+        printf("Exercício não encontrado.\n");
+        op = lerOpcao("Tecle 0 para continuar." , 1 );
     }
-    free(exercicio);    
+    free(exercicio);
+  
 }
 
-void editarExercicio(void){
+void editarExercicio(void) {
     int op;
     char conf;
     int verif = 0;
 
-    do{
+    do {
         menuAtualizarExercicio();
         conf = confirmação("cliente", "você quer mesmo realizar a alteração no seu exercício");
-        switch(conf){
-            case '1':
+
+        switch (conf) {
+            case '1': {
                 limparBuffer();
                 int id = 0;
-                capturarID(id);
+                capturarID(&id);
                 Exercicio* exercicio = carregarExercicio(id);
-                if(exercicio == NULL){
+
+                if (exercicio == NULL || exercicio->status == 0) {
                     printf("Exercício não encontrado ou não está ativo.\n");
-                    free(exercicio);
-                    verif = 1;
+                    op = lerOpcao("Tecle 0 para continuar." , 1 );
+                    free(exercicio);  
+                    break;  
                 }
 
                 dadosExercicios(exercicio);
-                op = lerOpcao("Selecione o dado que deseja alterar- Somente números: ", 7 );
-                alteraExercicio(exercicio, op);
+
+                do {
+                    op = lerOpcao("Selecione o dado que deseja alterar - Somente números (1: Nome, 2: Função, 0: Sair): ", 7);
+                    if (op == 0) {
+                        printf("Nenhuma alteração realizada.\n");
+                        break;
+                    }
+                    alteraExercicio(exercicio, op);
+                } while (op != 0);
+
                 free(exercicio);
-                verif = 1;
                 break;
+            }
+
             case '0':
-                verif = 1;
+                verif = 1;  
                 break;
+
             default:
                 printf("Opção inválida, tente novamente.\n");
-                break;  
+                break;
         }
-    } while(verif != 1);
+    } while (verif != 1);
 }
 
+
+
+
 void excluirExercicio(void){
+    int op;
     char conf;
     int resultado;
     int verificar = 0;
@@ -161,22 +186,26 @@ void excluirExercicio(void){
         conf = confirmação("cliente", "você quer mesmo realizar a exclusão seu exercício");
         switch(conf) {
             case '1':
-                capturarID(id);
+                capturarID(&id);
                 exercicio = carregarExercicio(id);
                 if(exercicio != NULL){
                     resultado = deletarExercicio(exercicio);
                     switch(resultado){
                         case 1:
                             printf("Exercício excluído com sucesso!\n");
+                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         case -1:
                             printf("Exercício já está inativo.\n");
+                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         case -2:
                             printf("Erro inesperado.\n");
+                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         default:
                             printf("ERRO!!.\n");
+                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                     }
                     free(exercicio);
