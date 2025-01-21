@@ -12,7 +12,7 @@ char menuEquipamentos(void){
     Equipamento* equipamento;
     char opcao;
     do {
-        opcao = menuEquipamentos();
+        opcao = menuEqui();
         switch(opcao){
             case '1':
                 limparBuffer();
@@ -25,7 +25,7 @@ char menuEquipamentos(void){
                 break;
             case '2':
                 limparBuffer();
-                listarEquipamento(); // ajeitar depois a funcao que esta errada
+                listarEquipamento();
                 pausarTela();
                 break;
             case '3':
@@ -89,7 +89,7 @@ Equipamento* CadastroEquipamento(void){
 
 void listarEquipamento(void){
     exibirDados();
-    int id;
+    int id = LeID();
     Equipamento* equipamento = carregarEquipamentos(id);
     if (equipamento != NULL){
         if(equipamento->status == 1){
@@ -114,7 +114,7 @@ void editarEquipamento(void){
         switch(conf){
             case '1':
                 limparBuffer();
-                int id = leID();
+                int id = LeID();
                 Equipamento* equipamento = carregarEquipamentos(id);
                 if(equipamento == NULL){
                     printf("Equipamento não encontrado ou não está ativo.\n");
@@ -143,14 +143,13 @@ void excluirEquipamento(void){
     int resultado;
     int verificar = 0;
     Equipamento* equipamento = NULL;
-    char* codBarras = NULL;
 
     while(verificar != 1){
         conf = confirmação("funcionário", "você quer mesmo realizar a exclusão do equipamento");
         switch(conf) {
             case '1':
-                char* codBarras;  // tem que fazer uma funcao para ler codBarras
-                equipamento = carregarEquipamentos(codBarras);
+                int id = LeID();
+                equipamento = carregarEquipamentos(id);
                 if(equipamento != NULL){
                     resultado = deletarEquipamento(equipamento);
                     switch(resultado){
@@ -168,12 +167,10 @@ void excluirEquipamento(void){
                             break;    
                     }
                     free(equipamento);
-                    free(codBarras);
                     verificar = 1;
                 } else {
                     printf("Equipamento não encontrado.\n");
-                    free(codBarras);
-                    verificar = 1;
+                    verificar = 0;
                 }
                 break;
             case '0':
@@ -187,5 +184,3 @@ void excluirEquipamento(void){
         }
     }
 }
-
-
