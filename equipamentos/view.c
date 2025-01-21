@@ -60,12 +60,10 @@ void numDados(void) {
 void dadosEquipamentos(Equipamento* equipamento){
     limparTela();
     printf("----------------------------------------------------------------------------------------------------\n");
+    printf("| ID: %d \n", equipamento->ID);
     printf("| Nome: %s \n", equipamento->nome);
     printf("| Marca: %s \n", equipamento->marca);
-    printf("| Função: %s \n", equipamento->funcao);
-    printf("| Código de Barras: %s \n", equipamento->codBarras);
-    printf("| Quantidade: %s\n", equipamento->quantidade);
-    printf("| Status: %s \n", nomeSexo(equipamento->status));
-    printf("| Preço: %s \n", nomePlano(equipamento->preco));
+    printf("| Quantidade: %d\n", equipamento->quantidade);
+    printf("| Preço: %.2f \n", equipamento->preco);
     printf("----------------------------------------------------------------------------------------------------\n");
 }
