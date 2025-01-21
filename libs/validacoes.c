@@ -238,7 +238,7 @@ int checaPreco(char *preco) {
 
     preco_f = strtof(preco, &endptr);
 
-    if (preco_f < 0 || *endptr != '\0' || strlen(preco) > 13) {
+    if (preco_f <= 0 || *endptr != '\0') {
         return 0;
     }
 
