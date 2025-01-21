@@ -89,8 +89,8 @@ Equipamento* CadastroEquipamento(void){
 
 void listarEquipamento(void){
     exibirDados();
-    char* codBarras;
-    Equipamento* equipamento = carregarEquipamentos(codBarras);
+    int id;
+    Equipamento* equipamento = carregarEquipamentos(id);
     if (equipamento != NULL){
         if(equipamento->status == 1){
             dadosEquipamentos(equipamento);
@@ -101,9 +101,6 @@ void listarEquipamento(void){
     }else{
         printf("Equipamento não encontrado;\n");
     }
-    free(codBarras);
-
-
 }
 
 void editarEquipamento(void){
