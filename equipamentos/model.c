@@ -97,7 +97,7 @@ int regravaEquipamento(Equipamento* equipamento){
         }
     }
     fclose(arquivo);
-    fclose(novoEquipamento);
+    free(novoEquipamento);
     return -2;
     }
 }
