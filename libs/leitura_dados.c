@@ -248,7 +248,7 @@ float lePreco(void) {
     return preco_f;
 }
 
-int LeID(void) {
+int leID(void) {
     char id[6];
     int id_i;
     int valido = 0;
