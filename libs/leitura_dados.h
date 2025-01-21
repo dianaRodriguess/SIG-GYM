@@ -10,7 +10,7 @@ int lePlano(void);
 char* leDataNasc(void);
 char* leFuncao(void);
 char* leMarca(void);
-char* leQuantidade(void);
+int leQuantidade(void);
 float lePreco(void);
 
 #endif

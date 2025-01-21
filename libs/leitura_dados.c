@@ -196,13 +196,14 @@ char* leFuncao(void){
     return funcao;
 }
 
-char* leQuantidade(void) {
+int leQuantidade(void) {
+    int quantidade_i;
     int valido = 0;
     int tamanho;
-    char* quantidade = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+    char quantidade[11];
 
     do {
-        capturarQuantidade(quantidade); // Função já existente para capturar a entrada do usuário
+        capturarQuantidade(quantidade);
         tamanho = strlen(quantidade);
 
         if (tamanho == 0) {
@@ -213,11 +214,12 @@ char* leQuantidade(void) {
         if (!validaQuantidade(quantidade)) {
             printf("Quantidade inválida. Tente novamente.\n");
         } else {
+            quantidade_i = atoi(quantidade);
             valido = 1;
         }
     } while (!valido);
 
-    return quantidade;
+    return quantidade_i;
 }
 
 float lePreco(void) {
