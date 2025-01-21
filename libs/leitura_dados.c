@@ -135,7 +135,7 @@ char* leDataNasc(void) {
 char* leMarca(void){
     int valido = 0;
     int tamanho;
-    char* marca = (char*)malloc(50 * sizeof(char));
+    char* marca = (char*)malloc(27 * sizeof(char));
 
     do{
         capturarMarca(marca);
@@ -220,13 +220,14 @@ char* leQuantidade(void) {
     return quantidade;
 }
 
-char* lePreco(void) {
+float lePreco(void) {
+    float preco_f;
     int valido = 0;
     int tamanho;
-    char* preco = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+    char preco[13];
 
     do {
-        capturarPreco(preco); // Função já existente para capturar a entrada do usuário
+        capturarPreco(preco);
         tamanho = strlen(preco);
 
         if (tamanho == 0) {
@@ -234,12 +235,13 @@ char* lePreco(void) {
             continue; 
         }
 
-        if (!validaPreco(preco)) {
+        if (!checaPreco(preco)) {
             printf("Preço inválido. Tente novamente.\n");
         } else {
+            preco_f = strtof(preco, NULL);
             valido = 1;
         }
     } while (!valido);
 
-    return preco;
+    return preco_f;
 }

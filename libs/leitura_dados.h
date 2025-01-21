@@ -11,6 +11,6 @@ char* leDataNasc(void);
 char* leFuncao(void);
 char* leMarca(void);
 char* leQuantidade(void);
-char* lePreco(void);
+float lePreco(void);
 
 #endif
