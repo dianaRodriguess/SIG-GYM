@@ -142,5 +142,14 @@ int deletarEquipamento(Equipamento* equipamento){
     return -2;
 }
 
+int geraID(void){
+    int id;
+    FILE* file = fopen("equipamentos.dat", "rb");
+    if(file == NULL) return 0;
 
+    fseek(file, 0, SEEK_END);
+    id = ftell(file);
+    fclose(file);
 
+    return id / sizeof(Equipamento) + 1;
+}
