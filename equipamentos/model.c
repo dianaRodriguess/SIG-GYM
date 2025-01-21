@@ -6,6 +6,7 @@
 #include "../libs/utils.h"
 #include "../libs/leitura_dados.h"
 #include "model.h"
+#include "view.h"
 #include "../libs/entradas.h"
 
 int salvarEquipamento(Equipamento* equipamento){
@@ -39,6 +40,7 @@ Equipamento* carregarEquipamentos(int id){
 }
 
 void alteraEquipamento(Equipamento* equipamento, int op){
+    float preco;
     int opcao;
     char* entrada = NULL;
 
@@ -55,31 +57,24 @@ void alteraEquipamento(Equipamento* equipamento, int op){
             break;
         case 3:
             limparBuffer();
-            entrada = leFuncao();
-            strcpy(equipamento->funcao, entrada);
+            opcao = leQuantidade();
+            equipamento->quantidade = opcao;
             break;
         case 4:
             limparBuffer();
-            entrada = leBarras();
-            strcpy(equipamento->codBarras, entrada);
-            break;
-        case 5:
-            limparBuffer();
-            entrada = leQuantidade();
-            strcpy(equipamento->quantidade, entrada);
-            break;
-        case 6:
-            limparBuffer();
-            entrada = lePreco();  
-            equipamento->preco = strtof(entrada, NULL);  // converte a string para float e armazena no campo 'preco'
+            preco = lePreco();  
+            equipamento->preco = preco;
             break;
         default:
             printf("Opção inválida\n");
             break;
     }
 
-    regravaEquipamento(equipamento); // terminando ainda 
-    
+    regravaEquipamento(equipamento);
+    dadosEquipamentos(equipamento);
+    if(entrada != NULL){
+        free(entrada);
+    }
 }
 
 int regravaEquipamento(Equipamento* equipamento){

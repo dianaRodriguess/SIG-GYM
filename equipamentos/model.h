@@ -15,7 +15,7 @@ typedef struct {
 
 int salvarEquipamento(Equipamento*);
 Equipamento* carregarEquipamentos(int);
-void alteraEquipamento(Equipamento* equipamento, int op);
+void alteraEquipamento(Equipamento*, int);
 int deletarEquipamento(Equipamento* equipamento);
 int regravaEquipamento(Equipamento* equipamento);
 int excluirClientes(Equipamento* equipamento, char *codBarras);
