@@ -248,24 +248,32 @@ float lePreco(void) {
     return preco_f;
 }
 
-int LeID(void){
+int LeID(void) {
     char id[6];
     int id_i;
     int valido = 0;
+    char *endptr;
 
-    do{
-        if(strlen(id) == 0){
+    do {
+        capturarIDequi(id);
+
+        if (strlen(id) == 0) {
             printf("ID inválido. Por favor, insira um valor correto.\n");
             continue;
         }
 
-        if(!validaQuantidade(id)){
+        if (!validaQuantidade(id)) {
             printf("ID inválido. Tente novamente.\n");
-        } else{
-            id_i = atoi(id);
+            continue;
+        } else {
+            id_i = strtol(id, &endptr, 10);
+            if (*endptr != '\0') { 
+                printf("Entrada inválida! Apenas números são permitidos.\n");
+                continue;
+            }
             valido = 1;
         }
-    }while(!valido);
+    } while (!valido);
 
     return id_i;
 }
