@@ -12,5 +12,6 @@ char* leFuncao(void);
 char* leMarca(void);
 int leQuantidade(void);
 float lePreco(void);
+int LeID(void);
 
 #endif
