@@ -2,7 +2,7 @@
 #define VIEW_H
 #include "model.h"
 
-char menuEquipamentos(void);
+char menuEqui(void);
 void cadastrarEqui(void);
 void exibirDados(void);
 void alterarDados(void);

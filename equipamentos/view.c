@@ -3,7 +3,7 @@
 #include "model.h"
 
 
-char menuEquipamentos(void){
+char menuEqui(void){
     limparTela();
     char opcao;
     printf("----------------------------------------------\n");
