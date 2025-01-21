@@ -3,6 +3,7 @@
 #include <string.h>
 #include "model.h"
 #include "view.h"
+#include "controller.h"
 #include "../libs/entradas.h"
 #include "../libs/leitura_dados.h"
 #include "../libs/utils.h"
@@ -41,65 +42,49 @@ char menuEquipamentos(void){
     } while(opcao != '0');
 }
 
-
-
 Equipamento* CadastroEquipamento(void){
     char conf;
-    int resultado;
     int verificar = 0;
     Equipamento* equipamento = (Equipamento*) malloc(sizeof(Equipamento));
     if(equipamento == NULL){
         printf("Erro ao alocar memoria\n");
         exit(1);
-            }
+    }
     while (verificar != 1){
-        cadastrarEquipamento();
+        cadastrarEqui();
         conf = confirmação("funcionário", "você quer mesmo realizar o cadastro");
         switch(conf){
-            case '0':
+            case '1':
+                int id = geraID();
+                equipamento->ID = id;
+
                 char* nome = leNome();
                 strcpy(equipamento->nome, nome);
                 free(nome);    
                 
-                char* marca = leMarca(); // essa funcao nao existe ainda
+                char* marca = leMarca();
                 strcpy(equipamento->marca, marca);
                 free(marca);
 
-                char* funcao = leFuncao(); 
-                strcpy(equipamento->funcao, funcao);
-                free(funcao);
+                int quantidade = leQuantidade(); 
+                equipamento->quantidade = quantidade;
 
-                char* codBarras; // tem que fazer
-                sprintf(codBarras, "%d", equipamento->quantidade);
-                free(codBarras);
-
-                char* quantidade = leQuantidade(); 
-                sprintf(quantidade, "%d", equipamento->quantidade);
-                free(quantidade);
-
-                
-                char* preco = lePreco();  
-                equipamento->preco = strtof(preco, NULL);  // converte a string para float e armazena no campo 'preco'
-                free(preco);
+                float preco = lePreco();  
+                equipamento->preco = preco;
 
                 equipamento->status = 1;
                 verificar = 1;
                 return equipamento;
-            case -1:
-                        limparTela();
-                        printf("Já existe uma conta ativa com esse Código de Barras. Por favor, informe um novo Código de Barras.\n");
-                        pausarTela();
-                        continue;
-                    default:
-                        printf("Erro inesperado.\n");
-                        free(codBarras);
-                        free(equipamento);
-                        return NULL;
-                        break;    
+            case '0':
+                free(equipamento);
+                verificar = 1;
+                return NULL;
+            default:
+                printf("Opção inválida, tente novamente.\n");
+                break;    
         }   
     }
     return NULL;
-
 } 
 
 void listarEquipamento(void){
