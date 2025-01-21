@@ -18,7 +18,6 @@ Equipamento* carregarEquipamentos(int);
 void alteraEquipamento(Equipamento*, int);
 int deletarEquipamento(Equipamento* equipamento);
 int regravaEquipamento(Equipamento* equipamento);
-int excluirClientes(Equipamento* equipamento, char *codBarras);
 int geraID(void);
 
 #endif

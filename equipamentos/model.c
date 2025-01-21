@@ -81,11 +81,10 @@ int regravaEquipamento(Equipamento* equipamento){
     FILE* arquivo = fopen("equipamentos.dat", "r+b");
     if(arquivo == NULL){
         return 0;
-    
     }
     Equipamento* novoEquipamento = (Equipamento*)malloc(sizeof(Equipamento));
     while (fread(novoEquipamento, sizeof(Equipamento), 1, arquivo)){
-        if (!strcmp(novoEquipamento->codBarras, equipamento->codBarras)) {
+        if (novoEquipamento->ID == equipamento->ID){ {
             fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
             if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
                 fclose(arquivo);
@@ -100,29 +99,7 @@ int regravaEquipamento(Equipamento* equipamento){
     fclose(arquivo);
     fclose(novoEquipamento);
     return -2;
-}
-
-
-int excluirClientes(Equipamento* equipamento, char *codBarras){
-    FILE* arquivo = fopen("equipamentos.dat", "r+b");
-    if(arquivo == NULL){
-        return 0;
     }
-
-    while(fread(equipamento, sizeof(Equipamento), 1, arquivo)){
-        if(!strcmp(equipamento->codBarras, codBarras) && equipamento->status == 1){
-            fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
-            equipamento->status = 0;
-            if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
-                fclose(arquivo);
-                return TRUE;
-            }
-            fclose(arquivo);
-            return -1;
-        }
-    }
-    fclose(arquivo);
-    return -2;
 }
 
 int deletarEquipamento(Equipamento* equipamento){
@@ -133,7 +110,6 @@ int deletarEquipamento(Equipamento* equipamento){
     } else {
         return -1;
     }
-    
     return -2;
 }
 
