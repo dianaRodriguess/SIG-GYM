@@ -14,7 +14,7 @@ void capturarRepeticao(char *repeticao);
 void capturarCodTreino(char *codTreino);
 void capturarSexo(int *sexo);
 void capturarPlano(int *plano);
-void capturarCodBarras(char *codBarras);
+void capturarIDequi(char* id);
 void capturarQuantidade(char *quantidade);
 void capturarPreco(char *preco);
 

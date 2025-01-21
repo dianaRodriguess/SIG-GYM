@@ -80,10 +80,10 @@ void capturarCargo(int *cargo){
     getchar();
 }
 
-void capturarCodBarras(int* codBarras){
-    printf("\n>Digite o Código de barras do equipamento (apenas números): ");
-    scanf(" %d", codBarras);
-    getchar();
+void capturarIDequi(char* id){
+    printf("\n>Digite o ID do equipamento (apenas números): ");
+    fgets(id, 6, stdin);
+    id[strcspn(id, "\n")] = '\0';
 }
 
 void capturarQuantidade(char* quantidade){
