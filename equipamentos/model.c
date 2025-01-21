@@ -84,13 +84,13 @@ int regravaEquipamento(Equipamento* equipamento){
     }
     Equipamento* novoEquipamento = (Equipamento*)malloc(sizeof(Equipamento));
     while (fread(novoEquipamento, sizeof(Equipamento), 1, arquivo)){
-        if (novoEquipamento->ID == equipamento->ID){ {
+        if (novoEquipamento->ID == equipamento->ID){
             fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
             if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
                 fclose(arquivo);
                 free(novoEquipamento);
                 return TRUE;
-        }
+            }
         fclose(arquivo);
         free(novoEquipamento);
         return -1;
@@ -100,7 +100,6 @@ int regravaEquipamento(Equipamento* equipamento){
     free(novoEquipamento);
     return -2;
     }
-}
 
 int deletarEquipamento(Equipamento* equipamento){
     if(equipamento->status == 1){
@@ -113,14 +112,15 @@ int deletarEquipamento(Equipamento* equipamento){
     return -2;
 }
 
-int geraID(void){
-    int id;
+int geraID(void) {
+    Equipamento eq;
     FILE* file = fopen("equipamentos.dat", "rb");
-    if(file == NULL) return 0;
 
-    fseek(file, 0, SEEK_END);
-    id = ftell(file);
+    if (file == NULL) return 1; // Se o arquivo não existe, começamos do ID 1
+
+    fseek(file, -sizeof(Equipamento), SEEK_END); // Move para o último registro
+    fread(&eq, sizeof(Equipamento), 1, file); // Lê o último registro
     fclose(file);
 
-    return id / sizeof(Equipamento) + 1;
+    return eq.ID + 1; // Retorna o próximo ID válido
 }
