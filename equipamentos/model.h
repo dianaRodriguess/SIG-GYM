@@ -13,8 +13,8 @@ typedef struct {
     int status;
 } Equipamento;
 
-int salvarEquipamento(Equipamento* equipamento);
-Equipamento* carregarEquipamentos(char* codBarras);
+int salvarEquipamento(Equipamento*);
+Equipamento* carregarEquipamentos(int);
 void alteraEquipamento(Equipamento* equipamento, int op);
 int deletarEquipamento(Equipamento* equipamento);
 int regravaEquipamento(Equipamento* equipamento);

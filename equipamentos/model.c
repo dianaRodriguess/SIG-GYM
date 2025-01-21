@@ -20,7 +20,7 @@ int salvarEquipamento(Equipamento* equipamento){
     return 1;
 }
 
-Equipamento* carregarEquipamentos(char* codBarras){
+Equipamento* carregarEquipamentos(int id){
     Equipamento* equipamento = (Equipamento*)malloc(sizeof(Equipamento));
     FILE* arquivo = fopen("equipamentos.dat", "rb");
     if(arquivo == NULL) {
@@ -28,7 +28,7 @@ Equipamento* carregarEquipamentos(char* codBarras){
     }
 
     while(fread(equipamento, sizeof(Equipamento), 1, arquivo)) {
-        if (!strcmp(equipamento->codBarras, codBarras)) {
+        if(equipamento->ID != id){
             fclose(arquivo);
             return equipamento;
         }
