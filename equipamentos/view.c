@@ -20,7 +20,7 @@ char menuEquipamentos(void){
     return opcao;
 }
 
-void cadastrarEquipamento(void){
+void cadastrarEqui(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|           Cadastro de Equipamento          |\n");
