@@ -92,8 +92,8 @@ void capturarQuantidade(int* quantidade){
     getchar();
 }
 
-void capturarPreco(float* preco){
+void capturarPreco(char* preco){
     printf("> Preço: ");
-    scanf(" %f", preco);
-    getchar();
+    fgets(preco, 13, stdin);
+    preco[strcspn(preco, "\n")] = '\0';
 }
