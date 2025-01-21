@@ -29,7 +29,7 @@ Equipamento* carregarEquipamentos(int id){
     }
 
     while(fread(equipamento, sizeof(Equipamento), 1, arquivo)) {
-        if(equipamento->ID != id){
+        if(equipamento->ID == id){
             fclose(arquivo);
             return equipamento;
         }
