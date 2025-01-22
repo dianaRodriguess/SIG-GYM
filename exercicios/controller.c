@@ -4,12 +4,15 @@
 #include "view.h"
 #include "model.h"
 #include "controller.h"
+#include "relatorios.h"
 #include "../libs/utils.h"
 #include "../libs/style.h"
 #include "../libs/leitura_dados.h"
 #include "../libs/entradas.h"
 
-
+int main(void){
+    menuExercicio();
+}
 
 void menuExercicio(void){
     Exercicio* exercicio;
@@ -41,6 +44,9 @@ void menuExercicio(void){
                 excluirExercicio();
                
                 break;
+            case '5':
+                limparBuffer();
+                relatorioExercicio();
         }
     } while (opcao != '0');
 }
@@ -226,3 +232,55 @@ void excluirExercicio(void){
         }
     }
 }
+
+void menuRelatorioExercicio(void) {
+    Exercicio* exercicio;
+    char opcao;
+    char op;
+    
+    do{
+        limparBuffer();
+        opcao = relatorioExercicio();
+        switch(opcao){
+            case '1':
+                
+                op = statusExercicios();
+                switch(op){
+                    case '1':
+                        limparBuffer();
+                        ativosExercicios();
+                        pausarTela();
+                        break;
+                    case '2':
+                        limparBuffer();
+                        inativosExercicios();
+                        pausarTela();
+                        break;
+                    case '3':
+                        limparBuffer();
+                        allExercicios();
+                        pausarTela();
+                        break;
+                     case '0': 
+                        printf("Voltando ao menu principal...\n");
+                        break;
+                    default:
+                        printf("Opção inválida! Tente novamente.\n");
+                        pausarTela();
+                        break;
+                }
+
+        } while (op != '0');
+   
+     // aqui fica faltando o de ordem alfabetica
+
+
+    }while (opcao != '0');
+
+    
+
+
+
+
+
+ }

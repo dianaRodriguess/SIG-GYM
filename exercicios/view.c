@@ -15,6 +15,7 @@ char menuExercicios(void){
     printf("|             2 - Pesquisar Exercício        |\n");
     printf("|             3 - Atualizar Exercício        |\n");
     printf("|             4 - Excluir exercício          |\n");
+    printf("|             5 - Relatórios                 |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -57,4 +58,36 @@ void dadosExercicios(Exercicio* exercicio){
     printf("\033[1m|ID:\033[m %d\n", exercicio->id_exercicio);
     printf("\033[1m|Categoria:\033[m %s\n", exercicio->categoria);
     printf("|+---------------------------------------------------------------------+-----------------------------------------------------------------------+|\n");
+}
+
+char relatorioExercicio(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                       Relatório                     |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Status dos exercícios              |\n");
+    printf("|              3 - Exercícios por ordem alf.          |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+
+char statusExercicios(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Status                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Exercícios ativos                  |\n");
+    printf("|              2 - Exercícios inativos                |\n");
+    printf("|              3 - Todos os exercícios                |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
 }

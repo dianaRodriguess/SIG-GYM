@@ -6,6 +6,7 @@ Exercicio* cadastrarExercicio(void);
 void listarDadosExercicio(void);
 void editarExercicio(void);
 void excluirExercicio(void);
+void menuRelatorioExercicio(void);
 
 
 
