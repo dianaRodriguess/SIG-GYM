@@ -1,5 +1,6 @@
 #ifndef CONTROLER_H
 #define CONTROLER_H
+#include "model.h"
 
 void menuCliente(void);
 Cliente* cadastrarCliente(void);
