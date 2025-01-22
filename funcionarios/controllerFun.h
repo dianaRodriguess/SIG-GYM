@@ -4,8 +4,8 @@
 
 void excluirFuncionario(void);
 Funcionario* cadastrarFuncionario(void);
-void listarDados(void);
-void editarDados(void);
+void listarDadosFun(void);
+void editarDadosFun(void);
 void menuFuncionario(void);
 void menuRelatorioFuncionario(void);
 void ativosDadosFuncionarios();

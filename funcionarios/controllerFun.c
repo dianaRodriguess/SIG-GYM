@@ -27,12 +27,12 @@ void menuFuncionario(void){
                 break;
             case '2':
                 limparBuffer();
-                listarDados();
+                listarDadosFun();
                 pausarTela();
                 break;
             case '3':
                 limparBuffer();
-                editarDados();
+                editarDadosFun();
                 pausarTela();
                 break;
             case '4':
@@ -66,7 +66,7 @@ Funcionario* cadastrarFuncionario(void){
         switch(conf){
             case '1':
                 cpf = leCPF();
-                resultado = checaCPF(cpf);
+                resultado = checaCPFun(cpf);
                 switch(resultado) {
                     case 1:
                         printf("Funcinário reativado com sucesso!\n");
@@ -126,7 +126,7 @@ Funcionario* cadastrarFuncionario(void){
     return NULL;
 }
 
-void listarDados(void){
+void listarDadosFun(void){
     telaExibirDados();
     char* cpf = leCPF();
     Funcionario* funcionario = carregarFuncionarios(cpf);
@@ -143,7 +143,7 @@ void listarDados(void){
     free(cpf);    
 }
 
-void editarDados(void) {
+void editarDadosFun(void) {
     int op;
     char conf;
     int verif = 0;
