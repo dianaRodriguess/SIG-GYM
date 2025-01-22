@@ -5,8 +5,8 @@
 #include <sys/types.h>
 #include "../libs/utils.h"
 #include "../libs/leitura_dados.h"
-#include "model.h"
-#include "view.h"
+#include "modelEqui.h"
+#include "viewEqui.h"
 #include "../libs/entradas.h"
 
 int salvarEquipamento(Equipamento* equipamento){
