@@ -125,7 +125,7 @@ int deletarFuncionario(Funcionario* funcionario){
     return -2;
 }
 
-int checaCPF(char* cpf){
+int checaCPFun(char* cpf){
     char op;
     Funcionario* funcionario = carregarFuncionarios(cpf);
 
