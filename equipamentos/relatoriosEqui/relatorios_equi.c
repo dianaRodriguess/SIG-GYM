@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include "equipamentos/model.h"
+#include "../model.h"
+#include "relatorios_equi.h"
+#include "../../libs/utils.h"
 
 void listarEquipamentosAtivos(void) {
     FILE* arquivo = fopen("equipamentos.dat", "rb");
@@ -14,7 +16,7 @@ void listarEquipamentosAtivos(void) {
 
     limparTela();
     printf("----------------------------------------------------------------------------------------------------\n");
-    printf("| %-5s | %-20s | %-15s | %-10s | %-10s |\n", "ID", "Nome", "Marca", "Qtd.", "Preço");
+    printf("| %-5s | %-30s | %-25s | %-15s | %-10s |\n", "ID", "Nome", "Marca", "Qtd.", "Preço");
     printf("----------------------------------------------------------------------------------------------------\n");
 
     while (fread(&equipamento, sizeof(Equipamento), 1, arquivo)) {
@@ -27,7 +29,7 @@ void listarEquipamentosAtivos(void) {
     }
     
     if (!encontrados) {
-        printf("|                               Nenhum equipamento ativo encontrado.                             |\n");
+        printf("|                               Nenhum equipamento ativo encontrado.                               |\n");
     }
 
     printf("----------------------------------------------------------------------------------------------------\n");
