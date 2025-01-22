@@ -155,6 +155,7 @@ char* leMarca(void){
 
     return marca;
 }
+
 int leCargo(void) {
     int valido = 0;
     int cargo;
@@ -162,7 +163,7 @@ int leCargo(void) {
     do {
         capturarCargo(&cargo);
 
-        if (!verificaPlano(cargo)) {
+        if (!verificaCargo(cargo)) {
             printf("Cargo inválido, tente novamente.\n");
         } else {
             valido = 1;

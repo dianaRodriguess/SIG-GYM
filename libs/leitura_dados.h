@@ -7,6 +7,7 @@ char* leTelefone(void);
 char* leEmail(void);
 int leSexo(void);
 int lePlano(void);
+int leCargo(void);
 char* leDataNasc(void);
 char* leFuncao(void);
 char* leMarca(void);
