@@ -1,6 +1,6 @@
 #ifndef VIEW_H
 #define VIEW_H
-#include "model.h"
+#include "modelEqui.h"
 
 char menuEqui(void);
 void cadastrarEqui(void);
