@@ -10,9 +10,6 @@
 #include "../libs/leitura_dados.h"
 #include "../libs/entradas.h"
 
-int main(void){
-    menuExercicio();
-}
 
 void menuExercicio(void){
     Exercicio* exercicio;
