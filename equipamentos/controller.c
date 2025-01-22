@@ -9,7 +9,7 @@
 #include "relatoriosEqui/relatorios_equi.h"
 #include "../libs/leitura_dados.h"
 
-char menuEquipamentos(void){
+void menuEquipamentos(void){
     Equipamento* equipamento;
     char opcao;
     do {
