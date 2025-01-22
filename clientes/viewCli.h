@@ -10,5 +10,8 @@ void alterarDados(void);
 void numDados(void);
 void excluiClientes(void);
 void dadosClientes(Cliente*);
+char relatorioClientes(void);
+char statusClientes(void);
+char planoClientes(void);
 
 #endif

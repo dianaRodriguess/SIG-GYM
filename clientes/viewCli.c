@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "viewCli.h"
+#include "modelCli.h"
+#include <string.h>
 #include "modelCli.h"
 #include "../libs/utils.h"
 
@@ -43,15 +44,6 @@ void alterarDados(void){
     printf("----------------------------------------------\n");
 }
 
-void cadDados(void) {
-    limparTela();
-    printf("-------------------------------------------------------------------------------------------------\n");
-    printf("|                                         Cadastrar Dados                                       |\n");
-    printf("-------------------------------------------------------------------------------------------------\n");
-    printf("| 1 - Nome | 2 - CPF | 3 - Telefone | 4 - Email | 5 - Data de Nascimento | 6 - Sexo | 7 - Plano |\n");
-    printf("-------------------------------------------------------------------------------------------------\n");
-}
-
 void numDados(void) {
     limparTela();
     printf("-------------------------------------------------------------------------------------------------\n");
@@ -70,14 +62,62 @@ void excluiClientes(void){
 
 void dadosClientes(Cliente* cliente){
     limparTela();
-    printf("|\t\t\033[1m-> Dados do Usuário\033[m \n");
-    printf("\033[1m|Nome:\033[m %s\n", cliente->nome);
-    printf("\033[1m|CPF:\033[m %s\n", cliente->cpf);
-    printf("\033[1m|Telefone:\033[m %s\n", cliente->telefone);
-    printf("\033[1m|Email:\033[m %s\n", cliente->email);
-    printf("\033[1m|Data de nascimento:\033[m %s\n", cliente->dataNasc);
-    printf("\033[1m|Sexo:\033[m %s\n", nomeSexo(cliente->sexo));
-    printf("\033[1m|Plano:\033[m %s\n", nomePlano(cliente->plano));
-    printf("|+---------------------------------------------------------------------+-----------------------------------------------------------------------+|\n");
+    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("| Nome: %s \n", cliente->nome);
+    printf("| CPF: %s \n", cliente->cpf);
+    printf("| Telefone: %s \n", cliente->telefone);
+    printf("| Email: %s \n", cliente->email);
+    printf("| Data de Nascimento: %s\n", cliente->dataNasc);
+    printf("| Sexo: %s \n", nomeSexo(cliente->sexo));
+    printf("| Plano: %s \n", nomePlano(cliente->plano));
+    printf("----------------------------------------------------------------------------------------------------\n");
 }
 
+char relatorioClientes(void){
+    limparTela();
+    char opcao;
+    printf("----------------------------------------------\n");
+    printf("|                  Relatório                 |\n");
+    printf("----------------------------------------------\n");
+    printf("|           1 - Status dos cliente           |\n");
+    printf("|           2 - Clientes por plano           |\n");
+    printf("|           3 - Clientes por ordem alf.      |\n");
+    printf("|           4 - Recuperação de dados         |\n");
+    printf("|           0 - Retornar ao Menu Principal   |\n");
+    printf("----------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char statusClientes(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Status                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Clientes ativos                    |\n");
+    printf("|              2 - Clinetes inativos                  |\n");
+    printf("|              3 - Todos os clientes                  |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char planoClientes(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Planos                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Clientes básicos                   |\n");
+    printf("|              2 - Clientes intermediários            |\n");
+    printf("|              3 - Clientes avançados                 |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
