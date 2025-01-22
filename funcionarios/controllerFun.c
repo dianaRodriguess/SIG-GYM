@@ -3,7 +3,7 @@
 #include <string.h>
 #include "viewFun.h"
 #include "modelFun.h"
-#include "controller.h"
+#include "controllerFun.h"
 #include "../libs/entradas.h"
 #include "../libs/utils.h"
 #include "../libs/leitura_dados.h"
