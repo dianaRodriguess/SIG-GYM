@@ -1,6 +1,6 @@
 #ifndef VIEW_CLI_H
 #define VIEW_CLI_H
-#include "model.h"
+#include "modelCli.h"
 
 char menuClientes(void);
 void cadastrarClientes(void);
