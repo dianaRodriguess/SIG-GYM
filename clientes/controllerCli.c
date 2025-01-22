@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "view.h"
-#include "model.h"
+#include "viewCli.h"
+#include "modelCli.h"
 #include "controller.h"
 #include "../libs/utils.h"
 #include "../libs/style.h"
