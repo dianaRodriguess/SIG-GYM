@@ -67,7 +67,7 @@ char relatorioExercicio(void){
     printf("|                       Relatório                     |\n");
     printf("-------------------------------------------------------\n");
     printf("|              1 - Status dos exercícios              |\n");
-    printf("|              3 - Exercícios por ordem alf.          |\n");
+    printf("|              2 - Exercícios por ordem alf.          |\n");
     printf("|              0 - Retornar ao Menu Principal         |\n");
     printf("-------------------------------------------------------\n");
     printf("> Selecione uma opção: ");

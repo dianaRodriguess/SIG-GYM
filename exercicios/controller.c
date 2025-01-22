@@ -32,21 +32,23 @@ void menuExercicio(void){
             case '2':
                 limparBuffer();
                 listarDadosExercicio();
-                
+                pausarTela();
                 break;
             case '3':
                 limparBuffer();
                 editarExercicio();
-             
+                pausarTela();
                 break;
             case '4':
                 limparBuffer();
                 excluirExercicio();
-               
+                pausarTela();
                 break;
             case '5':
                 limparBuffer();
-                relatorioExercicio();
+                menuRelatorioExercicio();
+                pausarTela();
+                break;
         }
     } while (opcao != '0');
 }
@@ -237,13 +239,12 @@ void menuRelatorioExercicio(void) {
     Exercicio* exercicio;
     char opcao;
     char op;
-    
     do{
-        limparBuffer();
         opcao = relatorioExercicio();
         switch(opcao){
             case '1':
-                
+            do{
+                limparBuffer();
                 op = statusExercicios();
                 switch(op){
                     case '1':
@@ -275,12 +276,8 @@ void menuRelatorioExercicio(void) {
      // aqui fica faltando o de ordem alfabetica
 
 
-    }while (opcao != '0');
+    }
 
     
-
-
-
-
-
- }
+ }while (opcao != '0');
+}
