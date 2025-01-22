@@ -3,8 +3,8 @@
 #include <string.h>
 #include "validacoes.h"
 #include "entradas.h"
-#include "../clientes/model.h"
-#include "../funcionarios/model.h"
+#include "../clientes/modelCli.h"
+#include "../funcionarios/modelFun.h"
 
 char* leNome(void) {
     int valido = 0;
