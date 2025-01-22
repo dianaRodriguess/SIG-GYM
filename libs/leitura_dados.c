@@ -277,3 +277,27 @@ int leID(void) {
 
     return id_i;
 }
+
+char* leNomeEqui(void) {
+    int valido = 0;
+    int tamanho;
+    char* nome = (char*)malloc(31 * sizeof(char));
+    
+    do {
+        capturarNomeEqui(nome);
+        tamanho = strlen(nome);
+
+        if (tamanho == 0) {
+            printf("Nome inválido. Por favor, insira um nome.\n");
+            continue; 
+        }
+
+        if (!validaName(nome, tamanho)) {
+            printf("Nome inválido, tente novamente.\n");
+        } else {
+            valido = 1;  
+        }
+    } while(!valido);
+
+    return nome;
+}

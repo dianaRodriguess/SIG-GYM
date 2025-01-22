@@ -13,5 +13,6 @@ char* leMarca(void);
 int leQuantidade(void);
 float lePreco(void);
 int leID(void);
+char* leNomeEqui(void);
 
 #endif
