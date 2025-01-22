@@ -147,9 +147,11 @@ void excluirEquipamento(void){
     Equipamento* equipamento = NULL;
 
     while(verificar != 1){
+        excluiEquipamento();
         conf = confirmação("funcionário", "você quer mesmo realizar a exclusão do equipamento");
         switch(conf) {
             case '1':
+                listarEquipamentosAtivos();
                 int id = leID();
                 equipamento = carregarEquipamentos(id);
                 if(equipamento != NULL){
@@ -157,7 +159,6 @@ void excluirEquipamento(void){
                     switch(resultado){
                         case 1:
                             printf("Equipamento excluído com sucesso!\n");
-                            printf("status: %d\n", equipamento->status);
                             break;
                         case -1:
                             printf("Equipamento já está inativo.\n");
@@ -178,7 +179,7 @@ void excluirEquipamento(void){
                 break;
             case '0':
                 limparTela();
-                printf("Operação cancelada");
+                printf("Operação cancelada\n");
                 verificar = 1;
                 break;
             default:
