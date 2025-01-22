@@ -1,5 +1,5 @@
-#ifndef VIEW_H
-#define VIEW_H
+#ifndef VIEW_CLI_H
+#define VIEW_CLI_H
 #include "model.h"
 
 char menuClientes(void);

@@ -1,5 +1,5 @@
-#ifndef MODEL_H
-#define MODEL_H
+#ifndef MODEL_CLI_H
+#define MODEL_CLI_H
 
 typedef enum {
     Masculino = 1,
