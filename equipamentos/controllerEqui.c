@@ -89,7 +89,7 @@ Equipamento* CadastroEquipamento(void){
 } 
 
 void listarEquipamento(void){
-    exibirDados();
+    exibirDadosEqui();
     char conf;
     conf = confirmação("funcionário", "você quer mesmo listar os equipamentos");
     switch(conf){
@@ -109,13 +109,13 @@ void editarEquipamento(void){
     int verif = 0;
 
     do{
-        alterarDados();
+        alterarDadosEqui();
         conf = confirmação("funcionário", "você quer mesmo realizar a alteração dos seus dados");
         switch(conf){
             case '1':
                 limparBuffer();
                 listarEquipamentosAtivos();
-                numDados();
+                numDadosEqui();
                 int id = leID();
                 Equipamento* equipamento = carregarEquipamentos(id);
                 if(equipamento == NULL){

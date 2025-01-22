@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "../modelEqui.h"
-#include "relatorios_equi.h"
 #include "../../libs/utils.h"
 
 void listarEquipamentosAtivos(void) {

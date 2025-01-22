@@ -28,14 +28,14 @@ void cadastrarEqui(void){
     printf("----------------------------------------------\n");
 }
 
-void exibirDados(void){
+void exibirDadosEqui(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|                 Exibir Dados               |\n");
     printf("----------------------------------------------\n");
 }
 
-void alterarDados(void){
+void alterarDadosEqui(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|                 Alterar Dados              |\n");
@@ -49,7 +49,7 @@ void excluiEquipamento(void){
     printf("----------------------------------------------\n");
 }
 
-void numDados(void) {
+void numDadosEqui(void) {
     printf("----------------------------------------------------------------------------------------------------\n");
     printf("| %-5s | 1 - %-26s | 2 - %-20s | 3 - %-12s | 4 - %-6s |\n", "ID", "Nome", "Marca", "Qtd.", "Preço");
     printf("----------------------------------------------------------------------------------------------------\n");
