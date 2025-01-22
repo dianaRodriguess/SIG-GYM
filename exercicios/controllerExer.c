@@ -278,3 +278,8 @@ void menuRelatorioExercicio(void) {
     
  }while (opcao != '0');
 }
+
+int main(){
+    menuExercicio();
+    return 0;
+}

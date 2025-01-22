@@ -4,9 +4,9 @@
 
 char menuEqui(void);
 void cadastrarEqui(void);
-void exibirDados(void);
-void alterarDados(void);
-void numDados(void);
+void exibirDadosEqui(void);
+void alterarDadosEqui(void);
+void numDadosEqui(void);
 void excluiEquipamento(void);
 void dadosEquipamentos(Equipamento*);
 
