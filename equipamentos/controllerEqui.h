@@ -1,7 +1,6 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
-
-#include "model.h"
+#ifndef CONTROLLER_EQUI_H
+#define CONTROLLER_EQUI_H
+#include "modelEqui.h"
 
 void menuEquipamentos(void);
 Equipamento* CadastroEquipamento(void);

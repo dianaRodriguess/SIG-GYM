@@ -1,7 +1,7 @@
 #ifndef FUN_VIEW_H
 #define FUN_VIEW_H
 
-#include "model.h"
+#include "modelFun.h"
 
 char menuFuncionarios(void);
 void telaCadastrarFuncionario(void);

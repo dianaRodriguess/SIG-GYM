@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "view.h"
-#include "model.h"
 #include <string.h>
-#include "model.h"
+#include "viewCli.h"
+#include "modelCli.h"
 #include "../libs/utils.h"
 
 char menuClientes(void){

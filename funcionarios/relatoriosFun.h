@@ -1,5 +1,5 @@
-#ifndef RELATORIOS_H
-#define RELATORIOS_H
+#ifndef RELATORIOS_FUN_H
+#define RELATORIOS_FUN_H
 
 void ativosDadosFuncionarios();
 void inativosDadosFuncionarios();

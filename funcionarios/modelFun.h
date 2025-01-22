@@ -1,5 +1,5 @@
-#ifndef _FUN_MODEL_H
-#define _FUN_MODEL_H
+#ifndef FUN_MODEL_H
+#define FUN_MODEL_H
 
 typedef enum {
     Gerente = 1,

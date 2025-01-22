@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "model.h"
-#include "view.h"
-#include "controller.h"
+#include "modelEqui.h"
+#include "viewEqui.h"
+#include "controllerEqui.h"
 #include "../libs/utils.h"
 #include "../libs/entradas.h"
 #include "relatoriosEqui/relatorios_equi.h"
