@@ -114,15 +114,17 @@ void editarEquipamento(void){
         switch(conf){
             case '1':
                 limparBuffer();
+                listarEquipamentosAtivos();
+                numDados();
                 int id = leID();
                 Equipamento* equipamento = carregarEquipamentos(id);
                 if(equipamento == NULL){
                     printf("Equipamento não encontrado ou não está ativo.\n");
                     free(equipamento);
                     verif = 1;
+                    return;
                 }
 
-                dadosEquipamentos(equipamento);
                 op = lerOpcao("Selecione o dado que deseja alterar - Somente números: ", 4);
                 alteraEquipamento(equipamento, op);
                 free(equipamento);
