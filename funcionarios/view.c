@@ -15,6 +15,7 @@ char menuFuncionarios(void){
     printf("|             2 - Exibir Dados               |\n");
     printf("|             3 - Alterar Dados              |\n");
     printf("|             4 - Excluir Funcionário        |\n");
+    printf("|             5 - Relatórios                 |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -80,5 +81,55 @@ void dadosFuncionarios(Funcionario* funcionario){
     printf("\033[1m|Data de nascimento:\033[m %s\n", funcionario->dataNasc);
     printf("\033[1m|Plano:\033[m %s\n", nomeCargo(funcionario->cargo));
     printf("|+---------------------------------------------------------------------+-----------------------------------------------------------------------+|\n");
+}
+
+
+char relatorioFuncionarios(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                       Relatório                     |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Status do funcionário              |\n");
+    printf("|              2 - Funcionário por cargo              |\n");
+    printf("|              3 - Funcionários por ordem alf.        |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char statusFuncionarios(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Status                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Funcionários ativos                |\n");
+    printf("|              2 - Funcionários inativos              |\n");
+    printf("|              3 - Todos os funcionários              |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char cargoFuncionarios(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Planos                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|                 1 - Gerentes                        |\n");
+    printf("|                 2 - Professores                     |\n");
+    printf("|                 3 - ASG's                           |\n");
+    printf("|                 4 - Atendentes                      |\n");
+    printf("|                 0 - Retornar ao Menu Principal      |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;                  
 }
 
