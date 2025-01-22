@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "viewCli.h"
 #include "modelCli.h"
 #include <string.h>
 #include "modelCli.h"
