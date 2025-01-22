@@ -7,6 +7,7 @@
 #include "../libs/entradas.h"
 #include "../libs/utils.h"
 #include "../libs/leitura_dados.h"
+#include "relatorios.h"
 
 
 void menuFuncionario(void){
@@ -37,6 +38,11 @@ void menuFuncionario(void){
             case '4':
                 limparBuffer();
                 excluirFuncionario();
+                pausarTela();
+                break;
+            case '5':
+                limparBuffer();
+                menuRelatorioFuncionario();
                 pausarTela();
                 break;
         }
@@ -222,4 +228,91 @@ void excluirFuncionario(void) {
                 continue;
         }
     }
+}
+
+void menuRelatorioFuncionario(void) {
+    Funcionario* funcionario;
+    char opcao;
+    char op;
+
+    do {
+        opcao = relatorioFuncionarios(); 
+        switch (opcao) {
+            case '1': 
+                do {
+                    limparBuffer();
+                    op = statusFuncionarios(); 
+                    switch (op) {
+                        case '1':
+                            limparBuffer();
+                            ativosDadosFuncionarios();
+                            pausarTela();
+                            break;
+                        case '2':
+                            limparBuffer();
+                            inativosDadosFuncionarios();
+                            pausarTela();
+                            break;
+                        case '3':
+                            limparBuffer();
+                            allFuncionarios();
+                            pausarTela();
+                            break;
+                        case '0': 
+                            printf("Voltando ao menu principal...\n");
+                            break;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");
+                            pausarTela();
+                            break;
+                    }
+                } while (op != '0');
+                break;
+
+            case '2': 
+                do {
+                    limparBuffer();
+                    op = cargoFuncionarios(); 
+                    switch (op) {
+                        case '1':
+                            limparBuffer();
+                            dadosFuncionariosGerente();
+                            pausarTela();
+                            break;
+                        case '2':
+                            limparBuffer();
+                            dadosFuncionariosProfessor();
+                            pausarTela();
+                            break;
+                        case '3':
+                            limparBuffer();
+                            dadosFuncionariosASG();
+                            pausarTela();
+                            break;
+                        case '4':
+                            limparBuffer();
+                            dadosFuncionariosAtendente();
+                            pausarTela();
+                            break;
+                        case '0': 
+                            printf("Voltando ao menu principal...\n");
+                            break;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");
+                            pausarTela();
+                            break;
+                    }
+                } while (op != '0');
+                break;
+
+            case '0': 
+                printf("Saindo do menu de relatórios.\n");
+                break;
+
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+                pausarTela();
+                break;
+        }
+    } while (opcao != '0'); // Encerra o programa ao escolher '0' no menu principal
 }
