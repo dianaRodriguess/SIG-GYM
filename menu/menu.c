@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../libs/utils.h"
-#include "../clientes/controller.h"
-#include "../equipamentos/controller.h"
+#include "../clientes/controllerCli.h"
+#include "../equipamentos/controllerEqui.h"
     
 char menuPrincipal(void){
     limparTela();
