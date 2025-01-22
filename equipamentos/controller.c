@@ -4,9 +4,10 @@
 #include "model.h"
 #include "view.h"
 #include "controller.h"
-#include "../libs/entradas.h"
-#include "../libs/leitura_dados.h"
 #include "../libs/utils.h"
+#include "../libs/entradas.h"
+#include "relatoriosEqui/relatorios_equi.h"
+#include "../libs/leitura_dados.h"
 
 char menuEquipamentos(void){
     Equipamento* equipamento;
@@ -89,17 +90,16 @@ Equipamento* CadastroEquipamento(void){
 
 void listarEquipamento(void){
     exibirDados();
-    int id = LeID();
-    Equipamento* equipamento = carregarEquipamentos(id);
-    if (equipamento != NULL){
-        if(equipamento->status == 1){
-            dadosEquipamentos(equipamento);
-        } else {
-            printf("Equipamento não encontrado ou não está ativo.\n");
-        }
-        free(equipamento);
-    }else{
-        printf("Equipamento não encontrado;\n");
+    char conf;
+    conf = confirmação("funcionário", "você quer mesmo listar os equipamentos");
+    switch(conf){
+        case '1':
+            limparTela();
+            listarEquipamentosAtivos();
+            break;
+        case '0':
+            printf("Operação cancelada.\n");
+            break;
     }
 }
 
@@ -114,7 +114,7 @@ void editarEquipamento(void){
         switch(conf){
             case '1':
                 limparBuffer();
-                int id = LeID();
+                int id = leID();
                 Equipamento* equipamento = carregarEquipamentos(id);
                 if(equipamento == NULL){
                     printf("Equipamento não encontrado ou não está ativo.\n");
@@ -148,13 +148,14 @@ void excluirEquipamento(void){
         conf = confirmação("funcionário", "você quer mesmo realizar a exclusão do equipamento");
         switch(conf) {
             case '1':
-                int id = LeID();
+                int id = leID();
                 equipamento = carregarEquipamentos(id);
                 if(equipamento != NULL){
                     resultado = deletarEquipamento(equipamento);
                     switch(resultado){
                         case 1:
                             printf("Equipamento excluído com sucesso!\n");
+                            printf("status: %d\n", equipamento->status);
                             break;
                         case -1:
                             printf("Equipamento já está inativo.\n");
