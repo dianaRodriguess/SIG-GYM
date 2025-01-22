@@ -6,8 +6,8 @@
 
 typedef struct {
     int ID;
-    char nome[55]; 
-    char marca[27];
+    char nome[31]; 
+    char marca[26];
     int quantidade; 
     float preco;
     int status;
