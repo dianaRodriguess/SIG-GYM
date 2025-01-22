@@ -16,5 +16,5 @@ void capturarSexo(int *sexo);
 void capturarPlano(int *plano);
 void capturarQuantidade(int* quantidade);
 void capturarPreco(float* preco);
-void capturarID(int id);
+void capturarID(int* id);
 #endif 

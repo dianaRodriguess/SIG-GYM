@@ -173,40 +173,50 @@ char* leFuncao(void){
 }
 char* leQuantidade(void) {
     int valido = 0;
-    int tamanho;
-    char* quantidade = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+    int quantidadeInt;
+    char* quantidade = (char*)malloc(21 * sizeof(char)); // Alocar espaço para a string
+    
     do {
-        capturarQuantidade(quantidade); // Função já existente para capturar a entrada do usuário
-        tamanho = strlen(quantidade);
-        if (tamanho == 0) {
+        capturarQuantidade(&quantidadeInt); // Captura o valor como int
+        sprintf(quantidade, "%d", quantidadeInt); // Converte para string
+        
+        if (quantidadeInt <= 0) {
             printf("Quantidade inválida. Por favor, insira um valor correto.\n");
-            continue; 
+            continue;
         }
+        
         if (!validaQuantidade(quantidade)) {
             printf("Quantidade inválida. Tente novamente.\n");
         } else {
             valido = 1;
         }
     } while (!valido);
+    
     return quantidade;
 }
+
+
 char* lePreco(void) {
     int valido = 0;
-    int tamanho;
-    char* preco = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+    float precoFloat;
+    char* preco = (char*)malloc(21 * sizeof(char)); // Alocar espaço para a string
+    
     do {
-        capturarPreco(preco); // Função já existente para capturar a entrada do usuário
-        tamanho = strlen(preco);
-        if (tamanho == 0) {
+        capturarPreco(&precoFloat); // Captura o valor como float
+        sprintf(preco, "%.2f", precoFloat); // Converte para string
+        
+        if (precoFloat <= 0) {
             printf("Preço inválido. Por favor, insira um valor correto.\n");
-            continue; 
+            continue;
         }
+        
         if (!validaPreco(preco)) {
             printf("Preço inválido. Tente novamente.\n");
         } else {
             valido = 1;
         }
     } while (!valido);
+    
     return preco;
 }
 

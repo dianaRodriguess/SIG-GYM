@@ -86,9 +86,9 @@ void capturarCodBarras(int* codBarras){
     getchar();
 }
 
-void capturarQuantidade(int* quantidade){
+void capturarQuantidade(int quantidade){
     printf("> Quantidade: ");
-    scanf(" %d", quantidade);
+    scanf(" %i", &quantidade);
     getchar();
 }
 
@@ -98,8 +98,8 @@ void capturarPreco(float* preco){
     getchar();
 }
 
-void capturarID(int id) {
+void capturarID(int* id) {
     printf("> ID (6 dígitos): ");
-    scanf(" %i", id);
+    scanf("%d", id);  
     getchar();
 }
