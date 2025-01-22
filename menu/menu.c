@@ -3,6 +3,7 @@
 #include "../libs/utils.h"
 #include "../clientes/controllerCli.h"
 #include "../equipamentos/controllerEqui.h"
+#include "../funcionarios/controllerFun.h"
     
 char menuPrincipal(void){
     limparTela();
@@ -33,6 +34,9 @@ void menu(void){
                 break;
             case '4':
                 menuEquipamentos();
+                break;
+            case '5':
+                menuFuncionario();
                 break;
             case '0':
                 printf("Obrigado por usar o programa. :)\n");
