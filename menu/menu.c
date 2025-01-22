@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "libs/utils.h"
-#include "clientes/controller.h"
+#include "../libs/utils.h"
+#include "../clientes/controller.h"
+#include "../equipamentos/controller.h"
     
 char menuPrincipal(void){
     limparTela();
@@ -30,27 +31,9 @@ void menu(void){
             case '1':
                 menuCliente();
                 break;
-            case '2':
-                loopPesquisar();
-                break;
-
-            case '3':
-                loopAtualizar();
-                break;
-
             case '4':
-                loopDeletar();
+                menuEquipamentos();
                 break;
-
-            case '5':
-                loopRelatorios();
-                break;
-
-            case '6':
-                telaInfo();
-                pausarTela();
-                break;
-
             case '0':
                 printf("Obrigado por usar o programa. :)\n");
                 opMain = '0';
