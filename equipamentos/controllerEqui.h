@@ -1,5 +1,5 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#ifndef CONTROLLER_EQUI_H
+#define CONTROLLER_EQUI_H
 #include "modelEqui.h"
 
 void menuEquipamentos(void);

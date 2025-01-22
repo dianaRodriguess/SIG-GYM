@@ -1,5 +1,5 @@
-#ifndef _EQUI_MODEL_H
-#define _EQUI_MODEL_H
+#ifndef EQUI_MODEL_H
+#define EQUI_MODEL_H
 
 #define FALSE 0
 #define TRUE 1
