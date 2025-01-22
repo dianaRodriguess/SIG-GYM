@@ -88,7 +88,7 @@ void capturarIDequi(char* id){
 
 void capturarQuantidade(char* quantidade){
     printf("> Quantidade: ");
-    fgets(quantidade, 11, stdin);
+    fgets(quantidade, 26, stdin);
     quantidade[strcspn(quantidade, "\n")] = '\0';
 }
 
@@ -96,4 +96,10 @@ void capturarPreco(char* preco){
     printf("> Preço: ");
     fgets(preco, 13, stdin);
     preco[strcspn(preco, "\n")] = '\0';
+}
+
+void capturarNomeEqui(char *nome){
+    printf("> Nome do Equipamento: ");
+    fgets(nome, 31, stdin);
+    nome[strcspn(nome, "\n")] = '\0';
 }

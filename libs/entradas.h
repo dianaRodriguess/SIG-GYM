@@ -17,5 +17,6 @@ void capturarPlano(int *plano);
 void capturarIDequi(char* id);
 void capturarQuantidade(char *quantidade);
 void capturarPreco(char *preco);
+void capturarNomeEqui(char *nome);
 
 #endif 
