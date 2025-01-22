@@ -3,5 +3,6 @@
 
 char menuPrincipal(void);
 void menu(void);
+void menuEquipe(void);
 
 #endif

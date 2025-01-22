@@ -14,6 +14,7 @@ char menuPrincipal(void){
     printf("|             3 - Exercícios                 |\n");
     printf("|             4 - Equipamentos               |\n");
     printf("|             5 - Funcionários               |\n");
+    printf("|             6 - Equipe                     |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -47,7 +48,7 @@ void menu(void){
                 break;
 
             case '6':
-                telaInfo();
+                menuEquipe();
                 pausarTela();
                 break;
 
@@ -63,4 +64,22 @@ void menu(void){
         }
 
     } while (opMain != '0');
+}
+
+void menuEquipe(void){
+    limparTela();
+    char opcao;
+    printf("---------------------------------------------\n");
+    printf("|                 Colaboradores             |\n");
+    printf("---------------------------------------------\n");
+    printf("|           > André Leandro                 |\n");
+    printf("|           > GitHub: andrewszada           |\n");
+    printf("|           > Paulo Douglas                 |\n");
+    printf("|           > GitHub: Paulo-Douglas         |\n");
+    printf("|           > Anderson Gabriel              |\n");
+    printf("|           > GitHub: anderson-cruz13       |\n");
+    printf("|           > Diana Rodrigues               |\n");
+    printf("|           > GitHub: dianaRodriguess       |\n");
+    printf("----------------------------------------------\n");
+
 }
