@@ -6,6 +6,7 @@
 #include "../libs/utils.h"
 #include "../libs/leitura_dados.h"
 #include "model.h"
+#include "view.h"
 #include "../libs/entradas.h"
 
 int salvarEquipamento(Equipamento* equipamento){
@@ -20,7 +21,7 @@ int salvarEquipamento(Equipamento* equipamento){
     return 1;
 }
 
-Equipamento* carregarEquipamentos(char* codBarras){
+Equipamento* carregarEquipamentos(int id){
     Equipamento* equipamento = (Equipamento*)malloc(sizeof(Equipamento));
     FILE* arquivo = fopen("equipamentos.dat", "rb");
     if(arquivo == NULL) {
@@ -28,7 +29,7 @@ Equipamento* carregarEquipamentos(char* codBarras){
     }
 
     while(fread(equipamento, sizeof(Equipamento), 1, arquivo)) {
-        if (!strcmp(equipamento->codBarras, codBarras)) {
+        if(equipamento->ID == id){
             fclose(arquivo);
             return equipamento;
         }
@@ -39,6 +40,7 @@ Equipamento* carregarEquipamentos(char* codBarras){
 }
 
 void alteraEquipamento(Equipamento* equipamento, int op){
+    float preco;
     int opcao;
     char* entrada = NULL;
 
@@ -55,80 +57,49 @@ void alteraEquipamento(Equipamento* equipamento, int op){
             break;
         case 3:
             limparBuffer();
-            entrada = leFuncao();
-            strcpy(equipamento->funcao, entrada);
+            opcao = leQuantidade();
+            equipamento->quantidade = opcao;
             break;
         case 4:
             limparBuffer();
-            entrada = leBarras();
-            strcpy(equipamento->codBarras, entrada);
-            break;
-        case 5:
-            limparBuffer();
-            entrada = leQuantidade();
-            strcpy(equipamento->quantidade, entrada);
-            break;
-        case 6:
-            limparBuffer();
-            entrada = lePreco();  
-            equipamento->preco = strtof(entrada, NULL);  // converte a string para float e armazena no campo 'preco'
+            preco = lePreco();  
+            equipamento->preco = preco;
             break;
         default:
             printf("Opção inválida\n");
             break;
     }
 
-    regravaEquipamento(equipamento); // terminando ainda 
-    
+    regravaEquipamento(equipamento);
+    dadosEquipamentos(equipamento);
+    if(entrada != NULL){
+        free(entrada);
+    }
 }
 
 int regravaEquipamento(Equipamento* equipamento){
     FILE* arquivo = fopen("equipamentos.dat", "r+b");
     if(arquivo == NULL){
         return 0;
-    
     }
     Equipamento* novoEquipamento = (Equipamento*)malloc(sizeof(Equipamento));
     while (fread(novoEquipamento, sizeof(Equipamento), 1, arquivo)){
-        if (!strcmp(novoEquipamento->codBarras, equipamento->codBarras)) {
+        if (novoEquipamento->ID == equipamento->ID){
             fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
             if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
                 fclose(arquivo);
                 free(novoEquipamento);
                 return TRUE;
-        }
+            }
         fclose(arquivo);
         free(novoEquipamento);
         return -1;
         }
     }
     fclose(arquivo);
-    fclose(novoEquipamento);
+    free(novoEquipamento);
     return -2;
-}
-
-
-int excluirClientes(Equipamento* equipamento, char *codBarras){
-    FILE* arquivo = fopen("equipamentos.dat", "r+b");
-    if(arquivo == NULL){
-        return 0;
     }
-
-    while(fread(equipamento, sizeof(Equipamento), 1, arquivo)){
-        if(!strcmp(equipamento->codBarras, codBarras) && equipamento->status == 1){
-            fseek(arquivo, -sizeof(Equipamento), SEEK_CUR);
-            equipamento->status = 0;
-            if(fwrite(equipamento, sizeof(Equipamento), 1, arquivo)){
-                fclose(arquivo);
-                return TRUE;
-            }
-            fclose(arquivo);
-            return -1;
-        }
-    }
-    fclose(arquivo);
-    return -2;
-}
 
 int deletarEquipamento(Equipamento* equipamento){
     if(equipamento->status == 1){
@@ -138,9 +109,18 @@ int deletarEquipamento(Equipamento* equipamento){
     } else {
         return -1;
     }
-    
     return -2;
 }
 
+int geraID(void) {
+    Equipamento eq;
+    FILE* file = fopen("equipamentos.dat", "rb");
 
+    if (file == NULL) return 1; // Se o arquivo não existe, começamos do ID 1
 
+    fseek(file, -sizeof(Equipamento), SEEK_END); // Move para o último registro
+    fread(&eq, sizeof(Equipamento), 1, file); // Lê o último registro
+    fclose(file);
+
+    return eq.ID + 1; // Retorna o próximo ID válido
+}

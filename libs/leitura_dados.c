@@ -135,7 +135,7 @@ char* leDataNasc(void) {
 char* leMarca(void){
     int valido = 0;
     int tamanho;
-    char* marca = (char*)malloc(50 * sizeof(char));
+    char* marca = (char*)malloc(27 * sizeof(char));
 
     do{
         capturarMarca(marca);
@@ -196,13 +196,14 @@ char* leFuncao(void){
     return funcao;
 }
 
-char* leQuantidade(void) {
+int leQuantidade(void) {
+    int quantidade_i;
     int valido = 0;
     int tamanho;
-    char* quantidade = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+    char quantidade[11];
 
     do {
-        capturarQuantidade(quantidade); // Função já existente para capturar a entrada do usuário
+        capturarQuantidade(quantidade);
         tamanho = strlen(quantidade);
 
         if (tamanho == 0) {
@@ -213,20 +214,22 @@ char* leQuantidade(void) {
         if (!validaQuantidade(quantidade)) {
             printf("Quantidade inválida. Tente novamente.\n");
         } else {
+            quantidade_i = atoi(quantidade);
             valido = 1;
         }
     } while (!valido);
 
-    return quantidade;
+    return quantidade_i;
 }
 
-char* lePreco(void) {
+float lePreco(void) {
+    float preco_f;
     int valido = 0;
     int tamanho;
-    char* preco = (char*)malloc(21 * sizeof(char)); // 20 caracteres + 1 para '\0'
+    char preco[13];
 
     do {
-        capturarPreco(preco); // Função já existente para capturar a entrada do usuário
+        capturarPreco(preco);
         tamanho = strlen(preco);
 
         if (tamanho == 0) {
@@ -234,12 +237,67 @@ char* lePreco(void) {
             continue; 
         }
 
-        if (!validaPreco(preco)) {
+        if (!checaPreco(preco)) {
             printf("Preço inválido. Tente novamente.\n");
         } else {
+            preco_f = strtof(preco, NULL);
             valido = 1;
         }
     } while (!valido);
 
-    return preco;
+    return preco_f;
+}
+
+int leID(void) {
+    char id[6];
+    int id_i;
+    int valido = 0;
+    char *endptr;
+
+    do {
+        capturarIDequi(id);
+
+        if (strlen(id) == 0) {
+            printf("ID inválido. Por favor, insira um valor correto.\n");
+            continue;
+        }
+
+        if (!validaQuantidade(id)) {
+            printf("ID inválido. Tente novamente.\n");
+            continue;
+        } else {
+            id_i = strtol(id, &endptr, 10);
+            if (*endptr != '\0') { 
+                printf("Entrada inválida! Apenas números são permitidos.\n");
+                continue;
+            }
+            valido = 1;
+        }
+    } while (!valido);
+
+    return id_i;
+}
+
+char* leNomeEqui(void) {
+    int valido = 0;
+    int tamanho;
+    char* nome = (char*)malloc(31 * sizeof(char));
+    
+    do {
+        capturarNomeEqui(nome);
+        tamanho = strlen(nome);
+
+        if (tamanho == 0) {
+            printf("Nome inválido. Por favor, insira um nome.\n");
+            continue; 
+        }
+
+        if (!validaName(nome, tamanho)) {
+            printf("Nome inválido, tente novamente.\n");
+        } else {
+            valido = 1;  
+        }
+    } while(!valido);
+
+    return nome;
 }

@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "model.h"
+#include "../libs/utils.h"
 
 
-char menuEquipamentos(void){
+char menuEqui(void){
     limparTela();
     char opcao;
     printf("----------------------------------------------\n");
@@ -20,7 +21,7 @@ char menuEquipamentos(void){
     return opcao;
 }
 
-void cadastrarEquipamento(void){
+void cadastrarEqui(void){
     limparTela();
     printf("----------------------------------------------\n");
     printf("|           Cadastro de Equipamento          |\n");
@@ -49,23 +50,18 @@ void excluiEquipamento(void){
 }
 
 void numDados(void) {
-    limparTela();
-    printf("-------------------------------------------------------------------------------------------------\n");
-    printf("|                                           Alterar Dados                                       |\n");
-    printf("-------------------------------------------------------------------------------------------------\n");
-    printf("| 1 - Nome | 2 - Marca | 3 - Função | 4 - Código de Barras | 5 - Quantidade | 6 - Status | 7 - Preço |\n");
-    printf("-------------------------------------------------------------------------------------------------\n");
+    printf("----------------------------------------------------------------------------------------------------\n");
+    printf("| %-5s | 1 - %-26s | 2 - %-20s | 3 - %-12s | 4 - %-6s |\n", "ID", "Nome", "Marca", "Qtd.", "Preço");
+    printf("----------------------------------------------------------------------------------------------------\n");
 }
 
 void dadosEquipamentos(Equipamento* equipamento){
     limparTela();
     printf("----------------------------------------------------------------------------------------------------\n");
+    printf("| ID: %d \n", equipamento->ID);
     printf("| Nome: %s \n", equipamento->nome);
     printf("| Marca: %s \n", equipamento->marca);
-    printf("| Função: %s \n", equipamento->funcao);
-    printf("| Código de Barras: %s \n", equipamento->codBarras);
-    printf("| Quantidade: %s\n", equipamento->quantidade);
-    printf("| Status: %s \n", nomeSexo(equipamento->status));
-    printf("| Preço: %s \n", nomePlano(equipamento->preco));
+    printf("| Quantidade: %d\n", equipamento->quantidade);
+    printf("| Preço: %.2f \n", equipamento->preco);
     printf("----------------------------------------------------------------------------------------------------\n");
 }
