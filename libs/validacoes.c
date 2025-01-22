@@ -234,10 +234,14 @@ int validaEmail(char *email) {
 
 int checaPreco(char *preco) {
     float preco_f;
-    preco_f = atof(preco);
-    if (preco_f < 0){
+    char *endptr;
+
+    preco_f = strtof(preco, &endptr);
+
+    if (preco_f <= 0 || *endptr != '\0') {
         return 0;
     }
+
     return 1;
 }
 

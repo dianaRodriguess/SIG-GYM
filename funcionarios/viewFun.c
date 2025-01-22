@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "view.h"
-#include "model.h"
+#include "viewFun.h"
+#include "modelFun.h"
+#include "../libs/utils.h"
+
 
 char menuFuncionarios(void){
     limparTela();
@@ -13,6 +15,7 @@ char menuFuncionarios(void){
     printf("|             2 - Exibir Dados               |\n");
     printf("|             3 - Alterar Dados              |\n");
     printf("|             4 - Excluir Funcionário        |\n");
+    printf("|             5 - Relatórios                 |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -80,6 +83,7 @@ void dadosFuncionarios(Funcionario* funcionario){
     printf("|+---------------------------------------------------------------------+-----------------------------------------------------------------------+|\n");
 }
 
+
 char relatorioFuncionarios(void){
     limparTela();
     char opcao;
@@ -121,7 +125,7 @@ char cargoFuncionarios(void){
     printf("|                 1 - Gerentes                        |\n");
     printf("|                 2 - Professores                     |\n");
     printf("|                 3 - ASG's                           |\n");
-    printf("|                 3 - Atendentes                      |\n");
+    printf("|                 4 - Atendentes                      |\n");
     printf("|                 0 - Retornar ao Menu Principal      |\n");
     printf("-------------------------------------------------------\n");
     printf("> Selecione uma opção: ");

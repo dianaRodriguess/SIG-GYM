@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "view.h"
-#include "model.h"
-#include "controller.h"
+#include "viewCli.h"
+#include "modelCli.h"
+#include "controllerCli.h"
 #include "../libs/utils.h"
 #include "../libs/style.h"
 #include "../libs/leitura_dados.h"

@@ -1,9 +1,10 @@
-#ifndef VIEW_H
-#define VIEW_H
-#include "model.h"
+#ifndef VIEW_CLI_H
+#define VIEW_CLI_H
+#include "modelCli.h"
 
 char menuClientes(void);
 void cadastrarClientes(void);
+void cadDados(void);
 void exibirDados(void);
 void alterarDados(void);
 void numDados(void);

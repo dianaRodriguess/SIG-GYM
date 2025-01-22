@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "view.h"
-#include "model.h"
-#include "controller.h"
+#include "viewFun.h"
+#include "modelFun.h"
+#include "controllerFun.h"
 #include "../libs/entradas.h"
 #include "../libs/utils.h"
 #include "../libs/leitura_dados.h"
+#include "relatoriosFun.h"
 
 
 void menuFuncionario(void){
@@ -37,6 +38,11 @@ void menuFuncionario(void){
             case '4':
                 limparBuffer();
                 excluirFuncionario();
+                pausarTela();
+                break;
+            case '5':
+                limparBuffer();
+                menuRelatorioFuncionario();
                 pausarTela();
                 break;
         }
@@ -120,7 +126,7 @@ Funcionario* cadastrarFuncionario(void){
     return NULL;
 }
 
-void listarFuncionarios(void){
+void listarDados(void){
     telaExibirDados();
     char* cpf = leCPF();
     Funcionario* funcionario = carregarFuncionarios(cpf);
@@ -224,30 +230,89 @@ void excluirFuncionario(void) {
     }
 }
 
-void ativosDadosFuncionarios() {
-    limparTela();
-    printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("|                                                                      Funcionários ativos                                                             |\n");
-    printf("|------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-    printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-1s      | %-6s     |\n",
-           "Nome", "CPF", "Telefone", "Email", "Data de Nasc ", "Cargo");
-    printf("|------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+void menuRelatorioFuncionario(void) {
+    Funcionario* funcionario;
+    char opcao;
+    char op;
 
-    FILE *arquivo = fopen("funcionarios.dat", "rb");
-    if (arquivo == NULL) {
-        printf("Erro ao abrir ao arquivo\n");
-        return 0;
-    }
+    do {
+        opcao = relatorioFuncionarios(); 
+        switch (opcao) {
+            case '1': 
+                do {
+                    limparBuffer();
+                    op = statusFuncionarios(); 
+                    switch (op) {
+                        case '1':
+                            limparBuffer();
+                            ativosDadosFuncionarios();
+                            pausarTela();
+                            break;
+                        case '2':
+                            limparBuffer();
+                            inativosDadosFuncionarios();
+                            pausarTela();
+                            break;
+                        case '3':
+                            limparBuffer();
+                            allFuncionarios();
+                            pausarTela();
+                            break;
+                        case '0': 
+                            printf("Voltando ao menu principal...\n");
+                            break;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");
+                            pausarTela();
+                            break;
+                    }
+                } while (op != '0');
+                break;
 
-    Funcionario funcionario;
-    while (fread(&funcionario, sizeof(Funcionario), 1, arquivo)) {
-        if (funcionario.status == 1){
-            
-        }                                           // FALTA DESENVOLVER AQUI
-    }
+            case '2': 
+                do {
+                    limparBuffer();
+                    op = cargoFuncionarios(); 
+                    switch (op) {
+                        case '1':
+                            limparBuffer();
+                            dadosFuncionariosGerente();
+                            pausarTela();
+                            break;
+                        case '2':
+                            limparBuffer();
+                            dadosFuncionariosProfessor();
+                            pausarTela();
+                            break;
+                        case '3':
+                            limparBuffer();
+                            dadosFuncionariosASG();
+                            pausarTela();
+                            break;
+                        case '4':
+                            limparBuffer();
+                            dadosFuncionariosAtendente();
+                            pausarTela();
+                            break;
+                        case '0': 
+                            printf("Voltando ao menu principal...\n");
+                            break;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");
+                            pausarTela();
+                            break;
+                    }
+                } while (op != '0');
+                break;
 
+            case '0': 
+                printf("Saindo do menu de relatórios.\n");
+                break;
 
-
-
-
+            default:
+                printf("Opção inválida! Tente novamente.\n");
+                pausarTela();
+                break;
+        }
+    } while (opcao != '0'); // Encerra o programa ao escolher '0' no menu principal
 }

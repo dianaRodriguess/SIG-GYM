@@ -8,12 +8,6 @@ void capturarNome(char *nome){
     nome[strcspn(nome, "\n")] = '\0';
 }
 
-void capturarCargo(char *cargo){
-    printf("> Cargo: ");
-    fgets(cargo, 22, stdin);
-    cargo[strcspn(cargo, "\n")] = '\0';
-}
-
 void capturarMusculos(char *musculos){
     printf("> Musculos: ");
     fgets(musculos, 62, stdin);
@@ -80,20 +74,32 @@ void capturarPlano(int *plano){
     getchar();
 }
 
-void capturarCodBarras(int* codBarras){
-    printf("\n>Digite o Código de barras do equipamento (apenas números): ");
-    scanf(" %d", codBarras);
+void capturarCargo(int *cargo){
+    printf("> Selecione um plano -> 1 - Gerente, 2 - Professor, 3 - ASG, 4 - Atendente: ");
+    scanf(" %d", cargo);
     getchar();
 }
 
-void capturarQuantidade(int* quantidade){
+void capturarIDequi(char* id){
+    printf("\n>Digite o ID do equipamento (apenas números): ");
+    fgets(id, 6, stdin);
+    id[strcspn(id, "\n")] = '\0';
+}
+
+void capturarQuantidade(char* quantidade){
     printf("> Quantidade: ");
-    scanf(" %d", quantidade);
-    getchar();
+    fgets(quantidade, 26, stdin);
+    quantidade[strcspn(quantidade, "\n")] = '\0';
 }
 
-void capturarPreco(float* preco){
+void capturarPreco(char* preco){
     printf("> Preço: ");
-    scanf(" %f", preco);
-    getchar();
+    fgets(preco, 13, stdin);
+    preco[strcspn(preco, "\n")] = '\0';
+}
+
+void capturarNomeEqui(char *nome){
+    printf("> Nome do Equipamento: ");
+    fgets(nome, 31, stdin);
+    nome[strcspn(nome, "\n")] = '\0';
 }
