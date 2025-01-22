@@ -21,7 +21,7 @@ void listarEquipamentosAtivos(void) {
 
     while (fread(&equipamento, sizeof(Equipamento), 1, arquivo)) {
         if (equipamento.status == 1) {
-            printf("| %-5d | %-20s | %-15s | %-10d | R$ %-8.2f |\n", 
+            printf("| %-5d | %-30s | %-25s | %-15d | R$ %-8.2f |\n", 
                    equipamento.ID, equipamento.nome, equipamento.marca, 
                    equipamento.quantidade, equipamento.preco);
             encontrados = 1;
