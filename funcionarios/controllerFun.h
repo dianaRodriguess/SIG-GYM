@@ -1,5 +1,6 @@
 #ifndef FUN_CONTROLLER_H
 #define FUN_CONTROLLER_H
+#include "modelFun.h"
 
 void excluirFuncionario(void);
 Funcionario* cadastrarFuncionario(void);
