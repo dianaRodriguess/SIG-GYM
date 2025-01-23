@@ -4,6 +4,7 @@
 #include "viewCli.h"
 #include "modelCli.h"
 #include "controllerCli.h"
+#include "relatoriosCli.h"
 #include "../libs/utils.h"
 #include "../libs/style.h"
 #include "../libs/leitura_dados.h"
@@ -223,4 +224,45 @@ void excluirCliente(void) {
                 continue;
         }
     }
+}
+
+void menuRelatorioCliente(void){
+    char opcao;
+    char op;
+    do{
+        opcao = relatorioClientes();
+        switch(opcao){
+            case '1':
+            do{
+                limparBuffer();
+                op = statusClientes();
+                switch(op){
+                    case '1':
+                        limparBuffer();
+                        listarClientesAtivos();
+                        pausarTela();
+                    case '2':
+                        limparBuffer();
+                        listarClientesInativos();
+                        pausarTela();
+                    case '3':
+                        limparBuffer();
+                        allClientes();
+                        pausarTela();
+                    case '0': 
+                        printf("Voltando ao menu principal...\n");
+                        break;
+                    default:
+                        printf("Opção inválida! Tente novamente.\n");
+                        pausarTela();
+                        break;    
+                }
+
+            } while (op != 0);
+        }
+    }while (opcao != '0');
+    // aqui fica faltando o de ordem alfabetica
+
+
+
 }
