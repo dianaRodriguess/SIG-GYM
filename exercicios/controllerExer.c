@@ -90,24 +90,17 @@ Exercicio* cadastrarExercicio(void){
 
 void listarDadosExercicio(void){
     menuExibirExercicio();
-    int op;
-    int id = leIDExe();
-    Exercicio* exercicio = carregarExercicio(id);
-    if (exercicio != NULL) {
-        if (exercicio->status == 1) {
-            dadosExercicios(exercicio);
-            op = lerOpcao("Tecle 0 para continuar." , 1 );
-        } 
-        else {
-            printf("Exercício não encontrado ou não está ativo.\n");
-            op = lerOpcao("Tecle 0 para continuar." , 1 );
-            
-         }
-    } else {
-        printf("Exercício não encontrado.\n");
-        op = lerOpcao("Tecle 0 para continuar." , 1 );
+    char conf;
+    conf = confirmação("funcionário", "você quer mesmo listar os exercícios");
+    switch(conf){
+        case '1':
+            limparTela();
+            ativosExercicios();
+            break;
+        case '0':
+            printf("Operação cancelada.\n");
+            break;
     }
-    free(exercicio);
 }
 
 void editarExercicio(void) {
