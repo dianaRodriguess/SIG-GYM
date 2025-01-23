@@ -6,7 +6,7 @@
 #include "controllerEqui.h"
 #include "../libs/utils.h"
 #include "../libs/entradas.h"
-#include "relatoriosEqui/relatorios_equi.h"
+#include "relatoriosEqui.h"
 #include "../libs/leitura_dados.h"
 
 void menuEquipamentos(void){
