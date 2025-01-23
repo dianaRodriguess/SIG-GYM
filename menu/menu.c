@@ -4,6 +4,7 @@
 #include "../clientes/controllerCli.h"
 #include "../equipamentos/controllerEqui.h"
 #include "../funcionarios/controllerFun.h"
+#include "../exercicios/controllerExer.h"
     
 char menuPrincipal(void){
     limparTela();
@@ -31,6 +32,9 @@ void menu(void){
         switch (opMain){
             case '1':
                 menuCliente();
+                break;
+            case '3':
+                menuExercicio();
                 break;
             case '4':
                 menuEquipamentos();
