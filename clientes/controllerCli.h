@@ -7,5 +7,6 @@ Cliente* cadastrarCliente(void);
 void listarDados(void);
 void editarDados(void);
 void excluirCliente(void);
+void menuRelatorioCliente(void);
 
 #endif
