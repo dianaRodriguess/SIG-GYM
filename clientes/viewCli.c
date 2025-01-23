@@ -15,6 +15,7 @@ char menuClientes(void){
     printf("|             2 - Exibir Dados               |\n");
     printf("|             3 - Alterar Dados              |\n");
     printf("|             4 - Excluir Cliente            |\n");
+    printf("|             5 - Relatórios                 |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -81,7 +82,6 @@ char relatorioClientes(void){
     printf("|           1 - Status dos cliente           |\n");
     printf("|           2 - Clientes por plano           |\n");
     printf("|           3 - Clientes por ordem alf.      |\n");
-    printf("|           4 - Recuperação de dados         |\n");
     printf("|           0 - Retornar ao Menu Principal   |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
