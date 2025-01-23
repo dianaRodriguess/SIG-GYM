@@ -7,7 +7,7 @@ void menuCadastrarExercicio(void);
 void menuAtualizarExercicio(void);
 void menuExibirExercicio(void);
 void menuDeletarExercicio(void);
-void dadosExercicios(Exercicio* exercicio);
+void dadosExercicios(Exercicio*);
 char relatorioExercicio(void);
 char statusExercicios(void);
 
