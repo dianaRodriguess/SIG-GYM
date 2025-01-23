@@ -39,6 +39,11 @@ void menuCliente(void){
                 excluirCliente();
                 pausarTela();
                 break;
+            case '5':
+                limparBuffer();
+                menuRelatorioCliente();
+                pausarTela();
+                break;
         }
     } while (opcao != '0');
 }
@@ -241,14 +246,17 @@ void menuRelatorioCliente(void){
                         limparBuffer();
                         listarClientesAtivos();
                         pausarTela();
+                        break;
                     case '2':
                         limparBuffer();
                         listarClientesInativos();
                         pausarTela();
+                        break;
                     case '3':
                         limparBuffer();
                         allClientes();
                         pausarTela();
+                        break;
                     case '0': 
                         printf("Voltando ao menu principal...\n");
                         break;
@@ -258,7 +266,36 @@ void menuRelatorioCliente(void){
                         break;    
                 }
 
-            } while (op != 0);
+            } while (op != '0');
+            case '2':
+            do{
+                limparBuffer();
+                op = planoClientes();
+                switch(op){
+                    case '1':
+                        limparBuffer();
+                        listarClientesBasico();
+                        pausarTela();
+                        break;
+                    case '2':
+                        limparBuffer();
+                        listarClientesIntermediario();
+                        pausarTela();
+                        break;
+                    case '3':
+                        limparBuffer();
+                        listarClientesAvancado();
+                        pausarTela();
+                        break;
+                    case '0': 
+                        printf("Voltando ao menu principal...\n");
+                        break;
+                    default:
+                        printf("Opção inválida! Tente novamente.\n");
+                        pausarTela();
+                        break;  
+                }
+            } while (op != '0');
         }
     }while (opcao != '0');
     // aqui fica faltando o de ordem alfabetica
