@@ -56,7 +56,7 @@ Equipamento* CadastroEquipamento(void){
         conf = confirmação("funcionário", "você quer mesmo realizar o cadastro");
         switch(conf){
             case '1':
-                int id = geraID();
+                int id = geraIDEqui();
                 equipamento->ID = id;
 
                 char* nome = leNome();

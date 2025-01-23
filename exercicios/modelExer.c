@@ -109,32 +109,15 @@ int deletarExercicio(Exercicio* exercicio){
     return -2;
 }
 
-int checaExercicioID(int id){
-    char op;
-    Exercicio* exercicio = carregarExercicio(id);
+int geraIDExe(void) {
+    Exercicio exe;
+    FILE* file = fopen("exercicios.dat", "rb");
 
-    if(exercicio != NULL){
-        if(exercicio->status == 0){
-            op = confirmação("cliente", "você possui um exercicio inativo no nosso sistema. Deseja reativá-la?");
-            switch(op) {
-            case '1':
-                exercicio->status = 1;
-                regravaExercicio(exercicio);
-                free(exercicio);
-                return 1;
-            case '0':
-                free(exercicio);
-                return 0;
-            default:
-                printf("Opção inválida\n");
-                break;
-            }
-        } else if (exercicio->status == 1){
-            return -1;
-        }
-    } else {
-       return 0;
-    }
+    if (file == NULL) return 1; // Se o arquivo não existe, começamos do ID 1
 
-    return -4;
+    fseek(file, -sizeof(Exercicio), SEEK_END); // Move para o último registro
+    fread(&exe, sizeof(Exercicio), 1, file); // Lê o último registro
+    fclose(file);
+
+    return exe.id_exercicio + 1; // Retorna o próximo ID válido
 }

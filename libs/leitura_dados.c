@@ -302,3 +302,33 @@ char* leNomeEqui(void) {
 
     return nome;
 }
+
+int leIDExe(void) {
+    char idExe[6];
+    int idExe_i;
+    int valido = 0;
+    char *endptr;
+
+    do {
+        capturarIDExe(idExe);
+
+        if (strlen(idExe) == 0) {
+            printf("ID inválido. Por favor, insira um valor correto.\n");
+            continue;
+        }
+
+        if (!validaQuantidade(idExe)) {
+            printf("ID inválido. Tente novamente.\n");
+            continue;
+        } else {
+            idExe_i = strtol(idExe, &endptr, 10);
+            if (*endptr != '\0') { 
+                printf("Entrada inválida! Apenas números são permitidos.\n");
+                continue;
+            }
+            valido = 1;
+        }
+    } while (!valido);
+
+    return idExe_i;
+}

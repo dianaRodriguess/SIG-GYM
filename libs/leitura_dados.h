@@ -15,5 +15,6 @@ int leQuantidade(void);
 float lePreco(void);
 int leID(void);
 char* leNomeEqui(void);
+int leIDExe(void);
 
 #endif

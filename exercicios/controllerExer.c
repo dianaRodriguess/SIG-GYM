@@ -50,10 +50,8 @@ void menuExercicio(void){
     } while (opcao != '0');
 }
 
-Exercicio* cadastrarExercicio(void){
-    
+Exercicio* cadastrarExercicio(void){ 
     char conf;
-    int resultado;
     int verificar = 0;
     Exercicio* exercicio = (Exercicio*)malloc(sizeof(Exercicio));\
     if(exercicio == NULL){
@@ -63,68 +61,46 @@ Exercicio* cadastrarExercicio(void){
     while (verificar != 1){
         menuCadastrarExercicio();
         conf = confirmação("funcionário", "você quer mesmo realizar o cadastro");
-        
         switch(conf){
             case '1':
-                int id = gerarExercicioID();  
-                resultado = checaExercicioID(id);  
+                int id = geraIDExe();  
+                exercicio->id_exercicio = id;
 
-                switch(resultado){
-                    case 0:
-                        exercicio->id_exercicio = id;
+                char* nome = leNome();
+                strcpy(exercicio->nome, nome);
+                free(nome);
 
-                        char* nome = leNome();
-                        strcpy(exercicio->nome, nome);
-                        free(nome);
+                char* categoria = leFuncao();
+                strcpy(exercicio->categoria, categoria);
+                free(categoria);
 
-                        char* categoria = leFuncao();
-                        strcpy(exercicio->categoria, categoria);
-                        free(categoria);
-
-                        exercicio->status = 1;
-                        verificar = 1;
-                        printf("O id do exercício será: %i \n", id);
-                        return exercicio;
-                    default:
-                        printf("Erro inesperado.\n");
-                        free(exercicio);
-                        return NULL;
-                        break;
-                }
-        case '0':
+                exercicio->status = 1;
+                verificar = 1;
+                return exercicio;
+            case '0':
                 free(exercicio);
                 return NULL;
             default:
                 printf("Opção inválida, tente novamente.\n");
                 break;
+        }
     }
-}
     return NULL;
-
 }
 
 void listarDadosExercicio(void){
     menuExibirExercicio();
-    int op;
-    int id = 0;
-    capturarID(&id);
-    Exercicio* exercicio = carregarExercicio(id);
-    if (exercicio != NULL) {
-        if (exercicio->status == 1) {
-            dadosExercicios(exercicio);
-            op = lerOpcao("Tecle 0 para continuar." , 1 );
-        } 
-        else {
-            printf("Exercício não encontrado ou não está ativo.\n");
-            op = lerOpcao("Tecle 0 para continuar." , 1 );
-            
-         }
-    } else {
-        printf("Exercício não encontrado.\n");
-        op = lerOpcao("Tecle 0 para continuar." , 1 );
+    char conf;
+    conf = confirmação("funcionário", "você quer mesmo listar os exercícios");
+    switch(conf){
+        case '1':
+            limparTela();
+            ativosExercicios();
+            break;
+        case '0':
+            printf("Operação cancelada.\n");
+            break;
     }
-    free(exercicio);
-  
 }
 
 void editarExercicio(void) {
@@ -139,8 +115,8 @@ void editarExercicio(void) {
         switch (conf) {
             case '1': {
                 limparBuffer();
-                int id = 0;
-                capturarID(&id);
+                ativosExercicios();
+                int id = leIDExe();
                 Exercicio* exercicio = carregarExercicio(id);
 
                 if (exercicio == NULL || exercicio->status == 0) {
@@ -176,41 +152,33 @@ void editarExercicio(void) {
     } while (verif != 1);
 }
 
-
-
-
 void excluirExercicio(void){
-    int op;
     char conf;
     int resultado;
     int verificar = 0;
     Exercicio* exercicio = NULL;
-    int id = 0;
 
     while(verificar != 1){
         conf = confirmação("cliente", "você quer mesmo realizar a exclusão seu exercício");
         switch(conf) {
             case '1':
-                capturarID(&id);
+                ativosExercicios();
+                int id = leIDExe();
                 exercicio = carregarExercicio(id);
                 if(exercicio != NULL){
                     resultado = deletarExercicio(exercicio);
                     switch(resultado){
                         case 1:
                             printf("Exercício excluído com sucesso!\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         case -1:
                             printf("Exercício já está inativo.\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         case -2:
                             printf("Erro inesperado.\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         default:
                             printf("ERRO!!.\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                     }
                     free(exercicio);
@@ -233,7 +201,6 @@ void excluirExercicio(void){
 }
 
 void menuRelatorioExercicio(void) {
-    Exercicio* exercicio;
     char opcao;
     char op;
     do{
@@ -269,17 +236,6 @@ void menuRelatorioExercicio(void) {
                 }
 
         } while (op != '0');
-   
-     // aqui fica faltando o de ordem alfabetica
-
-
     }
-
-    
  }while (opcao != '0');
-}
-
-int main(){
-    menuExercicio();
-    return 0;
 }
