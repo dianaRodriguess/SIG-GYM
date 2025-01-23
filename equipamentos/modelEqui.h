@@ -16,8 +16,8 @@ typedef struct {
 int salvarEquipamento(Equipamento*);
 Equipamento* carregarEquipamentos(int);
 void alteraEquipamento(Equipamento*, int);
-int deletarEquipamento(Equipamento* equipamento);
-int regravaEquipamento(Equipamento* equipamento);
+int deletarEquipamento(Equipamento*);
+int regravaEquipamento(Equipamento*);
 int geraID(void);
 
 #endif

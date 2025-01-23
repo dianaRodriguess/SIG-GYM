@@ -22,7 +22,7 @@ int salvarFuncionario(Funcionario*);
 Funcionario* carregarFuncionarios(char*);
 int regravaFuncionario(Funcionario*);
 int deletarFuncionario(Funcionario*);
-int checaCPFun(char* cpf);
+int checaCPFun(char*);
 void alteraFuncionario(Funcionario*, int);
 
 #endif

@@ -1,13 +1,13 @@
 #ifndef RELATORIOS_FUN_H
 #define RELATORIOS_FUN_H
 
-void ativosDadosFuncionarios();
-void inativosDadosFuncionarios();
-void allFuncionarios();
-void dadosFuncionariosGerente();
-void dadosFuncionariosProfessor();
-void dadosFuncionariosASG();
-void dadosFuncionariosAtendente();
+void ativosDadosFuncionarios(void);
+void inativosDadosFuncionarios(void);
+void allFuncionarios(void);
+void dadosFuncionariosGerente(void);
+void dadosFuncionariosProfessor(void);
+void dadosFuncionariosASG(void);
+void dadosFuncionariosAtendente(void);
 
 
 #endif

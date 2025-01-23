@@ -11,10 +11,10 @@ typedef struct {
 } Exercicio;
 
 int salvarExercicio(Exercicio*);
-Exercicio* carregarExercicio(int id);
-void alteraExercicio(Exercicio* exercicio, int op);
+Exercicio* carregarExercicio(int);
+void alteraExercicio(Exercicio*, int);
 int deletarExercicio(Exercicio*);
-int checaExercicioID(int id);
-int regravaExercicio(Exercicio* exercicio);
+int checaExercicioID(int);
+int regravaExercicio(Exercicio*);
 
 #endif
