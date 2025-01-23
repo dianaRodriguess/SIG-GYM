@@ -4,5 +4,9 @@
 void listarClientesAtivos(void);
 void listarClientesInativos(void);
 void allClientes(void);
+void listarClientesIntermediario(void);
+void listarClientesBasico(void);
+void listarClientesAvancado(void);
+
 
 #endif
