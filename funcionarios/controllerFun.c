@@ -231,7 +231,6 @@ void excluirFuncionario(void) {
 }
 
 void menuRelatorioFuncionario(void) {
-    Funcionario* funcionario;
     char opcao;
     char op;
 
