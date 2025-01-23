@@ -14,7 +14,7 @@ int salvarExercicio(Exercicio*);
 Exercicio* carregarExercicio(int);
 void alteraExercicio(Exercicio*, int);
 int deletarExercicio(Exercicio*);
-int checaExercicioID(int);
 int regravaExercicio(Exercicio*);
+int geraIDExe(void);
 
 #endif
