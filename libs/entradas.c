@@ -103,3 +103,9 @@ void capturarNomeEqui(char *nome){
     fgets(nome, 31, stdin);
     nome[strcspn(nome, "\n")] = '\0';
 }
+
+void capturarIDExe(char* id){
+    printf("\n>Digite o ID do exercício (apenas números): ");
+    fgets(id, 6, stdin);
+    id[strcspn(id, "\n")] = '\0';
+}
