@@ -18,6 +18,6 @@ Equipamento* carregarEquipamentos(int);
 void alteraEquipamento(Equipamento*, int);
 int deletarEquipamento(Equipamento*);
 int regravaEquipamento(Equipamento*);
-int geraID(void);
+int geraIDEqui(void);
 
 #endif

@@ -111,7 +111,7 @@ int deletarEquipamento(Equipamento* equipamento){
     return -2;
 }
 
-int geraID(void) {
+int geraIDEqui(void) {
     Equipamento eq;
     FILE* file = fopen("equipamentos.dat", "rb");
 
