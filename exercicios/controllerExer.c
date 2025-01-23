@@ -108,7 +108,6 @@ void listarDadosExercicio(void){
         op = lerOpcao("Tecle 0 para continuar." , 1 );
     }
     free(exercicio);
-  
 }
 
 void editarExercicio(void) {
@@ -160,7 +159,6 @@ void editarExercicio(void) {
 }
 
 void excluirExercicio(void){
-    int op;
     char conf;
     int resultado;
     int verificar = 0;
@@ -177,19 +175,15 @@ void excluirExercicio(void){
                     switch(resultado){
                         case 1:
                             printf("Exercício excluído com sucesso!\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         case -1:
                             printf("Exercício já está inativo.\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         case -2:
                             printf("Erro inesperado.\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                         default:
                             printf("ERRO!!.\n");
-                            op = lerOpcao("Tecle 0 para continuar." , 1 );
                             break;
                     }
                     free(exercicio);
