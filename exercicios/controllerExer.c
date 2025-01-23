@@ -115,6 +115,7 @@ void editarExercicio(void) {
         switch (conf) {
             case '1': {
                 limparBuffer();
+                ativosExercicios();
                 int id = leIDExe();
                 Exercicio* exercicio = carregarExercicio(id);
 
@@ -161,6 +162,7 @@ void excluirExercicio(void){
         conf = confirmação("cliente", "você quer mesmo realizar a exclusão seu exercício");
         switch(conf) {
             case '1':
+                ativosExercicios();
                 int id = leIDExe();
                 exercicio = carregarExercicio(id);
                 if(exercicio != NULL){
