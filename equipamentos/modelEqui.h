@@ -13,6 +13,12 @@ typedef struct {
     int status;
 } Equipamento;
 
+typedef struct EquipamentoNo{
+    Equipamento equipamento;
+    struct EquipamentoNo* proximo;
+ } EquipamentoNo;
+
+
 int salvarEquipamento(Equipamento*);
 Equipamento* carregarEquipamentos(int);
 void alteraEquipamento(Equipamento*, int);
