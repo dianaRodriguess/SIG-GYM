@@ -7,6 +7,7 @@ void allClientes(void);
 void listarClientesIntermediario(void);
 void listarClientesBasico(void);
 void listarClientesAvancado(void);
+void allClientesOrdenado();
 
 
 #endif
