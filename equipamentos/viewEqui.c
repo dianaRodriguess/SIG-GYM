@@ -14,6 +14,7 @@ char menuEqui(void){
     printf("|             2 - Exibir Dados               |\n");
     printf("|             3 - Alterar Dados              |\n");
     printf("|             4 - Excluir Equipamento        |\n");
+    printf("|             5 - Relatórios                 |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -64,4 +65,35 @@ void dadosEquipamentos(Equipamento* equipamento){
     printf("| Quantidade: %d\n", equipamento->quantidade);
     printf("| Preço: %.2f \n", equipamento->preco);
     printf("----------------------------------------------------------------------------------------------------\n");
+}
+
+char relatorioEquipamentos(void){
+    limparTela();
+    char opcao;
+    printf("----------------------------------------------\n");
+    printf("|                  Relatório                 |\n");
+    printf("----------------------------------------------\n");
+    printf("|         1 - Status dos equipamentos        |\n");
+    printf("|         2 - Equipamentos por ordem alf.    |\n");
+    printf("|         0 - Retornar ao Menu Principal     |\n");
+    printf("----------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
+}
+
+char statusEquipamentos(void){
+    limparTela();
+    char opcao;
+    printf("-------------------------------------------------------\n");
+    printf("|                   Relatório - Status                |\n");
+    printf("-------------------------------------------------------\n");
+    printf("|              1 - Equipamentos ativos                |\n");
+    printf("|              2 - Equipamentos inativos              |\n");
+    printf("|              3 - Todos os equipamentos              |\n");
+    printf("|              0 - Retornar ao Menu Principal         |\n");
+    printf("-------------------------------------------------------\n");
+    printf("> Selecione uma opção: ");
+    scanf(" %c", &opcao);
+    return opcao;
 }
