@@ -28,6 +28,11 @@ typedef struct {
     Status status;
 } Cliente;
 
+typedef struct ClienteNo{
+    Cliente cliente;
+    struct ClienteNo* proximo;
+} ClienteNo;
+
 
 int salvarCliente(Cliente*);
 Cliente* carregarClientes(char*);
