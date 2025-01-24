@@ -4,4 +4,5 @@
 void ativosExercicios(void);
 void inativosExercicios(void);
 void allExercicios(void);
+void allExerciciosOrdenados(void);
 #endif
