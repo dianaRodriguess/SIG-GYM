@@ -113,7 +113,7 @@ void allFuncionarios() {
 void dadosFuncionariosGerente() {
     limparTela();
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("|                                                                      Funcionários ativos                                                             |\n");
+    printf("|                                                                           Gerentes                                                                   |\n");
     printf("|------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-10s  |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc.", "Cargo");
@@ -147,7 +147,7 @@ void dadosFuncionariosGerente() {
 void dadosFuncionariosProfessor() {
     limparTela();
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("|                                                                      Funcionários ativos                                                             |\n");
+    printf("|                                                                         Professores                                                                  |\n");
     printf("|------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-10s  |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc.", "Cargo");
@@ -180,7 +180,7 @@ void dadosFuncionariosProfessor() {
 void dadosFuncionariosASG() {
     limparTela();
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("|                                                                      Funcionários ativos                                                             |\n");
+    printf("|                                                                        ASG's                                                                         |\n");
     printf("|------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-10s  |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc.", "Cargo");
@@ -213,7 +213,7 @@ void dadosFuncionariosASG() {
 void dadosFuncionariosAtendente() {
     limparTela();
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("|                                                                      Funcionários ativos                                                             |\n");
+    printf("|                                                                      Atendentes                                                                      |\n");
     printf("|------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-10s  |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc.", "Cargo");
@@ -241,4 +241,76 @@ void dadosFuncionariosAtendente() {
     printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
     fclose(arquivo);
+}
+
+void allFuncionariosOrdenados(void) {
+    limparTela();
+    printf("|---------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("|                                                                  Funcionários (Ordenados por Nome)                                                     |\n");
+    printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+    printf("| %-50s| %-14s  | %-12s | %-27s| %-16s    | %-5s          |\n",
+           "Nome", "CPF", "Telefone", "Email", "Data de Nasc.", "Cargo");
+    printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+
+    FILE* arquivo = fopen("funcionarios.dat", "rb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir arquivo.\n");
+        return;
+    }
+
+    // Cria a lista encadeada
+    FuncionarioNo* lista = NULL;
+    Funcionario funcionario;
+
+    while (fread(&funcionario, sizeof(Funcionario), 1, arquivo)) {
+        FuncionarioNo* novo = (FuncionarioNo*)malloc(sizeof(FuncionarioNo));
+        if (novo == NULL) {
+            printf("Erro ao alocar memória.\n");
+            fclose(arquivo);
+            return;
+        }
+        novo->funcionario = funcionario; // Copia o exercício para o novo nó
+        novo->proximo = lista;
+        lista = novo;
+    }
+    fclose(arquivo);
+
+    // Ordena a lista encadeada por nome
+    if (lista != NULL) {
+        FuncionarioNo* i;
+        FuncionarioNo* j;
+        for (i = lista; i->proximo != NULL; i = i->proximo) {
+            for (j = i->proximo; j != NULL; j = j->proximo) {
+                if (strcmp(i->funcionario.nome, j->funcionario.nome) > 0) {
+                    Funcionario temp = i->funcionario;
+                    i->funcionario = j->funcionario;
+                    j->funcionario = temp;
+                }
+            }
+        }
+    }
+
+    // Exibe os exercícios
+    FuncionarioNo* atual = lista;
+    while (atual != NULL) {
+        
+        printf("| %-50s| %-14s  | %-12s | %-27s| %-16s    | %-5d          |\n",
+            atual->funcionario.nome,
+            atual->funcionario.cpf,
+            atual->funcionario.telefone,
+            atual->funcionario.email,
+            atual->funcionario.dataNasc,
+            atual->funcionario.cargo);
+        atual = atual->proximo; 
+    }
+
+    printf("|---------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
+    
+    atual = lista;
+    while (atual != NULL) {
+        FuncionarioNo* temp = atual;
+        atual = atual->proximo;
+        free(temp);
+    }
 }
