@@ -10,6 +10,11 @@ typedef struct {
     int status;
 } Exercicio;
 
+typedef struct ExercicioNo{
+    Exercicio exercicio;
+    struct ExercicioNo* proximo;
+} ExercicioNo;
+
 int salvarExercicio(Exercicio*);
 Exercicio* carregarExercicio(int);
 void alteraExercicio(Exercicio*, int);
