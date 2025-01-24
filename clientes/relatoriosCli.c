@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "modelCli.h"
+#include <stdlib.h>
 #include "../libs/utils.h"
 
 
@@ -206,4 +207,77 @@ void listarClientesAvancado(void){
     
     printf("--------------------------------------------------------------------------------------------------------------------------\n");
     fclose(arquivo);
+}
+
+void allClientesOrdenado() {
+    limparTela();
+    printf("--------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("|                                                                      Clientes (Ordenados por Nome)                                                         |\n");
+    printf("|------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+    printf("| %-50s| %-14s  | %-12s | %-26s| %-13s    | %-1s      | %-6s     |\n",
+           "Nome", "CPF", "Telefone", "Email", "Data de Nasc ", "Sexo", "Plano");
+    printf("|------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
+
+    FILE* arquivo = fopen("clientes.dat", "rb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir arquivo.\n");
+        return;
+    }
+
+    ClienteNo* lista = NULL;
+    Cliente cliente;
+
+    // Lê os clientes do arquivo e monta a lista encadeada
+    while (fread(&cliente, sizeof(Cliente), 1, arquivo)) {
+        ClienteNo* novo = (ClienteNo*)malloc(sizeof(ClienteNo));
+        if (novo == NULL) {
+            printf("Erro ao alocar memória.\n");
+            fclose(arquivo);
+            return;
+        }
+        novo->cliente = cliente;
+        novo->proximo = lista;
+        lista = novo;
+    }
+    fclose(arquivo);
+
+    
+    if (lista != NULL) {
+        ClienteNo* i;
+        ClienteNo* j;
+        for (i = lista; i->proximo != NULL; i = i->proximo) {
+            for (j = i->proximo; j != NULL; j = j->proximo) {
+                if (strcmp(i->cliente.nome, j->cliente.nome) > 0) {
+                    
+                    Cliente temp = i->cliente;
+                    i->cliente = j->cliente;
+                    j->cliente = temp;
+                }
+            }
+        }
+    }
+
+    // Exibe os clientes na ordem ordenada
+    ClienteNo* atual = lista;
+    while (atual != NULL) {
+        printf("| %-50s| %-14s  | %-12s | %-26s| %-16s | %-4c      | %-10d |\n",
+               atual->cliente.nome,
+               atual->cliente.cpf,
+               atual->cliente.telefone,
+               atual->cliente.email,
+               atual->cliente.dataNasc,
+               (atual->cliente.sexo == Masculino ? 'M' : 'F'),
+               atual->cliente.plano);
+        atual = atual->proximo;
+    }
+
+    printf("--------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+
+    // Libera a memória
+    atual = lista;
+    while (atual != NULL) {
+        ClienteNo* temp = atual;
+        atual = atual->proximo;
+        free(temp);
+    }
 }
