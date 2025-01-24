@@ -8,6 +8,7 @@ void dadosFuncionariosGerente(void);
 void dadosFuncionariosProfessor(void);
 void dadosFuncionariosASG(void);
 void dadosFuncionariosAtendente(void);
+void allFuncionariosOrdenados(void);
 
 
 #endif
