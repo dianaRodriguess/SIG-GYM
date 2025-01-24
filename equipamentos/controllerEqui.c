@@ -39,6 +39,11 @@ void menuEquipamentos(void){
                 excluirEquipamento();
                 pausarTela();
                 break;
+            case '5':
+                limparBuffer();
+                menuRelatorioEquipamento();
+                pausarTela();
+                break;
         }
     } while(opcao != '0');
 }
@@ -187,4 +192,45 @@ void excluirEquipamento(void){
                 continue;
         }
     }
+}
+
+void menuRelatorioEquipamento(void){
+    char opcao; 
+    char op;
+    do{
+        opcao = relatorioEquipamentos();
+        switch(opcao){
+            case '1':
+            do{
+                limparBuffer();
+            op = statusEquipamentos();
+            switch(op){
+                case '1':
+                    limparBuffer();
+                    listarEquipamentosAtivos();
+                    pausarTela();
+                    break;
+                case '2':
+                    limparBuffer();
+                    listarEquipamentosInativos();
+                    pausarTela();
+                    break;
+                case '3':
+                    limparBuffer();
+                    allEquipamentos();
+                    pausarTela();
+                    break;
+
+
+            }
+        } while(op != '0');
+
+            case '2':
+                limparBuffer();
+                allEquipamentosOrdenado();
+                pausarTela();
+                break;
+    }
+}   while(opcao != '0');
+
 }
