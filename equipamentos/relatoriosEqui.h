@@ -3,5 +3,7 @@
 
 void listarEquipamentosAtivos(void);
 void listarEquipamentosInativos(void);
+void allEquipamentos(void);
+void allEquipamentosOrdenado();
 
 #endif

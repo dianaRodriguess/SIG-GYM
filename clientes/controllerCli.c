@@ -296,9 +296,14 @@ void menuRelatorioCliente(void){
                         break;  
                 }
             } while (op != '0');
+            case '3':
+                limparBuffer();
+                allClientesOrdenado();
+                pausarTela();
+                break;
         }
     }while (opcao != '0');
-    // aqui fica faltando o de ordem alfabetica
+   
 
 
 

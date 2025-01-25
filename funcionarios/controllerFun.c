@@ -304,6 +304,13 @@ void menuRelatorioFuncionario(void) {
                 } while (op != '0');
                 break;
 
+            case '3':
+                limparBuffer();
+                allFuncionariosOrdenados();
+                pausarTela();
+                break;
+
+            
             case '0': 
                 printf("Saindo do menu de relatórios.\n");
                 break;
@@ -312,6 +319,7 @@ void menuRelatorioFuncionario(void) {
                 printf("Opção inválida! Tente novamente.\n");
                 pausarTela();
                 break;
+
         }
-    } while (opcao != '0'); // Encerra o programa ao escolher '0' no menu principal
+    } while (opcao != '0'); 
 }

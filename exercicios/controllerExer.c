@@ -236,6 +236,12 @@ void menuRelatorioExercicio(void) {
                 }
 
         } while (op != '0');
+
+        case '2':
+            limparBuffer();
+            allExerciciosOrdenados();
+            pausarTela();
+            break;
     }
  }while (opcao != '0');
 }

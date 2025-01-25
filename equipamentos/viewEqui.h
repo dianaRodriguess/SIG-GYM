@@ -9,5 +9,7 @@ void alterarDadosEqui(void);
 void numDadosEqui(void);
 void excluiEquipamento(void);
 void dadosEquipamentos(Equipamento*);
+char relatorioEquipamentos(void);
+char statusEquipamentos(void);
 
 #endif

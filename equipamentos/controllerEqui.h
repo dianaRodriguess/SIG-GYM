@@ -7,5 +7,6 @@ Equipamento* CadastroEquipamento(void);
 void listarEquipamento(void);
 void editarEquipamento(void);
 void excluirEquipamento(void);
+void menuRelatorioEquipamento(void);
 
 #endif // CONTROLLER_H

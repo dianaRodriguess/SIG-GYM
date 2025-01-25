@@ -18,6 +18,11 @@ typedef struct {
     int status;
 } Funcionario; 
 
+typedef struct FuncionarioNo{
+    Funcionario funcionario;
+    struct FuncionarioNo* proximo;
+} FuncionarioNo;
+
 int salvarFuncionario(Funcionario*);
 Funcionario* carregarFuncionarios(char*);
 int regravaFuncionario(Funcionario*);
