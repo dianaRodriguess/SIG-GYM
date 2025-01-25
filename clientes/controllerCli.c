@@ -303,8 +303,4 @@ void menuRelatorioCliente(void){
                 break;
         }
     }while (opcao != '0');
-   
-
-
-
 }
