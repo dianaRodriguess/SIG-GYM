@@ -42,7 +42,6 @@ void menuCliente(void){
             case '5':
                 limparBuffer();
                 menuRelatorioCliente();
-                pausarTela();
                 break;
         }
     } while (opcao != '0');
