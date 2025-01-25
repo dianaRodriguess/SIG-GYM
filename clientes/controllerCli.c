@@ -238,64 +238,64 @@ void menuRelatorioCliente(void){
         opcao = relatorioClientes();
         switch(opcao){
             case '1':
-            do{
-                limparBuffer();
-                op = statusClientes();
-                switch(op){
-                    case '1':
-                        limparBuffer();
-                        listarClientesAtivos();
-                        pausarTela();
-                        break;
-                    case '2':
-                        limparBuffer();
-                        listarClientesInativos();
-                        pausarTela();
-                        break;
-                    case '3':
-                        limparBuffer();
-                        allClientes();
-                        pausarTela();
-                        break;
-                    case '0': 
-                        printf("Voltando ao menu principal...\n");
-                        break;
-                    default:
-                        printf("Opção inválida! Tente novamente.\n");
-                        pausarTela();
-                        break;    
-                }
+                do{
+                    limparBuffer();
+                    op = statusClientes();
+                    switch(op){
+                        case '1':
+                            limparBuffer();
+                            listarClientesAtivos();
+                            pausarTela();
+                            break;
+                        case '2':
+                            limparBuffer();
+                            listarClientesInativos();
+                            pausarTela();
+                            break;
+                        case '3':
+                            limparBuffer();
+                            allClientes();
+                            pausarTela();
+                            break;
+                        case '0': 
+                            printf("Voltando ao menu principal...\n");
+                            break;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");
+                            pausarTela();
+                            break;    
+                    }
 
-            } while (op != '0');
+                } while (op != '0');
             case '2':
-            do{
-                limparBuffer();
-                op = planoClientes();
-                switch(op){
-                    case '1':
-                        limparBuffer();
-                        listarClientesBasico();
-                        pausarTela();
-                        break;
-                    case '2':
-                        limparBuffer();
-                        listarClientesIntermediario();
-                        pausarTela();
-                        break;
-                    case '3':
-                        limparBuffer();
-                        listarClientesAvancado();
-                        pausarTela();
-                        break;
-                    case '0': 
-                        printf("Voltando ao menu principal...\n");
-                        break;
-                    default:
-                        printf("Opção inválida! Tente novamente.\n");
-                        pausarTela();
-                        break;  
-                }
-            } while (op != '0');
+                do{
+                    limparBuffer();
+                    op = planoClientes();
+                    switch(op){
+                        case '1':
+                            limparBuffer();
+                            listarClientesBasico();
+                            pausarTela();
+                            break;
+                        case '2':
+                            limparBuffer();
+                            listarClientesIntermediario();
+                            pausarTela();
+                            break;
+                        case '3':
+                            limparBuffer();
+                            listarClientesAvancado();
+                            pausarTela();
+                            break;
+                        case '0': 
+                            printf("Voltando ao menu principal...\n");
+                            break;
+                        default:
+                            printf("Opção inválida! Tente novamente.\n");
+                            pausarTela();
+                            break;  
+                    }
+                } while (op != '0');
             case '3':
                 limparBuffer();
                 allClientesOrdenado();
