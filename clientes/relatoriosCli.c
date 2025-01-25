@@ -176,12 +176,11 @@ void listarClientesIntermediario(void){
 }
 
 void listarClientesAvancado(void){
-
     limparTela();
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("|                                                                         Clientes avançados                                                                         |\n");
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-    printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-1s      | %-6s     |\n",
+    printf("| %-50s| %-14s  | %-12s | %-26s| %-13s    | %-10s      | %-10s   |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc ", "Sexo", "Plano");
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 
@@ -194,14 +193,14 @@ void listarClientesAvancado(void){
     Cliente cliente;
     while (fread(&cliente, sizeof(Cliente), 1, arquivo)){
         if (cliente.plano == Avancado) {
-            printf("| %-50s| %-14s  | %-12s | %-20s| %-16s | %-4c      | %-10d |\n",
+            printf("| %-50s| %-14s  | %-12s | %-26s| %-16s | %-10s      | %-13s |\n",
                     cliente.nome,
                    cliente.cpf,
                    cliente.telefone,
                    cliente.email,
                    cliente.dataNasc,
-                   cliente.sexo == Masculino ? 'M' : 'F', 
-                   cliente.plano);
+                   nomeSexo(cliente.sexo),
+                   nomePlano(cliente.plano));
         }
     }
     
