@@ -4,14 +4,12 @@
 #include <stdlib.h>
 #include "../libs/utils.h"
 
-
 void listarClientesAtivos(void){
-
     limparTela();
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("|                                                                            Clientes ativos                                                                         |\n");
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-    printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-1s      | %-6s     |\n",
+    printf("| %-50s| %-14s  | %-12s | %-26s| %-13s    | %-10s      | %-10s   |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc ", "Sexo", "Plano");
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 
@@ -24,14 +22,14 @@ void listarClientesAtivos(void){
     Cliente cliente;
     while (fread(&cliente, sizeof(Cliente), 1, arquivo)){
         if (cliente.status == Ativo) {
-            printf("| %-50s| %-14s  | %-12s | %-20s| %-16s | %-4c      | %-10d |\n",
+            printf("| %-50s| %-14s  | %-12s | %-26s| %-16s | %-10s      | %-13s |\n",
                     cliente.nome,
                    cliente.cpf,
                    cliente.telefone,
                    cliente.email,
                    cliente.dataNasc,
-                   cliente.sexo == Masculino ? 'M' : 'F', 
-                   cliente.plano);
+                   nomeSexo(cliente.sexo),
+                   nomePlano(cliente.plano));
         }
     }
     
@@ -40,12 +38,11 @@ void listarClientesAtivos(void){
 }
 
 void listarClientesInativos(void){
-
     limparTela();
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
     printf("|                                                                             Clientes inativos                                                                      |\n");
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
-    printf("| %-50s| %-14s  | %-12s | %-20s| %-13s    | %-1s      | %-6s     |\n",
+    printf("| %-50s| %-14s  | %-12s | %-26s| %-13s    | %-10s      | %-10s   |\n",
            "Nome", "CPF", "Telefone", "Email", "Data de Nasc ", "Sexo", "Plano");
     printf("|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n");
 
@@ -58,14 +55,14 @@ void listarClientesInativos(void){
     Cliente cliente;
     while (fread(&cliente, sizeof(Cliente), 1, arquivo)){
         if (cliente.status == Inativo) {
-            printf("| %-50s| %-14s  | %-12s | %-20s| %-16s | %-4c      | %-10d |\n",
+            printf("| %-50s| %-14s  | %-12s | %-26s| %-16s | %-10s      | %-13s |\n",
                     cliente.nome,
                    cliente.cpf,
                    cliente.telefone,
                    cliente.email,
                    cliente.dataNasc,
-                   cliente.sexo == Masculino ? 'M' : 'F', 
-                   cliente.plano);
+                   nomeSexo(cliente.sexo),
+                   nomePlano(cliente.plano));
         }
     }
     
