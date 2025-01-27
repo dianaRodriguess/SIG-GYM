@@ -13,10 +13,9 @@ char menuPrincipal(void){
     printf("|                    SigGym                  |\n");
     printf("----------------------------------------------\n");
     printf("|             1 - Clientes                   |\n");
-    printf("|             2 - Treinos                    |\n");
-    printf("|             3 - Exercícios                 |\n");
-    printf("|             4 - Equipamentos               |\n");
-    printf("|             5 - Funcionários               |\n");
+    printf("|             2 - Exercícios                 |\n");
+    printf("|             3 - Equipamentos               |\n");
+    printf("|             4 - Funcionários               |\n");
     printf("|             0 - Retornar ao Menu Principal |\n");
     printf("----------------------------------------------\n");
     printf("> Selecione uma opção: ");
@@ -33,13 +32,13 @@ void menu(void){
             case '1':
                 menuCliente();
                 break;
-            case '3':
+            case '2':
                 menuExercicio();
                 break;
-            case '4':
+            case '3':
                 menuEquipamentos();
                 break;
-            case '5':
+            case '4':
                 menuFuncionario();
                 break;
             case '0':
@@ -52,6 +51,5 @@ void menu(void){
                 pausarTela();
                 break;
         }
-
     } while (opMain != '0');
 }
