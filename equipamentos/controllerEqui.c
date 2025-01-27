@@ -230,7 +230,6 @@ void menuRelatorioEquipamento(void){
                 allEquipamentosOrdenado();
                 pausarTela();
                 break;
-    }
-}   while(opcao != '0');
-
+        }
+    }while(opcao != '0');
 }
