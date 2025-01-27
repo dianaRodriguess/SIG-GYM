@@ -234,14 +234,14 @@ void menuRelatorioExercicio(void) {
                         pausarTela();
                         break;
                 }
-
-        } while (op != '0');
+            } while (op != '0');
 
         case '2':
             limparBuffer();
             allExerciciosOrdenados();
             pausarTela();
             break;
-    }
- }while (opcao != '0');
+        }
+
+    }while (opcao != '0');
 }
