@@ -127,20 +127,32 @@ Cliente* cadastrarCliente(void){
 }
 
 void listarDados(void){
+    int op;
     exibirDados();
-    char* cpf = leCPF();
-    Cliente* cliente = carregarClientes(cpf);
-    if (cliente != NULL) {
-        if (cliente->status == 1) {
-            dadosClientes(cliente);
+    op = confirmação("cliente", "você quer mesmo exibir seus dados");
+    switch(op) {
+    case '1':
+        char* cpf = leCPF();
+        Cliente* cliente = carregarClientes(cpf);
+        if (cliente != NULL) {
+            if (cliente->status == 1) {
+                dadosClientes(cliente);
+            } else {
+                printf("Cliente não encontrado ou não está ativo.\n");
+            }
+            free(cliente);
         } else {
-            printf("Cliente não encontrado ou não está ativo.\n");
+            printf("Cliente não encontrado.\n");
         }
-        free(cliente);
-    } else {
-        printf("Cliente não encontrado.\n");
-    }
-    free(cpf);    
+        free(cpf);
+        break;
+    case '0':
+        limparTela();
+        printf("Operação cancelada.\n");
+        break;
+    default:
+        break;
+    } 
 }
 
 void editarDados(void) {
